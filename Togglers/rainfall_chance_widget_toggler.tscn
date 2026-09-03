@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://buv8yn0cx8ln1"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_upl1c"]
+[ext_resource type="PackedScene" uid="uid://mjnsavuaxas5" path="res://Widgets/rainfall_chances_widget.tscn" id="2_a4dyj"]
+[ext_resource type="Texture2D" uid="uid://bp86clhl6jb3g" path="res://Assets/Icons.png" id="2_sgv7i"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a4dyj"]
+load_path = "res://.godot/imported/Icons.png-0605c1de7d85d086c9d5d414fbfae2fa.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ar7v"]
+atlas = SubResource("CompressedTexture2D_a4dyj")
+region = Rect2(1160, 328, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fybt"]
+atlas = ExtResource("2_sgv7i")
+region = Rect2(864, 592, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqf3t"]
+atlas = ExtResource("2_sgv7i")
+region = Rect2(968, 592, 88, 96)
+
+[node name="RainfallChanceWidgetToggler" type="Control" unique_id=1837677638 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_upl1c")
+widgetScene = ExtResource("2_a4dyj")
+addIcon = NodePath("AddIcon")
+removeIcon = NodePath("RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1581777028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_6ar7v")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="AddIcon" type="TextureRect" parent="." unique_id=1096118227]
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_2fybt")
+
+[node name="RemoveIcon" type="TextureRect" parent="." unique_id=2094510886]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_oqf3t")

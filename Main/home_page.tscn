@@ -3,13 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://bp86clhl6jb3g" path="res://Assets/Icons.png" id="1_cjet7"]
 [ext_resource type="Script" uid="uid://bhesti5t4hifo" path="res://Scripts/toggle_edit_mode_button.gd" id="2_nmebp"]
 [ext_resource type="Script" uid="uid://evsjksg2qo0j" path="res://Main/widget_manager.gd" id="2_x7m3x"]
-[ext_resource type="PackedScene" uid="uid://bt7hdi8qeqkqi" path="res://Widgets/test_widget.tscn" id="2_yyy3q"]
 [ext_resource type="Script" uid="uid://d3874rp0lquhd" path="res://Scripts/page_manager.gd" id="3_d5v6j"]
-[ext_resource type="PackedScene" uid="uid://domc0jl0kvg5w" path="res://Widgets/aqi_widget.tscn" id="3_mb670"]
-[ext_resource type="PackedScene" uid="uid://buaoggodkrdoa" path="res://Widgets/humidity_widget.tscn" id="4_iq418"]
-[ext_resource type="PackedScene" uid="uid://c0qxmibts6b4c" path="res://Widgets/pollen_count_widget.tscn" id="5_225l2"]
-[ext_resource type="PackedScene" uid="uid://dt0jybtps0l2w" path="res://Widgets/uv_index_widget.tscn" id="6_x7m3x"]
-[ext_resource type="PackedScene" uid="uid://mjnsavuaxas5" path="res://Widgets/rainfall_chances_widget.tscn" id="7_225l2"]
+[ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
+[ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Togglers/uv_widget_toggler.tscn" id="7_225l2"]
+[ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
+[ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
 [ext_resource type="PackedScene" uid="uid://cnoe4vfxu5wgw" path="res://Togglers/test_widget_toggler.tscn" id="11_nmebp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37pkv"]
@@ -80,34 +78,31 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TestWidget" parent="Home/Panel/VBoxContainer/PageContainer/InformationPage/VBoxContainer" unique_id=1181579078 instance=ExtResource("2_yyy3q")]
-layout_mode = 2
-
-[node name="RainfallChancesWidget" parent="Home/Panel/VBoxContainer/PageContainer/InformationPage/VBoxContainer" unique_id=1272761831 instance=ExtResource("7_225l2")]
-layout_mode = 2
-
-[node name="AQIWidget" parent="Home/Panel/VBoxContainer/PageContainer/InformationPage/VBoxContainer" unique_id=722896801 instance=ExtResource("3_mb670")]
-layout_mode = 2
-
-[node name="HumidityWidget" parent="Home/Panel/VBoxContainer/PageContainer/InformationPage/VBoxContainer" unique_id=1729628050 instance=ExtResource("4_iq418")]
-layout_mode = 2
-
-[node name="PollenCountWidget" parent="Home/Panel/VBoxContainer/PageContainer/InformationPage/VBoxContainer" unique_id=475106034 instance=ExtResource("5_225l2")]
-layout_mode = 2
-
-[node name="UVIndexWidget" parent="Home/Panel/VBoxContainer/PageContainer/InformationPage/VBoxContainer" unique_id=136609093 instance=ExtResource("6_x7m3x")]
-layout_mode = 2
-
 [node name="WidgetSelectionPage" type="ScrollContainer" parent="Home/Panel/VBoxContainer/PageContainer" unique_id=799040475]
 layout_mode = 2
+horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage" unique_id=1961386781]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 20
 columns = 4
 
 [node name="TestWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=2036872476 instance=ExtResource("11_nmebp")]
+layout_mode = 2
+
+[node name="RainfallChanceWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=1837677638 instance=ExtResource("6_iq418")]
+layout_mode = 2
+
+[node name="UVWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=1693207958 instance=ExtResource("7_225l2")]
+layout_mode = 2
+
+[node name="AQIWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=1388619265 instance=ExtResource("8_x7m3x")]
+layout_mode = 2
+
+[node name="PollenCountWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=110681436 instance=ExtResource("9_v0elx")]
 layout_mode = 2
 
 [connection signal="button_up" from="Home/Panel/VBoxContainer/MarginContainer/ToggleEditModeButton" to="Home/Panel/VBoxContainer/PageContainer" method="_on_toggle_edit_mode_button_button_up"]

@@ -9,7 +9,7 @@ var currentPage: Control
 func _ready() -> void:
 	for child in get_children():
 		if child is Control:
-			child.visible = true
+			child.visible = false
 	currentPage = informationPage
 	change_page(informationPage)
 

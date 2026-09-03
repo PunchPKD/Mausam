@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c5iu070kkl0ts"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_sqks2"]
+[ext_resource type="PackedScene" uid="uid://dt0jybtps0l2w" path="res://Widgets/uv_index_widget.tscn" id="2_fqe8i"]
+[ext_resource type="Texture2D" uid="uid://bp86clhl6jb3g" path="res://Assets/Icons.png" id="3_ig051"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axbha"]
+load_path = "res://.godot/imported/Icons.png-0605c1de7d85d086c9d5d414fbfae2fa.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5la3"]
+atlas = SubResource("CompressedTexture2D_axbha")
+region = Rect2(1184, 816, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fybt"]
+atlas = ExtResource("3_ig051")
+region = Rect2(864, 592, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqf3t"]
+atlas = ExtResource("3_ig051")
+region = Rect2(968, 592, 88, 96)
+
+[node name="UVWidgetToggler" type="Control" unique_id=1693207958 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_sqks2")
+widgetScene = ExtResource("2_fqe8i")
+addIcon = NodePath("AddIcon")
+removeIcon = NodePath("RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1007373261]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_c5la3")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="AddIcon" type="TextureRect" parent="." unique_id=794149731]
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_2fybt")
+
+[node name="RemoveIcon" type="TextureRect" parent="." unique_id=291073942]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_oqf3t")

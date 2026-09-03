@@ -1,22 +1,25 @@
 extends ScrollContainer
 class_name WidgetManager
 
-var widgets : Array[Widget]
+var widgets : Dictionary[String, Widget] = {}
 
 @export var widgetContainer: Control
 
 func _ready() -> void:
-	for child in widgetContainer.get_children():
-		if child is Widget:
-			widgets.append(child)
-		
 	SignalBus.AddWidget.connect(on_add_widget)
 	SignalBus.RemoveWidget.connect(on_remove_widget)
 
-func on_add_widget(widgetData: BaseWidgetData) -> void:
-	if widgets.has(widgetData.widget.resource_path):
-		var tempWidget: Widget = widgets.get(widgetData.widget.resource_path)
-		tempWidget.visible = true
+func on_add_widget(widgetScene: PackedScene) -> void:
+	get_widget(widgetScene).visible = true
 
-func on_remove_widget(widget: Widget) -> void:
-	widget.visible = false
+func on_remove_widget(widgetScene: PackedScene) -> void:
+	get_widget(widgetScene).visible = false
+
+func get_widget(widgetScene: PackedScene) -> Widget:
+	if widgets.has(widgetScene.resource_path):
+		return widgets.get(widgetScene.resource_path)
+	var tempWidget: Widget = widgetScene.instantiate()
+	widgets[widgetScene.resource_path] = tempWidget
+	widgetContainer.add_child(tempWidget)
+	return tempWidget
+	

@@ -1,4 +1,4 @@
 extends Node
 
-signal AddWidget(widgetScene: BaseWidgetData)
-signal RemoveWidget(widgetScene: Widget)
+signal AddWidget(widgetScene: PackedScene)
+signal RemoveWidget(widgetScene: PackedScene)
