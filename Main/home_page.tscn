@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0mvh51047xp4"]
 
-[ext_resource type="Texture2D" uid="uid://bp86clhl6jb3g" path="res://Assets/Icons.png" id="1_cjet7"]
+[ext_resource type="Texture2D" uid="uid://da37pirhk0ud" path="res://Assets/Icons V2.png" id="1_v0elx"]
 [ext_resource type="Script" uid="uid://bhesti5t4hifo" path="res://Scripts/toggle_edit_mode_button.gd" id="2_nmebp"]
 [ext_resource type="Script" uid="uid://evsjksg2qo0j" path="res://Main/widget_manager.gd" id="2_x7m3x"]
 [ext_resource type="Script" uid="uid://d3874rp0lquhd" path="res://Scripts/page_manager.gd" id="3_d5v6j"]
@@ -8,11 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Togglers/uv_widget_toggler.tscn" id="7_225l2"]
 [ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
 [ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
+[ext_resource type="PackedScene" uid="uid://cfl6m605leyll" path="res://Togglers/humidity_widget_toggler.tscn" id="10_cjet7"]
 [ext_resource type="PackedScene" uid="uid://cnoe4vfxu5wgw" path="res://Togglers/test_widget_toggler.tscn" id="11_nmebp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37pkv"]
-atlas = ExtResource("1_cjet7")
-region = Rect2(1304, 480, 88, 88)
+atlas = ExtResource("1_v0elx")
+region = Rect2(240, 752, 72, 72)
 
 [node name="HomePage" type="Node2D" unique_id=740829968]
 
@@ -86,7 +87,7 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/h_separation = 30
+theme_override_constants/h_separation = 27
 theme_override_constants/v_separation = 20
 columns = 4
 
@@ -103,6 +104,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PollenCountWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=110681436 instance=ExtResource("9_v0elx")]
+layout_mode = 2
+
+[node name="HumidityWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=963581016 instance=ExtResource("10_cjet7")]
 layout_mode = 2
 
 [connection signal="button_up" from="Home/Panel/VBoxContainer/MarginContainer/ToggleEditModeButton" to="Home/Panel/VBoxContainer/PageContainer" method="_on_toggle_edit_mode_button_button_up"]

@@ -2,22 +2,20 @@
 
 [ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_sqks2"]
 [ext_resource type="PackedScene" uid="uid://dt0jybtps0l2w" path="res://Widgets/uv_index_widget.tscn" id="2_fqe8i"]
-[ext_resource type="Texture2D" uid="uid://bp86clhl6jb3g" path="res://Assets/Icons.png" id="3_ig051"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axbha"]
-load_path = "res://.godot/imported/Icons.png-0605c1de7d85d086c9d5d414fbfae2fa.ctex"
+[ext_resource type="Texture2D" uid="uid://cb1uxdtttmaft" path="res://Assets/Icons V3.png" id="3_fqe8i"]
+[ext_resource type="Texture2D" uid="uid://da37pirhk0ud" path="res://Assets/Icons V2.png" id="4_fqe8i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5la3"]
-atlas = SubResource("CompressedTexture2D_axbha")
-region = Rect2(1184, 816, 96, 88)
+atlas = ExtResource("3_fqe8i")
+region = Rect2(640, 40, 248, 232)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2fybt"]
-atlas = ExtResource("3_ig051")
-region = Rect2(864, 592, 88, 88)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bovvb"]
+atlas = ExtResource("4_fqe8i")
+region = Rect2(1032, 656, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oqf3t"]
-atlas = ExtResource("3_ig051")
-region = Rect2(968, 592, 88, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_528qc"]
+atlas = ExtResource("4_fqe8i")
+region = Rect2(1136, 664, 72, 72)
 
 [node name="UVWidgetToggler" type="Control" unique_id=1693207958 node_paths=PackedStringArray("addIcon", "removeIcon")]
 custom_minimum_size = Vector2(64, 64)
@@ -48,7 +46,7 @@ custom_maximum_size = Vector2(20, 20)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("AtlasTexture_2fybt")
+texture = SubResource("AtlasTexture_bovvb")
 
 [node name="RemoveIcon" type="TextureRect" parent="." unique_id=291073942]
 visible = false
@@ -57,4 +55,4 @@ custom_maximum_size = Vector2(20, 20)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("AtlasTexture_oqf3t")
+texture = SubResource("AtlasTexture_528qc")
