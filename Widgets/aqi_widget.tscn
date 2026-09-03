@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://domc0jl0kvg5w"]
+
+[ext_resource type="Script" uid="uid://cxxpresugwfbc" path="res://Scripts/widget.gd" id="1_d7u6t"]
+
+[node name="AQIWidget" type="Control" unique_id=722896801]
+custom_minimum_size = Vector2(0, 137)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 352.0
+offset_bottom = 137.0
+script = ExtResource("1_d7u6t")
+widgetSource = null
+metadata/_custom_type_script = "uid://cxxpresugwfbc"
+
+[node name="Label" type="Label" parent="." unique_id=868676872]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 34
+text = "AQI - 
+"
+
+[node name="Label2" type="Label" parent="." unique_id=823941499]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 34
+text = "22"
