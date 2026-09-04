@@ -9,3 +9,7 @@ func toggle_visiblity(element: Control) -> void:
 
 func _on_toggle_edit_mode_button_button_up() -> void:
 	toggle_visiblity(widgetSelectionPage)
+
+
+func _on_edit_mode_toggle_button_button_up() -> void:
+	toggle_visiblity(widgetSelectionPage)
