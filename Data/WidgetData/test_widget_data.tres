@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://db0f0vlngngv4"]
 
 [ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_1rj6m"]
-[ext_resource type="PackedScene" uid="uid://bt7hdi8qeqkqi" path="res://Widgets/test_widget.tscn" id="2_kp0gt"]
+[ext_resource type="PackedScene" uid="uid://bt7hdi8qeqkqi" path="res://Scenes/Widgets/test_widget.tscn" id="2_kp0gt"]
 
 [resource]
 script = ExtResource("1_1rj6m")

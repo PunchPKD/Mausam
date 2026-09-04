@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://buv8yn0cx8ln1"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_upl1c"]
+[ext_resource type="PackedScene" uid="uid://mjnsavuaxas5" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="2_a4dyj"]
+[ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="3_bfebh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5clf5"]
+load_path = "res://.godot/imported/Icons V3.png-1094b3c49b9ad8803e013eef2593bb20.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpgni"]
+atlas = SubResource("CompressedTexture2D_5clf5")
+region = Rect2(960, 688, 216, 200)
+
+[node name="RainfallChanceWidgetToggler" type="Control" unique_id=1837677638 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("1_upl1c")
+widgetScene = ExtResource("2_a4dyj")
+addIcon = NodePath("simple_toggler_element/AddIcon")
+removeIcon = NodePath("simple_toggler_element/RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="simple_toggler_element" parent="." unique_id=1776159138 instance=ExtResource("3_bfebh")]
+layout_mode = 0
+
+[node name="TextureRect" parent="simple_toggler_element" index="1" unique_id=1242258259]
+texture = SubResource("AtlasTexture_fpgni")
+
+[editable path="simple_toggler_element"]

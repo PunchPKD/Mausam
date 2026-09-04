@@ -3,13 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://da37pirhk0ud" path="res://Assets/Icons V2.png" id="1_v0elx"]
 [ext_resource type="Script" uid="uid://bhesti5t4hifo" path="res://Scripts/toggle_edit_mode_button.gd" id="2_nmebp"]
 [ext_resource type="Script" uid="uid://evsjksg2qo0j" path="res://Main/widget_manager.gd" id="2_x7m3x"]
-[ext_resource type="Script" uid="uid://d3874rp0lquhd" path="res://Scripts/page_manager.gd" id="3_d5v6j"]
-[ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
-[ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Togglers/uv_widget_toggler.tscn" id="7_225l2"]
-[ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
-[ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
-[ext_resource type="PackedScene" uid="uid://cfl6m605leyll" path="res://Togglers/humidity_widget_toggler.tscn" id="10_cjet7"]
-[ext_resource type="PackedScene" uid="uid://cnoe4vfxu5wgw" path="res://Togglers/test_widget_toggler.tscn" id="11_nmebp"]
+[ext_resource type="Script" uid="uid://d3874rp0lquhd" path="res://Scripts/information_page_manager.gd" id="3_d5v6j"]
+[ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="5_nmebp"]
+[ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
+[ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Scenes/Togglers/uv_widget_toggler.tscn" id="7_225l2"]
+[ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Scenes/Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
+[ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Scenes/Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
+[ext_resource type="PackedScene" uid="uid://cfl6m605leyll" path="res://Scenes/Togglers/humidity_widget_toggler.tscn" id="10_cjet7"]
+[ext_resource type="PackedScene" uid="uid://cnoe4vfxu5wgw" path="res://Scenes/Togglers/test_widget_toggler.tscn" id="11_nmebp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1g48"]
+bg_color = Color(0.011622668, 0.1268839, 0.18685082, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37pkv"]
 atlas = ExtResource("1_v0elx")
@@ -32,23 +36,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s1g48")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/Panel" unique_id=1652245701]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home" unique_id=1652245701 node_paths=PackedStringArray("informationPage", "widgetSelectionPage")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_d5v6j")
+informationPage = NodePath("InformationPageContainer")
+widgetSelectionPage = NodePath("WedgetSelectionPageContainer")
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/Panel/VBoxContainer" unique_id=781086238]
+[node name="MarginContainer" type="MarginContainer" parent="Home/VBoxContainer" unique_id=781086238]
+custom_minimum_size = Vector2(360, 0)
+custom_maximum_size = Vector2(360, -1)
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 12
 
-[node name="ToggleEditModeButton" type="TextureButton" parent="Home/Panel/VBoxContainer/MarginContainer" unique_id=1508710615]
+[node name="ToggleEditModeButton" type="TextureButton" parent="Home/VBoxContainer/MarginContainer" unique_id=1508710615]
 custom_minimum_size = Vector2(50, 50)
 custom_maximum_size = Vector2(50, 50)
 layout_mode = 2
@@ -56,57 +66,91 @@ texture_normal = SubResource("AtlasTexture_37pkv")
 stretch_mode = 5
 script = ExtResource("2_nmebp")
 
-[node name="PageContainer" type="MarginContainer" parent="Home/Panel/VBoxContainer" unique_id=2122824465 node_paths=PackedStringArray("informationPage", "widgetSelectionPage")]
+[node name="InformationPageContainer" type="MarginContainer" parent="Home/VBoxContainer" unique_id=2122824465]
+custom_minimum_size = Vector2(360, 0)
+custom_maximum_size = Vector2(360, -1)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
-script = ExtResource("3_d5v6j")
-informationPage = NodePath("InformationPage")
-widgetSelectionPage = NodePath("WidgetSelectionPage")
 
-[node name="InformationPage" type="ScrollContainer" parent="Home/Panel/VBoxContainer/PageContainer" unique_id=288403298 node_paths=PackedStringArray("widgetContainer")]
-visible = false
+[node name="InformationPage" type="ScrollContainer" parent="Home/VBoxContainer/InformationPageContainer" unique_id=288403298 node_paths=PackedStringArray("widgetContainer")]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 script = ExtResource("2_x7m3x")
 widgetContainer = NodePath("VBoxContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/Panel/VBoxContainer/PageContainer/InformationPage" unique_id=1359809199]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/VBoxContainer/InformationPageContainer/InformationPage" unique_id=1359809199]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="WidgetSelectionPage" type="ScrollContainer" parent="Home/Panel/VBoxContainer/PageContainer" unique_id=799040475]
+[node name="WedgetSelectionPageContainer" type="MarginContainer" parent="Home/VBoxContainer" unique_id=718060000]
+custom_minimum_size = Vector2(360, 0)
+custom_maximum_size = Vector2(360, -1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Panel" type="Panel" parent="Home/VBoxContainer/WedgetSelectionPageContainer" unique_id=1416505972]
+layout_mode = 2
+theme = ExtResource("5_nmebp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/VBoxContainer/WedgetSelectionPageContainer" unique_id=1686770500]
+custom_minimum_size = Vector2(340, 0)
+custom_maximum_size = Vector2(353, -1)
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="WidgetSelectionPage" type="ScrollContainer" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer" unique_id=799040475]
 layout_mode = 2
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
-[node name="GridContainer" type="GridContainer" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage" unique_id=1961386781]
+[node name="MarginContainer" type="MarginContainer" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer/WidgetSelectionPage" unique_id=1169340370]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer/WidgetSelectionPage/MarginContainer" unique_id=1961386781]
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(330, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/h_separation = 27
+theme_override_constants/h_separation = 42
 theme_override_constants/v_separation = 20
 columns = 4
 
-[node name="TestWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=2036872476 instance=ExtResource("11_nmebp")]
+[node name="TestWidgetToggler" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=2036872476 instance=ExtResource("11_nmebp")]
 layout_mode = 2
 
-[node name="RainfallChanceWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=1837677638 instance=ExtResource("6_iq418")]
+[node name="RainfallChanceWidgetToggler" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=1837677638 instance=ExtResource("6_iq418")]
 layout_mode = 2
 
-[node name="UVWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=1693207958 instance=ExtResource("7_225l2")]
+[node name="UVWidgetToggler" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=1693207958 instance=ExtResource("7_225l2")]
 layout_mode = 2
 
-[node name="AQIWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=1388619265 instance=ExtResource("8_x7m3x")]
+[node name="AQIWidgetToggler" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=1388619265 instance=ExtResource("8_x7m3x")]
 layout_mode = 2
 
-[node name="PollenCountWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=110681436 instance=ExtResource("9_v0elx")]
+[node name="PollenCountWidgetToggler" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=110681436 instance=ExtResource("9_v0elx")]
 layout_mode = 2
 
-[node name="HumidityWidgetToggler" parent="Home/Panel/VBoxContainer/PageContainer/WidgetSelectionPage/GridContainer" unique_id=963581016 instance=ExtResource("10_cjet7")]
+[node name="HumidityWidgetToggler" parent="Home/VBoxContainer/WedgetSelectionPageContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=963581016 instance=ExtResource("10_cjet7")]
 layout_mode = 2
 
-[connection signal="button_up" from="Home/Panel/VBoxContainer/MarginContainer/ToggleEditModeButton" to="Home/Panel/VBoxContainer/PageContainer" method="_on_toggle_edit_mode_button_button_up"]
+[connection signal="button_up" from="Home/VBoxContainer/MarginContainer/ToggleEditModeButton" to="Home/VBoxContainer" method="_on_toggle_edit_mode_button_button_up"]

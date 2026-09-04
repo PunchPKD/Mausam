@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cob07wtmpd1u8"]
+
+[ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_tibs6"]
+
+[node name="SimpleInformationWidgetElement" type="Control" unique_id=901733219]
+custom_minimum_size = Vector2(340, 55)
+custom_maximum_size = Vector2(340, -1)
+layout_mode = 3
+offset_right = 340.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_tibs6")
+
+[node name="Panel" type="Panel" parent="." unique_id=627376415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1110623652]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1948263541]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Test"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer" unique_id=2140174032]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "123"
+horizontal_alignment = 2
+vertical_alignment = 1

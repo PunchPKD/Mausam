@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://buaoggodkrdoa"]
+
+[ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_oy0sa"]
+[ext_resource type="Script" uid="uid://cxxpresugwfbc" path="res://Scripts/widget.gd" id="1_qvrig"]
+[ext_resource type="PackedScene" uid="uid://cob07wtmpd1u8" path="res://Scenes/WidgetElements/simple_information_widget_element.tscn" id="3_r2od0"]
+
+[node name="HumidityWidget" type="Control" unique_id=1729628050]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 340.0
+offset_bottom = 55.0
+size_flags_horizontal = 3
+theme = ExtResource("1_oy0sa")
+script = ExtResource("1_qvrig")
+metadata/_custom_type_script = "uid://cxxpresugwfbc"
+
+[node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_r2od0")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="Label" parent="SimpleInformationWidgetElement/MarginContainer" parent_id_path=PackedInt32Array(901733219, 1110623652) index="0" unique_id=1948263541]
+text = "Humidity"
+
+[node name="Label2" parent="SimpleInformationWidgetElement/MarginContainer" parent_id_path=PackedInt32Array(901733219, 1110623652) index="1" unique_id=2140174032]
+text = "40"
+
+[editable path="SimpleInformationWidgetElement"]

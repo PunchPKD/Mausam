@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cwsrjgyq421oi"]
+
+[ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_nl25b"]
+[ext_resource type="Texture2D" uid="uid://da37pirhk0ud" path="res://Assets/Icons V2.png" id="3_lm2gs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5clf5"]
+load_path = "res://.godot/imported/Icons V3.png-1094b3c49b9ad8803e013eef2593bb20.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl25b"]
+atlas = SubResource("CompressedTexture2D_5clf5")
+region = Rect2(48, 688, 224, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_632ii"]
+atlas = ExtResource("3_lm2gs")
+region = Rect2(1032, 656, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i86gl"]
+atlas = ExtResource("3_lm2gs")
+region = Rect2(1136, 664, 72, 72)
+
+[node name="simple_toggler_element" type="Control" unique_id=1776159138]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 1
+theme = ExtResource("1_nl25b")
+
+[node name="Panel" type="Panel" parent="." unique_id=1371569252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nl25b")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1242258259]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_nl25b")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="AddIcon" type="TextureRect" parent="." unique_id=1735625071]
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 14.0
+offset_bottom = 14.0
+texture = SubResource("AtlasTexture_632ii")
+
+[node name="RemoveIcon" type="TextureRect" parent="." unique_id=913612738]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 14.0
+offset_bottom = 14.0
+texture = SubResource("AtlasTexture_i86gl")

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="SIH 2026"
+config/name="Mausam"
 run/main_scene="uid://d0mvh51047xp4"
 config/features=PackedStringArray("4.7", "Mobile")
 run/low_processor_mode=true
@@ -24,7 +24,9 @@ SignalBus="*uid://bctcp6m1w7t1k"
 
 window/size/viewport_width=360
 window/size/viewport_height=640
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [input]
 
