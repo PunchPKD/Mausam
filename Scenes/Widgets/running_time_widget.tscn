@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://plptwnhc8nfb"]
+
+[ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_kv1an"]
+[ext_resource type="Script" uid="uid://cxxpresugwfbc" path="res://Scripts/widget.gd" id="2_7iaa3"]
+[ext_resource type="PackedScene" uid="uid://cob07wtmpd1u8" path="res://Scenes/WidgetElements/simple_information_widget_element.tscn" id="3_v1m54"]
+
+[node name="RunningTimeWidget" type="Control" unique_id=848751267]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 352.0
+offset_bottom = 55.0
+size_flags_horizontal = 3
+theme = ExtResource("1_kv1an")
+script = ExtResource("2_7iaa3")
+metadata/_custom_type_script = "uid://cxxpresugwfbc"
+
+[node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_v1m54")]
+layout_mode = 0
+
+[node name="Label" parent="SimpleInformationWidgetElement/MarginContainer" parent_id_path=PackedInt32Array(901733219, 1110623652) index="0" unique_id=1948263541]
+text = "Suitable Running Hours"
+
+[node name="Label2" parent="SimpleInformationWidgetElement/MarginContainer" parent_id_path=PackedInt32Array(901733219, 1110623652) index="1" unique_id=2140174032]
+text = "5-6 PM"
+
+[editable path="SimpleInformationWidgetElement"]

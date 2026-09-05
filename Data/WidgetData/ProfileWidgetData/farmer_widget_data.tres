@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_425yc"]
 [ext_resource type="PackedScene" uid="uid://mjnsavuaxas5" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="2_pydee"]
+[ext_resource type="PackedScene" uid="uid://dboxqrdr1anrq" path="res://Scenes/Widgets/soil_moisture_widget.tscn" id="3_g2ny6"]
 
 [resource]
 script = ExtResource("1_425yc")
-widgets = Array[PackedScene]([ExtResource("2_pydee")])
+widgets = Array[PackedScene]([ExtResource("2_pydee"), ExtResource("3_g2ny6")])
 metadata/_custom_type_script = "uid://bb71vchu7q6kv"

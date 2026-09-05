@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b83agjs5hi1kq"]
+
+[ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_o18mh"]
+[ext_resource type="Script" uid="uid://cxxpresugwfbc" path="res://Scripts/widget.gd" id="2_g3wtt"]
+[ext_resource type="PackedScene" uid="uid://cob07wtmpd1u8" path="res://Scenes/WidgetElements/simple_information_widget_element.tscn" id="3_pmkv4"]
+
+[node name="SunriseWidget" type="Control" unique_id=835309305]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 352.0
+offset_bottom = 55.0
+size_flags_horizontal = 3
+theme = ExtResource("1_o18mh")
+script = ExtResource("2_g3wtt")
+metadata/_custom_type_script = "uid://cxxpresugwfbc"
+
+[node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_pmkv4")]
+layout_mode = 0
+
+[node name="Label" parent="SimpleInformationWidgetElement/MarginContainer" parent_id_path=PackedInt32Array(901733219, 1110623652) index="0" unique_id=1948263541]
+text = "Sunrise"
+
+[node name="Label2" parent="SimpleInformationWidgetElement/MarginContainer" parent_id_path=PackedInt32Array(901733219, 1110623652) index="1" unique_id=2140174032]
+text = "5:23 AM"
+
+[editable path="SimpleInformationWidgetElement"]
