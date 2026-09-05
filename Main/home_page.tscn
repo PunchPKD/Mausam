@@ -10,11 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
 [ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Scenes/Togglers/uv_widget_toggler.tscn" id="7_225l2"]
 [ext_resource type="Texture2D" uid="uid://da37pirhk0ud" path="res://Assets/Icons V2.png" id="7_atha1"]
+[ext_resource type="Script" uid="uid://blmgckt1ioyxq" path="res://Scripts/widget_selection_page_manager.gd" id="8_p568m"]
 [ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Scenes/Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
 [ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Scenes/Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
 [ext_resource type="PackedScene" uid="uid://cfl6m605leyll" path="res://Scenes/Togglers/humidity_widget_toggler.tscn" id="10_cjet7"]
 [ext_resource type="PackedScene" uid="uid://cnoe4vfxu5wgw" path="res://Scenes/Togglers/test_widget_toggler.tscn" id="11_nmebp"]
 [ext_resource type="Script" uid="uid://pk7tpofx571k" path="res://Scripts/ai_weather_overview_page_manager.gd" id="13_w5o2e"]
+[ext_resource type="Script" uid="uid://de00yf2ka7icq" path="res://Scripts/persona_toggler.gd" id="16_w54lv"]
+[ext_resource type="Resource" uid="uid://ch7i5ra34n5ci" path="res://Data/WidgetData/ProfileWidgetData/health_conscious_widget_data.tres" id="17_tnfjc"]
+[ext_resource type="Resource" uid="uid://ci3mabqf1oea3" path="res://Data/WidgetData/ProfileWidgetData/fitness_widget_data.tres" id="18_342xe"]
+[ext_resource type="Resource" uid="uid://cedmijw8ueyan" path="res://Data/WidgetData/ProfileWidgetData/traveller_widget_data.tres" id="19_q88ve"]
+[ext_resource type="Resource" uid="uid://cj7c2271utj48" path="res://Data/WidgetData/ProfileWidgetData/farmer_widget_data.tres" id="20_xqap3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1g48"]
 bg_color = Color(0.06325079, 0.0950971, 0.25628367, 1)
@@ -225,6 +231,7 @@ currentWidgets = ExtResource("6_24bgx")
 widgetContainer = NodePath("VBoxContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/InformationPageContainer/InformationPage" unique_id=1359809199]
+custom_maximum_size = Vector2(352, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -256,10 +263,13 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 theme = ExtResource("5_nmebp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer" unique_id=997137585]
+[node name="WidgetSelectionPage" type="VBoxContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer" unique_id=997137585 node_paths=PackedStringArray("widgetCoustomizationPage", "widgetPersonaPage")]
 layout_mode = 2
+script = ExtResource("8_p568m")
+widgetCoustomizationPage = NodePath("SelectionMenu/CustomizationPage")
+widgetPersonaPage = NodePath("SelectionMenu/PersonaPage")
 
-[node name="MarginContainer2" type="MarginContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer" unique_id=192329643]
+[node name="Buttons" type="MarginContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" unique_id=192329643]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
@@ -267,26 +277,26 @@ theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 80
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer2" unique_id=1110761618]
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons" unique_id=1110761618]
 custom_maximum_size = Vector2(-1, 35)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1701371032]
+[node name="PersonaButton" type="TextureButton" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=1701371032]
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_37pkv")
 stretch_mode = 5
 
-[node name="VSeparator" type="VSeparator" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=368381260]
+[node name="VSeparator" type="VSeparator" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=368381260]
 layout_mode = 2
 
-[node name="TextureButton2" type="TextureButton" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1406101150]
+[node name="CustomizationButton" type="TextureButton" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=1406101150]
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_24bgx")
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer" unique_id=1686770500]
+[node name="SelectionMenu" type="MarginContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" unique_id=1686770500]
 custom_minimum_size = Vector2(340, 0)
 custom_maximum_size = Vector2(353, -1)
 layout_mode = 2
@@ -296,19 +306,20 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="WidgetSelectionPage" type="ScrollContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer" unique_id=799040475]
+[node name="CustomizationPage" type="ScrollContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu" unique_id=799040475]
+visible = false
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/WidgetSelectionPage" unique_id=1169340370]
+[node name="MarginContainer" type="MarginContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage" unique_id=1169340370]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="GridContainer" type="GridContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/WidgetSelectionPage/MarginContainer" unique_id=1961386781]
+[node name="GridContainer" type="GridContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer" unique_id=1961386781]
 custom_minimum_size = Vector2(300, 0)
 custom_maximum_size = Vector2(330, -1)
 layout_mode = 2
@@ -318,30 +329,29 @@ theme_override_constants/h_separation = 38
 theme_override_constants/v_separation = 20
 columns = 4
 
-[node name="TestWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=2036872476 instance=ExtResource("11_nmebp")]
+[node name="TestWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=2036872476 instance=ExtResource("11_nmebp")]
 layout_mode = 2
 
-[node name="RainfallChanceWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=1837677638 instance=ExtResource("6_iq418")]
+[node name="RainfallChanceWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1837677638 instance=ExtResource("6_iq418")]
 layout_mode = 2
 
-[node name="UVWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=1693207958 instance=ExtResource("7_225l2")]
+[node name="UVWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1693207958 instance=ExtResource("7_225l2")]
 layout_mode = 2
 
-[node name="AQIWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=1388619265 instance=ExtResource("8_x7m3x")]
+[node name="AQIWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1388619265 instance=ExtResource("8_x7m3x")]
 layout_mode = 2
 
-[node name="PollenCountWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=110681436 instance=ExtResource("9_v0elx")]
+[node name="PollenCountWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=110681436 instance=ExtResource("9_v0elx")]
 layout_mode = 2
 
-[node name="HumidityWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/WidgetSelectionPage/MarginContainer/GridContainer" unique_id=963581016 instance=ExtResource("10_cjet7")]
+[node name="HumidityWidgetToggler" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=963581016 instance=ExtResource("10_cjet7")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer" unique_id=2019788157]
-visible = false
+[node name="PersonaPage" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu" unique_id=2019788157]
 layout_mode = 2
 theme = ExtResource("5_nmebp")
 
-[node name="Panel" type="Panel" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control" unique_id=953047184]
+[node name="Panel" type="Panel" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage" unique_id=953047184]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -349,7 +359,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control" unique_id=1606880995]
+[node name="MarginContainer" type="MarginContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage" unique_id=1606880995]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -357,14 +367,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer" unique_id=779028964]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer" unique_id=779028964]
 layout_mode = 2
 
-[node name="HealthConcious" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer" unique_id=1642784507]
+[node name="HealthConcious" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=1642784507]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("16_w54lv")
+widgetData = ExtResource("17_tnfjc")
 
-[node name="Label" type="Label" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer/HealthConcious" unique_id=2104986267]
+[node name="Label" type="Label" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer/HealthConcious" unique_id=2104986267]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -376,15 +388,17 @@ text = "Health Conscious"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer" unique_id=852249073]
+[node name="HSeparator3" type="HSeparator" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=852249073]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_p568m")
 
-[node name="Fitness" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer" unique_id=1065593349]
+[node name="Fitness" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=1065593349]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("16_w54lv")
+widgetData = ExtResource("18_342xe")
 
-[node name="Label" type="Label" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer/Fitness" unique_id=83187116]
+[node name="Label" type="Label" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer/Fitness" unique_id=83187116]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -396,15 +410,17 @@ text = "Fitness"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer" unique_id=1225136520]
+[node name="HSeparator" type="HSeparator" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=1225136520]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_p568m")
 
-[node name="Travler" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer" unique_id=2109132072]
+[node name="Travler" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=2109132072]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("16_w54lv")
+widgetData = ExtResource("19_q88ve")
 
-[node name="Label" type="Label" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer/Travler" unique_id=70969713]
+[node name="Label" type="Label" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer/Travler" unique_id=70969713]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -416,15 +432,17 @@ text = "Traveller"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer" unique_id=687487567]
+[node name="HSeparator2" type="HSeparator" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=687487567]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_p568m")
 
-[node name="Farmer" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer" unique_id=1055024010]
+[node name="Farmer" type="Control" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=1055024010]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("16_w54lv")
+widgetData = ExtResource("20_xqap3")
 
-[node name="Label" type="Label" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/VBoxContainer/MarginContainer/Control/MarginContainer/VBoxContainer/Farmer" unique_id=1485599415]
+[node name="Label" type="Label" parent="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer/Farmer" unique_id=1485599415]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -482,3 +500,5 @@ Looking ahead, tomorrow is expected to remain cloudy, with temperatures between 
 [connection signal="button_up" from="Home/VBoxContainer/Control/MarginContainer/HBoxContainer/PersonalisedPageButton" to="Home/VBoxContainer/MarginContainer" method="_on_personalised_page_button_button_up"]
 [connection signal="button_up" from="Home/VBoxContainer/Control/MarginContainer/HBoxContainer/AIOverViewPageButton" to="Home/VBoxContainer/MarginContainer" method="_on_ai_over_view_page_button_button_up"]
 [connection signal="button_up" from="Home/VBoxContainer/MarginContainer/PersonalisedPage/EditModeToggleButton" to="Home/VBoxContainer/MarginContainer/PersonalisedPage" method="_on_edit_mode_toggle_button_button_up"]
+[connection signal="button_up" from="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer/PersonaButton" to="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" method="_on_persona_button_button_up"]
+[connection signal="button_up" from="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer/CustomizationButton" to="Home/VBoxContainer/MarginContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" method="_on_customization_button_button_up"]

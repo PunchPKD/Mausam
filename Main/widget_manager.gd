@@ -9,12 +9,12 @@ var widgets : Dictionary[String, Widget] = {}
 func _ready() -> void:
 	SignalBus.AddWidget.connect(on_add_widget)
 	SignalBus.RemoveWidget.connect(on_remove_widget)
+	SignalBus.AddWidgetList.connect(on_add_widget_list)
 	
 	await get_tree().process_frame
 	for widget in currentWidgets.widgets:
 		SignalBus.AddWidget.emit(widget)
 	
-
 func on_add_widget_list(widgetData: BaseWidgetData) -> void:
 	for widget in currentWidgets.widgets:
 		SignalBus.RemoveWidget.emit(widget)

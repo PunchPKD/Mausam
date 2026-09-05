@@ -6,6 +6,7 @@
 custom_minimum_size = Vector2(340, 55)
 custom_maximum_size = Vector2(340, -1)
 layout_mode = 3
+anchors_preset = 0
 offset_right = 340.0
 offset_bottom = 55.0
 grow_horizontal = 2
@@ -15,6 +16,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_tibs6")
 
 [node name="Panel" type="Panel" parent="." unique_id=627376415]
+custom_maximum_size = Vector2(330, -1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

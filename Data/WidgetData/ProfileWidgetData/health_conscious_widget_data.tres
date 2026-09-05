@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://ch7i5ra34n5ci"]
+
+[ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_jdjjy"]
+[ext_resource type="PackedScene" uid="uid://domc0jl0kvg5w" path="res://Scenes/Widgets/aqi_widget.tscn" id="2_wsxt4"]
+[ext_resource type="PackedScene" uid="uid://buaoggodkrdoa" path="res://Scenes/Widgets/humidity_widget.tscn" id="3_edegj"]
+[ext_resource type="PackedScene" uid="uid://c0qxmibts6b4c" path="res://Scenes/Widgets/pollen_count_widget.tscn" id="4_fl3ar"]
+[ext_resource type="PackedScene" uid="uid://dt0jybtps0l2w" path="res://Scenes/Widgets/uv_index_widget.tscn" id="5_7yhkq"]
+
+[resource]
+script = ExtResource("1_jdjjy")
+widgets = Array[PackedScene]([ExtResource("2_wsxt4"), ExtResource("3_edegj"), ExtResource("4_fl3ar"), ExtResource("5_7yhkq")])
+metadata/_custom_type_script = "uid://bb71vchu7q6kv"
