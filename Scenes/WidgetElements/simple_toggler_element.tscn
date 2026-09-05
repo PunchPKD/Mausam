@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_nl25b"]
 [ext_resource type="Texture2D" uid="uid://da37pirhk0ud" path="res://Assets/Icons V2.png" id="3_lm2gs"]
+[ext_resource type="Script" uid="uid://d0m3u1qpaale6" path="res://Systems/ui_scale_anim.gd" id="3_nl25b"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5clf5"]
 load_path = "res://.godot/imported/Icons V3.png-1094b3c49b9ad8803e013eef2593bb20.ctex"
@@ -67,3 +68,9 @@ offset_top = -6.0
 offset_right = 14.0
 offset_bottom = 14.0
 texture = SubResource("AtlasTexture_i86gl")
+
+[node name="UIScaleAnim" type="Node" parent="." unique_id=1221399796]
+script = ExtResource("3_nl25b")
+time = 0.1
+amount = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://d0m3u1qpaale6"

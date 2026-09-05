@@ -11,12 +11,29 @@ var isSelected: bool = false :
 		if value == true:
 			addIcon.visible = false
 			removeIcon.visible = true
-			SignalBus.AddWidget.emit(widgetScene)
 		else:
 			addIcon.visible = true
 			removeIcon.visible = false
-			SignalBus.RemoveWidget.emit(widgetScene)
+
+func _ready() -> void:
+	SignalBus.AddWidget.connect(on_add_widget)
+	SignalBus.RemoveWidget.connect(on_remove_widget)
 
 func _gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Click"):
-		isSelected = !isSelected
+		if isSelected == true:
+			SignalBus.RemoveWidget.emit(widgetScene)
+		else :
+			SignalBus.AddWidget.emit(widgetScene)
+
+func on_add_widget(widget_Scene: PackedScene) -> void:
+	if widget_Scene == self.widgetScene:
+		isSelected = true
+
+func on_remove_widget(widget_Scene: PackedScene) -> void:
+	if widget_Scene == self.widgetScene:
+		isSelected = false
+	
+	
+	
+	

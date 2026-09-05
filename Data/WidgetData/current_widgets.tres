@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://c6r38o1wba0u8"]
+
+[ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
+[ext_resource type="PackedScene" uid="uid://bt7hdi8qeqkqi" path="res://Scenes/Widgets/test_widget.tscn" id="2_4luev"]
+[ext_resource type="PackedScene" uid="uid://dt0jybtps0l2w" path="res://Scenes/Widgets/uv_index_widget.tscn" id="3_ik1d8"]
+
+[resource]
+script = ExtResource("1_wysnf")
+widgets = Array[PackedScene]([ExtResource("2_4luev"), ExtResource("3_ik1d8")])
+metadata/_custom_type_script = "uid://bb71vchu7q6kv"
