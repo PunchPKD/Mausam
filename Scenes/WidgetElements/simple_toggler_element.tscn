@@ -1,15 +1,13 @@
 [gd_scene format=3 uid="uid://cwsrjgyq421oi"]
 
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_nl25b"]
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="2_xx3pj"]
 [ext_resource type="Texture2D" uid="uid://da37pirhk0ud" path="res://Assets/Icons V2.png" id="3_lm2gs"]
 [ext_resource type="Script" uid="uid://d0m3u1qpaale6" path="res://Systems/ui_scale_anim.gd" id="3_nl25b"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5clf5"]
-load_path = "res://.godot/imported/Icons V3.png-1094b3c49b9ad8803e013eef2593bb20.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl25b"]
-atlas = SubResource("CompressedTexture2D_5clf5")
-region = Rect2(48, 688, 224, 200)
+atlas = ExtResource("2_xx3pj")
+region = Rect2(40, 728, 264, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_632ii"]
 atlas = ExtResource("3_lm2gs")

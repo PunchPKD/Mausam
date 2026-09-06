@@ -3,13 +3,11 @@
 [ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_upl1c"]
 [ext_resource type="PackedScene" uid="uid://mjnsavuaxas5" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="2_a4dyj"]
 [ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="3_bfebh"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5clf5"]
-load_path = "res://.godot/imported/Icons V3.png-1094b3c49b9ad8803e013eef2593bb20.ctex"
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="4_fpgni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fpgni"]
-atlas = SubResource("CompressedTexture2D_5clf5")
-region = Rect2(960, 688, 216, 200)
+atlas = ExtResource("4_fpgni")
+region = Rect2(936, 704, 272, 240)
 
 [node name="RainfallChanceWidgetToggler" type="Control" unique_id=1837677638 node_paths=PackedStringArray("addIcon", "removeIcon")]
 custom_minimum_size = Vector2(48, 48)

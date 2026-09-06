@@ -3,13 +3,11 @@
 [ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_lers5"]
 [ext_resource type="PackedScene" uid="uid://buaoggodkrdoa" path="res://Scenes/Widgets/humidity_widget.tscn" id="2_jhoa4"]
 [ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="3_hpnil"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5clf5"]
-load_path = "res://.godot/imported/Icons V3.png-1094b3c49b9ad8803e013eef2593bb20.ctex"
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="4_pdbkp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pdbkp"]
-atlas = SubResource("CompressedTexture2D_5clf5")
-region = Rect2(968, 56, 200, 208)
+atlas = ExtResource("4_pdbkp")
+region = Rect2(936, 88, 248, 240)
 
 [node name="HumidityWidgetToggler" type="Control" unique_id=963581016 node_paths=PackedStringArray("addIcon", "removeIcon")]
 custom_minimum_size = Vector2(48, 48)

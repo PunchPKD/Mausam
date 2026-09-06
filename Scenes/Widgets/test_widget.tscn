@@ -3,8 +3,9 @@
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_np0sx"]
 [ext_resource type="Script" uid="uid://cxxpresugwfbc" path="res://Scripts/widget.gd" id="1_ybpu2"]
 [ext_resource type="PackedScene" uid="uid://cob07wtmpd1u8" path="res://Scenes/WidgetElements/simple_information_widget_element.tscn" id="3_eyvlw"]
+[ext_resource type="PackedScene" uid="uid://ers3tvowu6u6" path="res://Scenes/WidgetElements/detailed_infotmation_widget_element.tscn" id="4_eyvlw"]
 
-[node name="TestWidget" type="Control" unique_id=1181579078]
+[node name="TestWidget" type="Control" unique_id=1181579078 node_paths=PackedStringArray("simpleInformationElement", "detailedInformationElement")]
 custom_minimum_size = Vector2(0, 55)
 layout_mode = 3
 anchors_preset = 0
@@ -13,12 +14,21 @@ offset_bottom = 55.0
 size_flags_horizontal = 3
 theme = ExtResource("1_np0sx")
 script = ExtResource("1_ybpu2")
+simpleInformationElement = NodePath("SimpleInformationWidgetElement")
+detailedInformationElement = NodePath("DetailedInfotmationWidgetElement")
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 
 [node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_eyvlw")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
+
+[node name="DetailedInfotmationWidgetElement" parent="." unique_id=288035058 instance=ExtResource("4_eyvlw")]
+layout_mode = 0
+
+[editable path="SimpleInformationWidgetElement"]
+[editable path="DetailedInfotmationWidgetElement"]

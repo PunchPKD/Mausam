@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ers3tvowu6u6"]
+
+[ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_flaik"]
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="2_187y2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37pkv"]
+atlas = ExtResource("2_187y2")
+region = Rect2(32, 728, 280, 208)
+
+[node name="DetailedInfotmationWidgetElement" type="Control" unique_id=288035058]
+custom_minimum_size = Vector2(340, 150)
+custom_maximum_size = Vector2(340, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 340.0
+offset_bottom = 55.0
+theme = ExtResource("1_flaik")
+
+[node name="Panel" type="Panel" parent="." unique_id=1459666368]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1618441467]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=413962262]
+layout_mode = 2
+
+[node name="Information" type="Control" parent="MarginContainer/HBoxContainer" unique_id=380411220]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Information" unique_id=1784746876]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Information/VBoxContainer" unique_id=729479740]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_font_sizes/font_size = 30
+text = "Test"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/Information/VBoxContainer" unique_id=1739975952]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "123"
+
+[node name="Pictorial" type="Control" parent="MarginContainer/HBoxContainer" unique_id=263720376]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Pictorial" unique_id=718516254]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_37pkv")
+expand_mode = 5
+stretch_mode = 5
