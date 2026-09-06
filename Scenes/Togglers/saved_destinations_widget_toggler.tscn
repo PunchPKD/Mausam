@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dfbut0haxk8hx"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_y3du5"]
+[ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="2_llmt2"]
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="3_p2xvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aiw8w"]
+atlas = ExtResource("3_p2xvq")
+region = Rect2(1208, 368, 320, 312)
+
+[node name="SavedDestinationsWidgetToggler" type="Control" unique_id=2044286947 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("1_y3du5")
+addIcon = NodePath("simple_toggler_element/AddIcon")
+removeIcon = NodePath("simple_toggler_element/RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="simple_toggler_element" parent="." unique_id=1776159138 instance=ExtResource("2_llmt2")]
+layout_mode = 0
+
+[node name="TextureRect" parent="simple_toggler_element" index="1" unique_id=1242258259]
+texture = SubResource("AtlasTexture_aiw8w")
+
+[editable path="simple_toggler_element"]

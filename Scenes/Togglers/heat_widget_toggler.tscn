@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cmselsh1j8yck"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_iivx2"]
+[ext_resource type="PackedScene" uid="uid://xlvk4k78yi2g" path="res://Scenes/Widgets/heat_widget.tscn" id="2_4cv41"]
+[ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="3_ap3jh"]
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="4_2ch6v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21brq"]
+atlas = ExtResource("4_2ch6v")
+region = Rect2(928, 376, 296, 296)
+
+[node name="HeatWidgetToggler" type="Control" unique_id=1231223841 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("1_iivx2")
+widgetScene = ExtResource("2_4cv41")
+addIcon = NodePath("simple_toggler_element/AddIcon")
+removeIcon = NodePath("simple_toggler_element/RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="simple_toggler_element" parent="." unique_id=1776159138 instance=ExtResource("3_ap3jh")]
+layout_mode = 0
+
+[node name="TextureRect" parent="simple_toggler_element" index="1" unique_id=1242258259]
+texture = SubResource("AtlasTexture_21brq")
+
+[editable path="simple_toggler_element"]

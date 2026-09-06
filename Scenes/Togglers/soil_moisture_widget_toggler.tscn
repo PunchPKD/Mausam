@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://borjql7dnum8d"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_xxw3v"]
+[ext_resource type="PackedScene" uid="uid://dboxqrdr1anrq" path="res://Scenes/Widgets/soil_moisture_widget.tscn" id="2_8qv34"]
+[ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="3_xynm3"]
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="4_xi45c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58inw"]
+atlas = ExtResource("4_xi45c")
+region = Rect2(624, 672, 312, 344)
+
+[node name="SoilMoistureWidgetToggler" type="Control" unique_id=393477955 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("1_xxw3v")
+widgetScene = ExtResource("2_8qv34")
+addIcon = NodePath("simple_toggler_element/AddIcon")
+removeIcon = NodePath("simple_toggler_element/RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="simple_toggler_element" parent="." unique_id=1776159138 instance=ExtResource("3_xynm3")]
+layout_mode = 0
+
+[node name="TextureRect" parent="simple_toggler_element" index="1" unique_id=1242258259]
+texture = SubResource("AtlasTexture_58inw")
+
+[editable path="simple_toggler_element"]

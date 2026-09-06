@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bh4mo6owgqntn"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_qfjvm"]
+[ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="2_k58ve"]
+[ext_resource type="PackedScene" uid="uid://b83agjs5hi1kq" path="res://Scenes/Widgets/sunrise_widget.tscn" id="2_tciim"]
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="3_tciim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anpai"]
+atlas = ExtResource("3_tciim")
+region = Rect2(1176, 24, 368, 336)
+
+[node name="SunriseWidgetToggler" type="Control" unique_id=398810363 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("1_qfjvm")
+widgetScene = ExtResource("2_tciim")
+addIcon = NodePath("simple_toggler_element/AddIcon")
+removeIcon = NodePath("simple_toggler_element/RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="simple_toggler_element" parent="." unique_id=1776159138 instance=ExtResource("2_k58ve")]
+layout_mode = 0
+
+[node name="TextureRect" parent="simple_toggler_element" index="1" unique_id=1242258259]
+texture = SubResource("AtlasTexture_anpai")
+
+[editable path="simple_toggler_element"]

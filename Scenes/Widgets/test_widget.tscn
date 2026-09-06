@@ -4,22 +4,29 @@
 [ext_resource type="Script" uid="uid://cxxpresugwfbc" path="res://Scripts/widget.gd" id="1_ybpu2"]
 [ext_resource type="PackedScene" uid="uid://cob07wtmpd1u8" path="res://Scenes/WidgetElements/simple_information_widget_element.tscn" id="3_eyvlw"]
 [ext_resource type="PackedScene" uid="uid://ers3tvowu6u6" path="res://Scenes/WidgetElements/detailed_infotmation_widget_element.tscn" id="4_eyvlw"]
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="5_xdwtk"]
 
-[node name="TestWidget" type="Control" unique_id=1181579078 node_paths=PackedStringArray("simpleInformationElement", "detailedInformationElement")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_37pkv"]
+atlas = ExtResource("5_xdwtk")
+region = Rect2(32, 728, 280, 208)
+
+[node name="TestWidget" type="Control" unique_id=1181579078 node_paths=PackedStringArray("simpleInformationElement", "detailedInformationElement", "focusedInformationElement")]
 custom_minimum_size = Vector2(0, 55)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 352.0
 offset_bottom = 55.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme = ExtResource("1_np0sx")
 script = ExtResource("1_ybpu2")
 simpleInformationElement = NodePath("SimpleInformationWidgetElement")
 detailedInformationElement = NodePath("DetailedInfotmationWidgetElement")
+focusedInformationElement = NodePath("FocuedInformationElement")
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 
 [node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_eyvlw")]
-visible = false
+custom_maximum_size = Vector2(340, 55)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +35,79 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="DetailedInfotmationWidgetElement" parent="." unique_id=288035058 instance=ExtResource("4_eyvlw")]
+visible = false
 layout_mode = 0
+offset_bottom = 150.0
+
+[node name="FocuedInformationElement" type="Control" parent="." unique_id=1735104]
+visible = false
+custom_minimum_size = Vector2(340, 300)
+custom_maximum_size = Vector2(340, 300)
+anchors_preset = 0
+offset_right = 340.0
+offset_bottom = 150.0
+mouse_filter = 1
+theme = ExtResource("1_np0sx")
+
+[node name="Panel" type="Panel" parent="FocuedInformationElement" unique_id=2019939044]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="FocuedInformationElement" unique_id=1376836692]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FocuedInformationElement/MarginContainer" unique_id=290067056]
+layout_mode = 2
+
+[node name="Information" type="Control" parent="FocuedInformationElement/MarginContainer/HBoxContainer" unique_id=374949495]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FocuedInformationElement/MarginContainer/HBoxContainer/Information" unique_id=386755698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="FocuedInformationElement/MarginContainer/HBoxContainer/Information/VBoxContainer" unique_id=621098562]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_font_sizes/font_size = 30
+text = "Test"
+
+[node name="Label2" type="Label" parent="FocuedInformationElement/MarginContainer/HBoxContainer/Information/VBoxContainer" unique_id=83936515]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "123"
+
+[node name="Pictorial" type="Control" parent="FocuedInformationElement/MarginContainer/HBoxContainer" unique_id=278531961]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="FocuedInformationElement/MarginContainer/HBoxContainer/Pictorial" unique_id=208786458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_37pkv")
+expand_mode = 5
+stretch_mode = 5
 
 [editable path="SimpleInformationWidgetElement"]
 [editable path="DetailedInfotmationWidgetElement"]

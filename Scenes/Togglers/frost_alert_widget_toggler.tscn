@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://572du1n8ktxa"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_rlesd"]
+[ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="2_pr1th"]
+[ext_resource type="Texture2D" uid="uid://dickypqnubpi4" path="res://Assets/Icons V4.png" id="3_yqsqq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o28xn"]
+atlas = ExtResource("3_yqsqq")
+region = Rect2(1232, 696, 272, 272)
+
+[node name="FrostAlertWidgetToggler" type="Control" unique_id=1817894796 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("1_rlesd")
+addIcon = NodePath("simple_toggler_element/AddIcon")
+removeIcon = NodePath("simple_toggler_element/RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="simple_toggler_element" parent="." unique_id=1776159138 instance=ExtResource("2_pr1th")]
+layout_mode = 0
+
+[node name="TextureRect" parent="simple_toggler_element" index="1" unique_id=1242258259]
+texture = SubResource("AtlasTexture_o28xn")
+
+[editable path="simple_toggler_element"]
