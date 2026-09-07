@@ -4,6 +4,9 @@ class_name InformationPageManager
 @export var informationPage: Control
 @export var widgetSelectionPage: Control
 
+func _ready() -> void:
+	widgetSelectionPage.visible = false
+
 func toggle_visiblity(element: Control) -> void:
 	element.visible = !element.visible
 

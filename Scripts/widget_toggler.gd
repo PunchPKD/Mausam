@@ -20,7 +20,7 @@ func _ready() -> void:
 	SignalBus.RemoveWidget.connect(on_remove_widget)
 
 func _gui_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Click") and widgetScene:
+	if Input.is_action_just_released("Click") and widgetScene:
 		if isSelected == true:
 			SignalBus.RemoveWidget.emit(widgetScene)
 		else :

@@ -25,6 +25,6 @@ grow_vertical = 1
 text = "Heat"
 
 [node name="Label2" parent="SimpleInformationWidgetElement/MarginContainer" parent_id_path=PackedInt32Array(901733219, 1110623652) index="1" unique_id=2140174032]
-text = "34 *C"
+text = "34 °C"
 
 [editable path="SimpleInformationWidgetElement"]

@@ -15,6 +15,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 48.0
 offset_bottom = 48.0
+mouse_filter = 1
 script = ExtResource("1_sunn1")
 widgetScene = ExtResource("2_ctb3q")
 addIcon = NodePath("simple_toggler_element/AddIcon")
