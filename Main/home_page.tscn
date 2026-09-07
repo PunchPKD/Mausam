@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://borjql7dnum8d" path="res://Scenes/Togglers/soil_moisture_widget_toggler.tscn" id="24_57kqf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1g48"]
-bg_color = Color(0.06325079, 0.0950971, 0.25628367, 1)
+bg_color = Color(0, 0.2, 0.52156866, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_528qc"]
 atlas = ExtResource("1_cjet7")
@@ -145,6 +145,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scroll_vertical = 644
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -156,6 +157,37 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(0, 640)
 layout_mode = 2
 mouse_filter = 1
+theme = ExtResource("5_nmebp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control" unique_id=1711720187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer" unique_id=1650945486]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=908900181]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "  32°ᶜ"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1025481524]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Cloudy"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2" unique_id=1072381594]
 custom_minimum_size = Vector2(360, 640)
@@ -168,6 +200,15 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.07
+mouse_filter = 1
+theme = ExtResource("5_nmebp")
+
+[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/Control" unique_id=1455881538]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 259.0
+offset_bottom = 44.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/Control" unique_id=973113821]
 layout_mode = 1
@@ -188,6 +229,7 @@ layout_mode = 2
 texture_filter = 4
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxTexture_37pkv")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cjet7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_nmebp")
@@ -200,6 +242,7 @@ metadata/_custom_type_script = "uid://d0m3u1qpaale6"
 
 [node name="VSeparator" type="VSeparator" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=718256697]
 layout_mode = 2
+mouse_filter = 1
 theme_override_constants/separation = 30
 theme_override_styles/separator = SubResource("StyleBoxLine_nmebp")
 
@@ -207,6 +250,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_nmebp")
 texture_filter = 4
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxTexture_e86h8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_d5v6j")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w5o2e")
@@ -274,6 +318,7 @@ amount = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://d0m3u1qpaale6"
 
 [node name="WedgetSelectionPageContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/PersonalisedPage" unique_id=718060000]
+visible = false
 custom_minimum_size = Vector2(360, 0)
 custom_maximum_size = Vector2(360, -1)
 layout_mode = 2
@@ -509,16 +554,31 @@ vertical_alignment = 1
 [node name="AIWeatherOverviewPage" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer" unique_id=1033905318 node_paths=PackedStringArray("summary")]
 layout_mode = 2
 script = ExtResource("13_w5o2e")
-summary = NodePath("MarginContainer/RichTextLabel")
+summary = NodePath("MarginContainer/MarginContainer/RichTextLabel")
 
-[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage" unique_id=661509458]
+[node name="MarginContainer3" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage" unique_id=1801811005]
+layout_mode = 2
+theme = ExtResource("5_nmebp")
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_right = 14
+
+[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer3" unique_id=144138467]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer3" unique_id=47933598]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer" unique_id=1407182569]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer/VBoxContainer" unique_id=661509458]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 theme_override_font_sizes/font_size = 24
 text = "Good Morning"
 
-[node name="Label2" type="Label" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage" unique_id=671897521]
+[node name="Label2" type="Label" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer/VBoxContainer" unique_id=671897521]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
@@ -527,16 +587,24 @@ text = "Prince"
 
 [node name="HSeparator" type="HSeparator" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage" unique_id=1190679326]
 layout_mode = 2
+mouse_filter = 1
 theme_override_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage" unique_id=1316863725]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("5_nmebp")
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer" unique_id=1489080582]
+[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer" unique_id=532298985]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer" unique_id=906282094]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer/AIWeatherOverviewPage/MarginContainer/MarginContainer" unique_id=1489080582]
 custom_maximum_size = Vector2(330, -1)
 layout_mode = 2
 size_flags_vertical = 3
@@ -545,9 +613,7 @@ theme = SubResource("Theme_v0elx")
 theme_override_font_sizes/normal_font_size = 18
 text = "The city is expected to see partly cloudy skies today, with temperatures reaching around 29°C. Humidity will remain high at nearly 70%, with moderate winds throughout the day.
 
-There is a moderate chance of rainfall and thunderstorms during the evening. People travelling outdoors are advised to carry an umbrella and keep an eye on local weather alerts.
-
-Looking ahead, tomorrow is expected to remain cloudy, with temperatures between 22°C and 28°C and a higher possibility of light to moderate rainfall."
+There is a moderate chance of rainfall and thunderstorms during the evening. People travelling outdoors are advised to carry an umbrella and keep an eye on local weather alerts."
 
 [connection signal="button_up" from="Home/ScrollContainer/VBoxContainer2/VBoxContainer/Control/MarginContainer/HBoxContainer/PersonalisedPageButton" to="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer" method="_on_personalised_page_button_button_up"]
 [connection signal="button_up" from="Home/ScrollContainer/VBoxContainer2/VBoxContainer/Control/MarginContainer/HBoxContainer/AIOverViewPageButton" to="Home/ScrollContainer/VBoxContainer2/VBoxContainer/MarginContainer" method="_on_ai_over_view_page_button_button_up"]

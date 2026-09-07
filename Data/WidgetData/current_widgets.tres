@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://doukew1v8rwd2"]
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://c65h2r5a264qc"]
 
 [ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
-[ext_resource type="PackedScene" uid="uid://bt7hdi8qeqkqi" path="res://Scenes/Widgets/test_widget.tscn" id="2_0gx4x"]
-[ext_resource type="PackedScene" uid="uid://mjnsavuaxas5" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="3_4luev"]
-[ext_resource type="PackedScene" uid="uid://dt0jybtps0l2w" path="res://Scenes/Widgets/uv_index_widget.tscn" id="4_ik1d8"]
-[ext_resource type="PackedScene" uid="uid://domc0jl0kvg5w" path="res://Scenes/Widgets/aqi_widget.tscn" id="5_j75gj"]
-[ext_resource type="PackedScene" uid="uid://c0qxmibts6b4c" path="res://Scenes/Widgets/pollen_count_widget.tscn" id="6_fr3on"]
-[ext_resource type="PackedScene" uid="uid://buaoggodkrdoa" path="res://Scenes/Widgets/humidity_widget.tscn" id="7_folv1"]
+[ext_resource type="PackedScene" uid="uid://c0ian1u23iape" path="res://Scenes/Widgets/sunset_widget.tscn" id="5_j75gj"]
+[ext_resource type="PackedScene" uid="uid://mjnsavuaxas5" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="6_fr3on"]
+[ext_resource type="PackedScene" uid="uid://b83agjs5hi1kq" path="res://Scenes/Widgets/sunrise_widget.tscn" id="7_folv1"]
+[ext_resource type="PackedScene" uid="uid://db2gpttlio4re" path="res://Scenes/Widgets/wind_widget.tscn" id="7_jufte"]
+[ext_resource type="PackedScene" uid="uid://buaoggodkrdoa" path="res://Scenes/Widgets/humidity_widget.tscn" id="9_jg0ii"]
+[ext_resource type="PackedScene" uid="uid://c0qxmibts6b4c" path="res://Scenes/Widgets/pollen_count_widget.tscn" id="10_x8htg"]
 
 [resource]
 script = ExtResource("1_wysnf")
-widgets = Array[PackedScene]([ExtResource("2_0gx4x"), ExtResource("3_4luev"), ExtResource("4_ik1d8"), ExtResource("5_j75gj"), ExtResource("6_fr3on"), ExtResource("7_folv1")])
+widgets = Array[PackedScene]([ExtResource("10_x8htg"), ExtResource("6_fr3on"), ExtResource("7_folv1"), ExtResource("5_j75gj"), ExtResource("9_jg0ii"), ExtResource("7_jufte")])
 metadata/_custom_type_script = "uid://bb71vchu7q6kv"
