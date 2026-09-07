@@ -4,7 +4,7 @@ class_name PageManager
 @export var personalisedPage: Control
 @export var aiOverViwePage: Control
 @export var pageScroller: ScrollContainer
-@export var scrollAnimTime: float = 100
+@export var scrollAnimTime: float
 
 func _on_ai_over_view_page_button_button_up() -> void:
 	scroll(360)
@@ -17,4 +17,4 @@ func _on_personalised_page_button_button_up() -> void:
 
 func scroll(value: int) -> void:
 	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(pageScroller,"scroll_horizontal",value,scrollAnimTime)
+	tween.tween_property(pageScroller,"scroll_horizontal", value, scrollAnimTime).set_trans(Tween.TRANS_LINEAR)

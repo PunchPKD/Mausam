@@ -11,12 +11,13 @@
 [ext_resource type="Resource" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
 [ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
 [ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Scenes/Togglers/uv_widget_toggler.tscn" id="7_225l2"]
-[ext_resource type="Texture2D" uid="uid://da37pirhk0ud" path="res://Assets/Icons V2.png" id="7_atha1"]
 [ext_resource type="Script" uid="uid://blmgckt1ioyxq" path="res://Scripts/widget_selection_page_manager.gd" id="8_p568m"]
 [ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Scenes/Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
 [ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Scenes/Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
 [ext_resource type="PackedScene" uid="uid://cfl6m605leyll" path="res://Scenes/Togglers/humidity_widget_toggler.tscn" id="10_cjet7"]
 [ext_resource type="PackedScene" uid="uid://cnoe4vfxu5wgw" path="res://Scenes/Togglers/test_widget_toggler.tscn" id="11_nmebp"]
+[ext_resource type="Texture2D" uid="uid://ux4owi2w5h0" path="res://Assets/Icons V6.png" id="11_q7ndp"]
+[ext_resource type="Texture2D" uid="uid://4mfxfrwlh56o" path="res://Assets/Icons V5.png" id="12_mukki"]
 [ext_resource type="Script" uid="uid://pk7tpofx571k" path="res://Scripts/ai_weather_overview_page_manager.gd" id="13_w5o2e"]
 [ext_resource type="PackedScene" uid="uid://bh4mo6owgqntn" path="res://Scenes/Togglers/sunrise_widget_toggler.tscn" id="16_ekw0x"]
 [ext_resource type="Script" uid="uid://de00yf2ka7icq" path="res://Scripts/persona_toggler.gd" id="16_w54lv"]
@@ -47,6 +48,10 @@ region = Rect2(24, 56, 304, 208)
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7ndp"]
 atlas = ExtResource("2_r4p1x")
 region = Rect2(336, 240, 240, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1qkk"]
+atlas = ExtResource("11_q7ndp")
+region = Rect2(576, 424, 168, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_528qc"]
 atlas = ExtResource("1_cjet7")
@@ -110,8 +115,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37pkv"]
-atlas = ExtResource("7_atha1")
-region = Rect2(128, 664, 88, 72)
+atlas = ExtResource("11_q7ndp")
+region = Rect2(1128, 272, 144, 112)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_57kqf"]
 content_margin_left = 0.0
@@ -123,8 +128,8 @@ grow_begin = -6.0
 vertical = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24bgx"]
-atlas = ExtResource("7_atha1")
-region = Rect2(240, 752, 72, 72)
+atlas = ExtResource("12_mukki")
+region = Rect2(344, 832, 80, 72)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_p568m"]
 content_margin_left = 4.0
@@ -185,7 +190,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scroll_vertical = 644
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -265,6 +269,13 @@ texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud" unique_id=753606592 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+script = ExtResource("3_4mykr")
+cloudElement1 = NodePath("../TextureRect")
+cloudElement2 = NodePath("../TextureRect2")
+cloudElement3 = NodePath("../TextureRect3")
+metadata/_custom_type_script = "uid://ccnalcet1vegu"
+
 [node name="Cloud2" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control/Background" unique_id=1280791373]
 anchors_preset = 0
 offset_left = 255.0
@@ -322,6 +333,13 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud2" unique_id=514140447 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+script = ExtResource("3_4mykr")
+cloudElement1 = NodePath("../TextureRect2")
+cloudElement2 = NodePath("../TextureRect")
+cloudElement3 = NodePath("../TextureRect3")
+metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
 [node name="Cloud3" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control/Background" unique_id=1228101481]
 anchors_preset = 0
@@ -381,6 +399,13 @@ texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud3" unique_id=1976168992 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+script = ExtResource("3_4mykr")
+cloudElement1 = NodePath("../TextureRect")
+cloudElement2 = NodePath("../TextureRect3")
+cloudElement3 = NodePath("../TextureRect2")
+metadata/_custom_type_script = "uid://ccnalcet1vegu"
+
 [node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control" unique_id=1711720187]
 layout_mode = 1
 anchors_preset = 15
@@ -396,19 +421,44 @@ theme_override_constants/margin_bottom = 14
 [node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer" unique_id=1650945486]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1029782624]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control" unique_id=966135351]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -27.0
+offset_right = 88.0
+offset_bottom = 144.42902
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_k1qkk")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control" unique_id=1025481524]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 257.0
+offset_right = 337.0
+offset_bottom = 458.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Cloudy"
+horizontal_alignment = 1
+
 [node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=908900181]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 64
 text = "  32°ᶜ"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Label2" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1025481524]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
-text = "Cloudy"
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="Home/ScrollContainer/VBoxContainer2" unique_id=1824416634]
@@ -708,7 +758,7 @@ script = ExtResource("2_nmebp")
 personalisedPage = NodePath("ScrollContainer/HBoxContainer/PersonalisedPage")
 aiOverViwePage = NodePath("ScrollContainer/HBoxContainer/AIWeatherOverviewPage")
 pageScroller = NodePath("ScrollContainer")
-scrollAnimTime = 0.05
+scrollAnimTime = 0.2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer" unique_id=992066996]
 layout_mode = 2
@@ -758,6 +808,7 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(200, 10)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_v0elx")
 
 [node name="UIScaleAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/EditModeToggleButton" unique_id=1632773519]
@@ -810,6 +861,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_37pkv")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="VSeparator" type="VSeparator" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=368381260]

@@ -23,12 +23,12 @@ func h_scroll_anim(direction: int) -> void:
 	
 	if direction == 1:
 		tween1.tween_property(cloudElement1,"position", defaultCloud1Pos, 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-		tween2.tween_property(cloudElement2,"position", defaultCloud2Pos, 0.7).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-		tween3.tween_property(cloudElement3,"position", defaultCloud3Pos, 1.2).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween2.tween_property(cloudElement2,"position", defaultCloud2Pos, 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween3.tween_property(cloudElement3,"position", defaultCloud3Pos, 1.4).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	elif direction == -1:
-		tween1.tween_property(cloudElement1,"position", cloudElement1.position + (scrollAmount*direction), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-		tween2.tween_property(cloudElement2,"position", cloudElement2.position + (scrollAmount*direction), 1.4).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-		tween3.tween_property(cloudElement3,"position", cloudElement3.position + (scrollAmount*direction), 0.7).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween1.tween_property(cloudElement1,"position", defaultCloud1Pos + (scrollAmount*direction), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween2.tween_property(cloudElement2,"position", defaultCloud2Pos + (scrollAmount*direction), 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween3.tween_property(cloudElement3,"position", defaultCloud3Pos + (scrollAmount*direction), 1.4).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 		
 	
 	
