@@ -9,7 +9,8 @@
 [ext_resource type="Script" uid="uid://ccnalcet1vegu" path="res://Scripts/UI Animations/cloud_ui_anim.gd" id="3_4mykr"]
 [ext_resource type="Script" uid="uid://d3874rp0lquhd" path="res://Scripts/information_page_manager.gd" id="3_d5v6j"]
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="5_nmebp"]
-[ext_resource type="Resource" uid="uid://cyxux0i775nyf" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
+[ext_resource type="Script" uid="uid://lm26og7x25yk" path="res://Scripts/general_information_manager.gd" id="5_r3xh3"]
+[ext_resource type="Resource" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
 [ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
 [ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Scenes/Togglers/uv_widget_toggler.tscn" id="7_225l2"]
 [ext_resource type="Script" uid="uid://blmgckt1ioyxq" path="res://Scripts/widget_selection_page_manager.gd" id="8_p568m"]
@@ -57,6 +58,26 @@ region = Rect2(24, 56, 304, 208)
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7ndp"]
 atlas = ExtResource("2_r4p1x")
 region = Rect2(336, 240, 240, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8htg"]
+atlas = ExtResource("12_mukki")
+region = Rect2(48, 40, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxr5l"]
+atlas = ExtResource("12_mukki")
+region = Rect2(784, 40, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ae6ih"]
+atlas = ExtResource("12_mukki")
+region = Rect2(1064, 16, 176, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5l8j"]
+atlas = ExtResource("12_mukki")
+region = Rect2(184, 168, 184, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reyk0"]
+atlas = ExtResource("12_mukki")
+region = Rect2(344, 168, 168, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1qkk"]
 atlas = ExtResource("11_q7ndp")
@@ -454,8 +475,15 @@ theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 14
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer" unique_id=1650945486]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer" unique_id=1650945486 node_paths=PackedStringArray("weatherIcon")]
 layout_mode = 2
+script = ExtResource("5_r3xh3")
+weatherIcon = NodePath("Control/TextureRect")
+clearIcon = SubResource("AtlasTexture_x8htg")
+cloudyIcon = SubResource("AtlasTexture_uxr5l")
+fogIcon = SubResource("AtlasTexture_ae6ih")
+rainIcon = SubResource("AtlasTexture_s5l8j")
+thunderstromIcon = SubResource("AtlasTexture_reyk0")
 
 [node name="Control" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1029782624]
 layout_mode = 2
