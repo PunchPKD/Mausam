@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://0ad1fgat2hdk"]
+
+[ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_r0lig"]
+[ext_resource type="PackedScene" uid="uid://d3xotqnr4d71j" path="res://Scenes/Widgets/sea_condition_widget.tscn" id="2_puwvx"]
+[ext_resource type="PackedScene" uid="uid://coaefp00u6k6" path="res://Scenes/Widgets/tides_widget.tscn" id="3_ywb2b"]
+[ext_resource type="PackedScene" uid="uid://bqyya2osev7mg" path="res://Scenes/Widgets/water_temp_widget.tscn" id="4_sgcji"]
+[ext_resource type="PackedScene" uid="uid://c7uffmuak760b" path="res://Scenes/Widgets/wave_height_widget.tscn" id="5_xvjwr"]
+
+[resource]
+script = ExtResource("1_r0lig")
+widgets = Array[PackedScene]([ExtResource("2_puwvx"), ExtResource("3_ywb2b"), ExtResource("4_sgcji"), ExtResource("5_xvjwr")])
+metadata/_custom_type_script = "uid://bb71vchu7q6kv"

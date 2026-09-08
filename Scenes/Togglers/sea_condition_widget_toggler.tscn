@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://2xbdvcfnd0as"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_xwm5w"]
+[ext_resource type="PackedScene" uid="uid://d3xotqnr4d71j" path="res://Scenes/Widgets/sea_condition_widget.tscn" id="2_dk3e1"]
+[ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="3_pcq60"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_enio1"]
+load_path = "res://.godot/imported/Icons V7.png-7ecf993bf65074df931ee5cf4323adf9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_algii"]
+atlas = SubResource("CompressedTexture2D_enio1")
+region = Rect2(32, 64, 216, 208)
+
+[node name="SeaConditionWidgetToggler" type="Control" unique_id=1046083603 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 1
+script = ExtResource("1_xwm5w")
+widgetScene = ExtResource("2_dk3e1")
+addIcon = NodePath("simple_toggler_element/AddIcon")
+removeIcon = NodePath("simple_toggler_element/RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="simple_toggler_element" parent="." unique_id=1776159138 instance=ExtResource("3_pcq60")]
+layout_mode = 0
+
+[node name="TextureRect" parent="simple_toggler_element" index="1" unique_id=1242258259]
+texture = SubResource("AtlasTexture_algii")
+
+[editable path="simple_toggler_element"]

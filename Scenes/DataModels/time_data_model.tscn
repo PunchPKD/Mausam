@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://pcdbvj7bk4u7"]
+
+[ext_resource type="Script" uid="uid://dlwm3blxgm3pp" path="res://Scripts/time_data_model.gd" id="1_2bo3k"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_b22i2"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_2bo3k"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_1h2ax"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ds0uq"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_2k7kr"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_asmad"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_5weq7"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_haaga"]
+
+[node name="TimeDataModel" type="Control" unique_id=197263041 node_paths=PackedStringArray("hour", "minute")]
+custom_minimum_size = Vector2(265, 55)
+custom_maximum_size = Vector2(265, -1)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 265.0
+offset_bottom = 55.0
+mouse_filter = 1
+script = ExtResource("1_2bo3k")
+hour = NodePath("MarginContainer/HBoxContainer/SpinBox")
+minute = NodePath("MarginContainer/HBoxContainer/SpinBox2")
+
+[node name="Panel" type="Panel" parent="." unique_id=10729503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2016976925]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2092288031]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1672926394]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time"
+vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer" unique_id=2107445657]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_constants/buttons_width = 0
+theme_override_icons/up = SubResource("ImageTexture_b22i2")
+theme_override_icons/up_hover = SubResource("ImageTexture_2bo3k")
+theme_override_icons/up_pressed = SubResource("ImageTexture_1h2ax")
+theme_override_icons/up_disabled = SubResource("ImageTexture_ds0uq")
+theme_override_icons/down = SubResource("ImageTexture_2k7kr")
+theme_override_icons/down_hover = SubResource("ImageTexture_asmad")
+theme_override_icons/down_pressed = SubResource("ImageTexture_5weq7")
+theme_override_icons/down_disabled = SubResource("ImageTexture_haaga")
+max_value = 24.0
+alignment = 2
+suffix = "hr"
+
+[node name="SpinBox2" type="SpinBox" parent="MarginContainer/HBoxContainer" unique_id=184229130]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_constants/buttons_width = 0
+theme_override_icons/up = SubResource("ImageTexture_b22i2")
+theme_override_icons/up_hover = SubResource("ImageTexture_2bo3k")
+theme_override_icons/up_pressed = SubResource("ImageTexture_1h2ax")
+theme_override_icons/up_disabled = SubResource("ImageTexture_ds0uq")
+theme_override_icons/down = SubResource("ImageTexture_2k7kr")
+theme_override_icons/down_hover = SubResource("ImageTexture_asmad")
+theme_override_icons/down_pressed = SubResource("ImageTexture_5weq7")
+theme_override_icons/down_disabled = SubResource("ImageTexture_haaga")
+max_value = 60.0
+alignment = 2
+suffix = "min"
+
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/SpinBox2" to="." method="_on_spin_box_2_value_changed"]

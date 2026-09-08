@@ -7,6 +7,7 @@ signal RemoveWidget(widgetScene: PackedScene)
 signal AddWidgetList(widgetData: BaseWidgetData)
 signal SelectElement(element: Control)
 signal StartHCloudAnimation(direction: int)
+signal StartCloudColorAnimation(color: Color)
 signal UpdateData(datas: Dictionary[DataTypeEnum.DataTypes, String])
 
 func set_data(dataType: DataTypeEnum.DataTypes, value: String) -> void:

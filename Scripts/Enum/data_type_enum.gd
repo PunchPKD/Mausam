@@ -10,5 +10,13 @@ enum DataTypes{
 				Sunrise,
 				Sunset,
 				UVIndex,
-				Wind
+				Wind,
+				WaterTemp,
+				WaveHeight,
+				Tides,
+				SeaCondition,
+				Weather,
+				Hour,
+				Minute
 				}
+#change

@@ -41,5 +41,7 @@ func change_information_element(element: Control) -> void:
 		currentInformationElement.visible = true
 
 func on_update_data(datas: Dictionary[DataTypeEnum.DataTypes, String]) -> void:
-	if label:
+	if label and datas.has(dataType):
 		label.text = datas.get(dataType)
+
+#chang

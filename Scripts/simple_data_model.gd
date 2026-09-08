@@ -6,7 +6,8 @@ class_name SimpleDataModel
 @export var spinBox: SpinBox
 
 func _ready() -> void:
-	spinBox.value = int(saveFile.widgetsData.get(dataType))
+	if saveFile.widgetsData.get(dataType):
+		spinBox.value = int(saveFile.widgetsData.get(dataType))
 
 func update_data(value: String) -> void:
 	SignalBus.set_data(dataType, value)

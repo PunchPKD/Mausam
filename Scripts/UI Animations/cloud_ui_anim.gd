@@ -4,17 +4,20 @@ class_name CloudUIAnim
 @export var cloudElement1: TextureRect
 @export var cloudElement2: TextureRect
 @export var cloudElement3: TextureRect
-
+@export var parentCloud: Control
 @export var scrollAmount: Vector2 = Vector2(12,0)
+
 var defaultCloud1Pos: Vector2
 var defaultCloud2Pos: Vector2
 var defaultCloud3Pos: Vector2
 
 func _ready() -> void:
+	parentCloud = cloudElement1.get_parent()
 	defaultCloud1Pos = cloudElement1.position
 	defaultCloud2Pos = cloudElement2.position
 	defaultCloud3Pos = cloudElement3.position
 	SignalBus.StartHCloudAnimation.connect(h_scroll_anim)
+	SignalBus.StartCloudColorAnimation.connect(color_anim)
 
 func h_scroll_anim(direction: int) -> void:
 	var tween1: Tween = get_tree().create_tween()
@@ -30,6 +33,8 @@ func h_scroll_anim(direction: int) -> void:
 		tween2.tween_property(cloudElement2,"position", defaultCloud2Pos + (scrollAmount*direction), 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 		tween3.tween_property(cloudElement3,"position", defaultCloud3Pos + (scrollAmount*direction), 1.4).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 		
-	
+func color_anim(color: Color) -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(parentCloud,"modulate",color,0.3)
 	
 	

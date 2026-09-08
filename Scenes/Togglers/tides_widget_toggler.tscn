@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c5rcdxwq2uln4"]
+
+[ext_resource type="Script" uid="uid://2h845qq246ep" path="res://Scripts/widget_toggler.gd" id="1_x4umn"]
+[ext_resource type="PackedScene" uid="uid://coaefp00u6k6" path="res://Scenes/Widgets/tides_widget.tscn" id="2_b1sni"]
+[ext_resource type="PackedScene" uid="uid://cwsrjgyq421oi" path="res://Scenes/WidgetElements/simple_toggler_element.tscn" id="3_2ra5u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngadd"]
+load_path = "res://.godot/imported/Icons V7.png-7ecf993bf65074df931ee5cf4323adf9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpq5u"]
+atlas = SubResource("CompressedTexture2D_ngadd")
+region = Rect2(248, 64, 200, 208)
+
+[node name="TidesWidgetToggler" type="Control" unique_id=1340391413 node_paths=PackedStringArray("addIcon", "removeIcon")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 1
+script = ExtResource("1_x4umn")
+widgetScene = ExtResource("2_b1sni")
+addIcon = NodePath("simple_toggler_element/AddIcon")
+removeIcon = NodePath("simple_toggler_element/RemoveIcon")
+metadata/_custom_type_script = "uid://2h845qq246ep"
+
+[node name="simple_toggler_element" parent="." unique_id=1776159138 instance=ExtResource("3_2ra5u")]
+layout_mode = 0
+
+[node name="TextureRect" parent="simple_toggler_element" index="1" unique_id=1242258259]
+texture = SubResource("AtlasTexture_fpq5u")
+
+[editable path="simple_toggler_element"]
