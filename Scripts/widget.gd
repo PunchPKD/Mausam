@@ -7,6 +7,8 @@ enum WidgetRanks{TOP, MIDDLE, BOTTOM}
 @export var simpleInformationElement: Control
 @export var detailedInformationElement: Control
 @export var focusedInformationElement: Control
+@export var dataType: SignalBus.DataTypes
+@export var label: Label
 
 var informationMode: InformationModes = InformationModes.SIMPLE:
 	set(value):
@@ -22,7 +24,7 @@ var widgetRank: WidgetRanks = WidgetRanks.BOTTOM
 var currentInformationElement: Control
 
 func _ready() -> void:
-	pass
+	SignalBus.UpdateData.connect(on_update_data)
 	
 func _gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Click"):
@@ -36,3 +38,7 @@ func change_information_element(element: Control) -> void:
 			currentInformationElement.visible = false
 		currentInformationElement = element
 		currentInformationElement.visible = true
+
+func on_update_data(datas: Dictionary[SignalBus.DataTypes, String]) -> void:
+	if label:
+		label.text = datas.get(dataType)

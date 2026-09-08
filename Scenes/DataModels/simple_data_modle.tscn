@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://4krdwnauo3ud"]
+
+[ext_resource type="Script" uid="uid://dq2q2c28cht21" path="res://Scripts/simple_data_model.gd" id="1_fi03p"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_q7ndp"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_mukki"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_vguhh"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_xv667"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_d7l6h"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_k2oce"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_5vu1o"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_phtru"]
+
+[node name="SimpleDataModel" type="Control" unique_id=1402698567]
+custom_minimum_size = Vector2(270, 55)
+custom_maximum_size = Vector2(270, -1)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_fi03p")
+
+[node name="Panel" type="Panel" parent="." unique_id=2082914968]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1131059747]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1271245094]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=723996716]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test"
+vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer" unique_id=1800767085]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_constants/buttons_width = 0
+theme_override_icons/up = SubResource("ImageTexture_q7ndp")
+theme_override_icons/up_hover = SubResource("ImageTexture_mukki")
+theme_override_icons/up_pressed = SubResource("ImageTexture_vguhh")
+theme_override_icons/up_disabled = SubResource("ImageTexture_xv667")
+theme_override_icons/down = SubResource("ImageTexture_d7l6h")
+theme_override_icons/down_hover = SubResource("ImageTexture_k2oce")
+theme_override_icons/down_pressed = SubResource("ImageTexture_5vu1o")
+theme_override_icons/down_disabled = SubResource("ImageTexture_phtru")
+alignment = 2
+
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]

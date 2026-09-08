@@ -10,7 +10,7 @@
 atlas = ExtResource("5_xdwtk")
 region = Rect2(32, 728, 280, 208)
 
-[node name="TestWidget" type="Control" unique_id=1181579078 node_paths=PackedStringArray("simpleInformationElement", "detailedInformationElement", "focusedInformationElement")]
+[node name="TestWidget" type="Control" unique_id=1181579078 node_paths=PackedStringArray("simpleInformationElement", "detailedInformationElement", "focusedInformationElement", "label")]
 custom_minimum_size = Vector2(0, 55)
 layout_mode = 3
 anchors_preset = 0
@@ -23,6 +23,7 @@ script = ExtResource("1_ybpu2")
 simpleInformationElement = NodePath("SimpleInformationWidgetElement")
 detailedInformationElement = NodePath("DetailedInfotmationWidgetElement")
 focusedInformationElement = NodePath("FocuedInformationElement")
+label = NodePath("SimpleInformationWidgetElement/MarginContainer/Label2")
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 
 [node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_eyvlw")]
