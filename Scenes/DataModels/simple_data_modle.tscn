@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4krdwnauo3ud"]
 
 [ext_resource type="Script" uid="uid://dq2q2c28cht21" path="res://Scripts/simple_data_model.gd" id="1_fi03p"]
+[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save1.tres" id="2_ipgux"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_q7ndp"]
 
@@ -18,13 +19,15 @@
 
 [sub_resource type="ImageTexture" id="ImageTexture_phtru"]
 
-[node name="SimpleDataModel" type="Control" unique_id=1402698567]
-custom_minimum_size = Vector2(270, 55)
-custom_maximum_size = Vector2(270, -1)
+[node name="SimpleDataModel" type="Control" unique_id=1402698567 node_paths=PackedStringArray("spinBox")]
+custom_minimum_size = Vector2(265, 55)
+custom_maximum_size = Vector2(265, -1)
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
 script = ExtResource("1_fi03p")
+saveFile = ExtResource("2_ipgux")
+spinBox = NodePath("MarginContainer/HBoxContainer/SpinBox")
 
 [node name="Panel" type="Panel" parent="." unique_id=2082914968]
 layout_mode = 1

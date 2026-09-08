@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="1_nyxlq"]
 [ext_resource type="PackedScene" uid="uid://cob07wtmpd1u8" path="res://Scenes/WidgetElements/simple_information_widget_element.tscn" id="2_6keve"]
 
-[node name="AQIWidget" type="Control" unique_id=722896801]
+[node name="AQIWidget" type="Control" unique_id=722896801 node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(0, 55)
 layout_mode = 3
 anchors_preset = 0
@@ -14,6 +14,8 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme = ExtResource("1_nyxlq")
 script = ExtResource("1_d7u6t")
+dataType = 2
+label = NodePath("SimpleInformationWidgetElement/MarginContainer/Label2")
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 
 [node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("2_6keve")]

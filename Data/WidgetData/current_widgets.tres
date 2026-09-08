@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://drc82qy0jc76v"]
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3]
 
-[ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
-[ext_resource type="PackedScene" uid="uid://bt7hdi8qeqkqi" path="res://Scenes/Widgets/test_widget.tscn" id="7_jufte"]
+[ext_resource type="Script" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
+[ext_resource type="PackedScene" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="3_4luev"]
+[ext_resource type="PackedScene" path="res://Scenes/Widgets/wind_widget.tscn" id="4_ik1d8"]
+[ext_resource type="PackedScene" path="res://Scenes/Widgets/soil_moisture_widget.tscn" id="5_j75gj"]
+[ext_resource type="PackedScene" path="res://Scenes/Widgets/heat_widget.tscn" id="6_fr3on"]
+[ext_resource type="PackedScene" path="res://Scenes/Widgets/test_widget.tscn" id="7_jufte"]
 
 [resource]
 script = ExtResource("1_wysnf")
-widgets = Array[PackedScene]([ExtResource("7_jufte")])
+widgets = Array[PackedScene]([ExtResource("7_jufte"), ExtResource("3_4luev"), ExtResource("4_ik1d8"), ExtResource("5_j75gj"), ExtResource("6_fr3on")])
 metadata/_custom_type_script = "uid://bb71vchu7q6kv"

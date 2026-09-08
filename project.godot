@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*uid://bctcp6m1w7t1k"
+SaveManager="*uid://cgtrrigttdl6y"
 
 [display]
 

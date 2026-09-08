@@ -1,17 +1,18 @@
 extends Node
 
-enum  DataTypes{Test}
-var Datas: Dictionary[DataTypes, String]
+var Datas: Dictionary[DataTypeEnum.DataTypes, String]
 
 signal AddWidget(widgetScene: PackedScene)
 signal RemoveWidget(widgetScene: PackedScene)
 signal AddWidgetList(widgetData: BaseWidgetData)
 signal SelectElement(element: Control)
 signal StartHCloudAnimation(direction: int)
-signal UpdateData(datas: Dictionary[DataTypes, String])
+signal UpdateData(datas: Dictionary[DataTypeEnum.DataTypes, String])
 
-func set_data(dataType: DataTypes, value: String) -> void:
+func set_data(dataType: DataTypeEnum.DataTypes, value: String) -> void:
 	Datas[dataType] = value
 
 func update_data() -> void:
+	await get_tree().process_frame
 	UpdateData.emit(Datas)
+	SaveManager.save_widget_data(Datas)
