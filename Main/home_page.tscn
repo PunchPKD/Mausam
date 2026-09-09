@@ -10,12 +10,13 @@
 [ext_resource type="Script" uid="uid://d3874rp0lquhd" path="res://Scripts/information_page_manager.gd" id="3_d5v6j"]
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="5_nmebp"]
 [ext_resource type="Script" uid="uid://lm26og7x25yk" path="res://Scripts/general_information_manager.gd" id="5_r3xh3"]
-[ext_resource type="Resource" uid="uid://c8lh2oica7ml8" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
+[ext_resource type="Resource" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
 [ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
 [ext_resource type="Texture2D" uid="uid://dhthqd42h6ub8" path="res://Assets/Icons V7.png" id="7_5r4sd"]
 [ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Scenes/Togglers/uv_widget_toggler.tscn" id="7_225l2"]
 [ext_resource type="Script" uid="uid://blmgckt1ioyxq" path="res://Scripts/widget_selection_page_manager.gd" id="8_p568m"]
 [ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Scenes/Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
+[ext_resource type="Texture2D" uid="uid://djo1gt6v0ms0t" path="res://Assets/red-alert-icon.png" id="9_6q4rx"]
 [ext_resource type="PackedScene" uid="uid://c1hv6x1o7jtd8" path="res://Scenes/WidgetElements/mini_widget_element.tscn" id="9_14f00"]
 [ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Scenes/Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
 [ext_resource type="PackedScene" uid="uid://cfl6m605leyll" path="res://Scenes/Togglers/humidity_widget_toggler.tscn" id="10_cjet7"]
@@ -46,9 +47,9 @@
 [ext_resource type="PackedScene" uid="uid://ddvk16jg5d0fs" path="res://Scenes/DataModels/weather_selection_data_model.tscn" id="41_ve7xk"]
 [ext_resource type="PackedScene" uid="uid://pcdbvj7bk4u7" path="res://Scenes/DataModels/time_data_model.tscn" id="42_p7q4y"]
 [ext_resource type="Script" uid="uid://dgmg2rbpyigig" path="res://Scripts/location_selector.gd" id="45_l3hmi"]
-[ext_resource type="Resource" uid="uid://dyuxomo4kxqu4" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
-[ext_resource type="Resource" uid="uid://d3cfcusr74w64" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
-[ext_resource type="Resource" uid="uid://ds0wh30jc3qwv" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
+[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
+[ext_resource type="Resource" uid="uid://c7j745vav2aow" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
+[ext_resource type="Resource" uid="uid://63wt4ki5xf8s" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1g48"]
 bg_color = Color(1, 1, 1, 1)
@@ -105,6 +106,10 @@ region = Rect2(808, 744, 88, 112)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksufs"]
 atlas = ExtResource("12_mukki")
 region = Rect2(208, 824, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vscu1"]
+atlas = ExtResource("7_5r4sd")
+region = Rect2(1312, 280, 192, 184)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1qkk"]
 atlas = ExtResource("11_q7ndp")
@@ -575,6 +580,52 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control4" unique_id=532742467]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control4/VBoxContainer" unique_id=336878098]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control4/VBoxContainer/Panel" unique_id=1840141937]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control4/VBoxContainer/Panel/MarginContainer" unique_id=279234701]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control4/VBoxContainer/Panel/MarginContainer/HBoxContainer" unique_id=83677229]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_6q4rx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control4/VBoxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1317725182]
+modulate = Color(1, 0.8333334, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.58
+text = "Sevear Thunderstrom Alert"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control4/VBoxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1054859627]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vscu1")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="Control" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1029782624]
 layout_mode = 2
 size_flags_vertical = 3
@@ -622,7 +673,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-horizontal_scroll_mode = 2
+horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer" unique_id=2399810]
