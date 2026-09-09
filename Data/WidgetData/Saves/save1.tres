@@ -5,20 +5,18 @@
 [resource]
 script = ExtResource("1_d13r8")
 widgetsData = Dictionary[int, String]({
-0: "32",
-1: "32°c",
+0: "53",
+1: "31°c",
 2: "3",
-3: "43%",
-4: "47%",
-5: "80%",
-6: "6AM",
-7: "4PM",
-8: "3",
-9: "32Km/Hr",
-10: "20°c",
-11: "2ft",
-14: "4",
-15: "13",
-16: "0"
+3: "47%",
+4: "53%",
+5: "78%",
+6: "5AM",
+7: "5PM",
+8: "2",
+9: "2Km/Hr",
+10: "26°c",
+11: "1ft",
+14: "1"
 })
 metadata/_custom_type_script = "uid://4h6cank6jlsb"

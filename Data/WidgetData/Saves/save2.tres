@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BaseSaveFile" format=3]
+
+[ext_resource type="Script" path="res://Scripts/base_save_file.gd" id="1_vob0a"]
+
+[resource]
+script = ExtResource("1_vob0a")
+widgetsData = Dictionary[int, String]({
+0: "32",
+1: "28°c",
+2: "2",
+4: "100%",
+9: "5Km/Hr",
+10: "23°c",
+14: "4"
+})
+metadata/_custom_type_script = "uid://4h6cank6jlsb"

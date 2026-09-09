@@ -3,13 +3,17 @@ class_name HomePageManager
 
 @export var simulationPage: Control
 @export var simulateButton: TextureButton
+@export var homePageScroller: ScrollContainer
+@export var locationSelectionOverlay: Control
 
 @export var label: Label
+@export var tempLabel: Label
 @export var background: Panel
 @export var rainParticle: CPUParticles2D
 
 func _ready() -> void:
 	SignalBus.UpdateData.connect(on_update_data)
+	SignalBus.ToggleLocationSelectionOverlay.connect(on_toggle_location_selection_overlay)
 
 func on_update_data(data: Dictionary[DataTypeEnum.DataTypes, String]) -> void:
 	if data.get(DataTypeEnum.DataTypes.Weather) == null:
@@ -34,16 +38,18 @@ func on_update_data(data: Dictionary[DataTypeEnum.DataTypes, String]) -> void:
 		label.text = "Rain"
 		rainParticle.emitting = true
 		rainParticle.amount = 18
-		rainParticle.initial_velocity_max = 700
+		rainParticle.initial_velocity_max = 900
 		animate_background_color(Color(0.378, 0.43, 0.43, 1.0))
 		SignalBus.StartCloudColorAnimation.emit(Color(0.617, 0.617, 0.617, 1.0))
 	elif tempInt == WeatherTypeEnum.WeatherType.Thunderstrom:
 		label.text = "Thunderstrom"
 		rainParticle.emitting = true
 		rainParticle.amount = 26
-		rainParticle.initial_velocity_min = 800
+		rainParticle.initial_velocity_min = 1000
 		animate_background_color(Color(0.196, 0.22, 0.22, 1.0))
 		SignalBus.StartCloudColorAnimation.emit(Color(0.486, 0.486, 0.486, 1.0))
+	if data.has(DataTypeEnum.DataTypes.Temp):
+		tempLabel.text = data.get(DataTypeEnum.DataTypes.Temp)
 
 func animate_background_color(color: Color) -> void:
 	var tween: Tween = get_tree().create_tween()
@@ -55,6 +61,12 @@ func _on_texture_button_button_up() -> void:
 func toogle_visiblity(element: Control) -> void:
 	element.visible = !element.visible
 
-
 func _on_button_button_up() -> void:
 	toogle_visiblity(simulationPage)
+
+func on_toggle_location_selection_overlay() -> void:
+	locationSelectionOverlay.visible = !locationSelectionOverlay.visible
+
+
+func _on_texture_button_2_button_up() -> void:
+	on_toggle_location_selection_overlay()

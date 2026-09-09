@@ -8,7 +8,9 @@ signal AddWidgetList(widgetData: BaseWidgetData)
 signal SelectElement(element: Control)
 signal StartHCloudAnimation(direction: int)
 signal StartCloudColorAnimation(color: Color)
+signal ToggleLocationSelectionOverlay()
 signal UpdateData(datas: Dictionary[DataTypeEnum.DataTypes, String])
+signal SaveFileChanged(file: BaseSaveFile)
 
 func set_data(dataType: DataTypeEnum.DataTypes, value: String) -> void:
 	Datas[dataType] = value

@@ -5,12 +5,8 @@
 [ext_resource type="PackedScene" path="res://Scenes/Widgets/humidity_widget.tscn" id="3_4luev"]
 [ext_resource type="PackedScene" path="res://Scenes/Widgets/pollen_count_widget.tscn" id="4_ik1d8"]
 [ext_resource type="PackedScene" path="res://Scenes/Widgets/uv_index_widget.tscn" id="5_j75gj"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/sunrise_widget.tscn" id="6_fr3on"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/sunset_widget.tscn" id="7_folv1"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/tides_widget.tscn" id="9_jg0ii"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/wave_height_widget.tscn" id="10_x8htg"]
 
 [resource]
 script = ExtResource("1_wysnf")
-widgets = Array[PackedScene]([ExtResource("2_0gx4x"), ExtResource("3_4luev"), ExtResource("4_ik1d8"), ExtResource("5_j75gj"), ExtResource("6_fr3on"), ExtResource("7_folv1"), ExtResource("9_jg0ii"), ExtResource("10_x8htg")])
+widgets = Array[PackedScene]([ExtResource("2_0gx4x"), ExtResource("3_4luev"), ExtResource("4_ik1d8"), ExtResource("5_j75gj")])
 metadata/_custom_type_script = "uid://bb71vchu7q6kv"

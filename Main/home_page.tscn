@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://lm26og7x25yk" path="res://Scripts/general_information_manager.gd" id="5_r3xh3"]
 [ext_resource type="Resource" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
 [ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
+[ext_resource type="Texture2D" uid="uid://dhthqd42h6ub8" path="res://Assets/Icons V7.png" id="7_5r4sd"]
 [ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Scenes/Togglers/uv_widget_toggler.tscn" id="7_225l2"]
 [ext_resource type="Script" uid="uid://blmgckt1ioyxq" path="res://Scripts/widget_selection_page_manager.gd" id="8_p568m"]
 [ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Scenes/Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
@@ -43,9 +44,22 @@
 [ext_resource type="Script" uid="uid://mj0dkoo5ss3" path="res://Scripts/simulation_manager.gd" id="34_vguhh"]
 [ext_resource type="PackedScene" uid="uid://ddvk16jg5d0fs" path="res://Scenes/DataModels/weather_selection_data_model.tscn" id="41_ve7xk"]
 [ext_resource type="PackedScene" uid="uid://pcdbvj7bk4u7" path="res://Scenes/DataModels/time_data_model.tscn" id="42_p7q4y"]
+[ext_resource type="Script" uid="uid://dgmg2rbpyigig" path="res://Scripts/location_selector.gd" id="45_l3hmi"]
+[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
+[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
+[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1g48"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_lw4mn"]
+_data = [Vector2(0, 0.39393932), 0.0, 0.0824573, 0, 0, Vector2(0.985, 0.39393932), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_nlihr"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mykr"]
 atlas = ExtResource("2_r4p1x")
@@ -79,6 +93,18 @@ region = Rect2(184, 168, 184, 184)
 atlas = ExtResource("12_mukki")
 region = Rect2(344, 168, 168, 168)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b3cl"]
+atlas = ExtResource("7_5r4sd")
+region = Rect2(480, 312, 168, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eyeo"]
+atlas = ExtResource("11_q7ndp")
+region = Rect2(808, 744, 88, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksufs"]
+atlas = ExtResource("12_mukki")
+region = Rect2(208, 824, 88, 88)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1qkk"]
 atlas = ExtResource("11_q7ndp")
 region = Rect2(576, 424, 168, 144)
@@ -103,7 +129,7 @@ content_margin_left = 0.0
 content_margin_top = 4.0
 content_margin_right = 0.0
 content_margin_bottom = 4.0
-color = Color(1, 1, 1, 0.5921569)
+color = Color(1, 1, 1, 1)
 grow_begin = -5.0
 grow_end = -5.0
 vertical = true
@@ -122,6 +148,16 @@ modulate_color = Color(0.13333334, 0.56078434, 1, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5o2e"]
 texture = SubResource("AtlasTexture_dai13")
 modulate_color = Color(0.60784316, 0.8117647, 1, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5r4sd"]
+content_margin_left = 0.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(1, 1, 1, 1)
+grow_begin = -3.0
+grow_end = -3.0
+vertical = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0elx"]
 content_margin_left = 4.0
@@ -161,15 +197,6 @@ vertical = true
 atlas = ExtResource("12_mukki")
 region = Rect2(344, 832, 80, 72)
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_p568m"]
-content_margin_left = 4.0
-content_margin_top = 0.0
-content_margin_right = 4.0
-content_margin_bottom = 0.0
-color = Color(0.5, 0.5, 0.5, 1)
-grow_begin = -20.0
-grow_end = -20.0
-
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_r4p1x"]
 content_margin_left = 4.0
 content_margin_top = 0.0
@@ -194,13 +221,9 @@ VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_d5v6j")
 VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_w5o2e")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_atha1")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ksufs"]
-atlas = ExtResource("12_mukki")
-region = Rect2(208, 824, 88, 88)
-
 [node name="HomePage" type="Node2D" unique_id=740829968]
 
-[node name="Home" type="Control" parent="." unique_id=1878901306 node_paths=PackedStringArray("simulationPage", "simulateButton", "label", "background", "rainParticle")]
+[node name="Home" type="Control" parent="." unique_id=1878901306 node_paths=PackedStringArray("simulationPage", "simulateButton", "homePageScroller", "locationSelectionOverlay", "label", "tempLabel", "background", "rainParticle")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 360.0
@@ -208,9 +231,12 @@ offset_bottom = 640.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_xv667")
-simulationPage = NodePath("SimulationPage")
-simulateButton = NodePath("Control/TextureButton")
-label = NodePath("ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control/Label2")
+simulationPage = NodePath("SimulationOverlay")
+simulateButton = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer/TextureButton")
+homePageScroller = NodePath("WeatherPage")
+locationSelectionOverlay = NodePath("LocationSelectionOverlay")
+label = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control/Label2")
+tempLabel = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Label")
 background = NodePath("Panel")
 rainParticle = NodePath("CPUParticles2D")
 
@@ -233,13 +259,16 @@ emission_rect_extents = Vector2(180, 1)
 direction = Vector2(0, 1)
 spread = 0.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 700.0
-initial_velocity_max = 700.0
+initial_velocity_min = 900.0
+initial_velocity_max = 900.0
 scale_amount_min = 5.0
 scale_amount_max = 5.0
+split_scale = true
+scale_curve_x = SubResource("Curve_lw4mn")
+scale_curve_y = SubResource("Curve_nlihr")
 color = Color(0.56, 0.8, 0.8, 1)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Home" unique_id=678683047]
+[node name="WeatherPage" type="ScrollContainer" parent="Home" unique_id=678683047]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -249,17 +278,19 @@ grow_vertical = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Home/ScrollContainer" unique_id=175454614]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Home/WeatherPage" unique_id=175454614]
+custom_minimum_size = Vector2(0, 644)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="Home/ScrollContainer/VBoxContainer2" unique_id=928704364]
+[node name="Control" type="Control" parent="Home/WeatherPage/VBoxContainer2" unique_id=928704364]
 custom_minimum_size = Vector2(0, 640)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("5_nmebp")
 
-[node name="Background" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control" unique_id=1631239036]
+[node name="Background" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control" unique_id=1631239036]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -268,14 +299,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Cloud" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control/Background" unique_id=370847870]
+[node name="Cloud" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/Background" unique_id=370847870]
 anchors_preset = 0
 offset_left = 41.0
 offset_top = 126.0
 offset_right = 153.0
 offset_bottom = 220.0
 
-[node name="TextureRect2" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud" unique_id=1290107229]
+[node name="TextureRect2" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud" unique_id=1290107229]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -292,7 +323,7 @@ texture = SubResource("AtlasTexture_4mykr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud" unique_id=640163877]
+[node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud" unique_id=640163877]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -309,7 +340,7 @@ texture = SubResource("AtlasTexture_e86h8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud" unique_id=1421434319]
+[node name="TextureRect3" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud" unique_id=1421434319]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -326,21 +357,21 @@ texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud" unique_id=753606592 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud" unique_id=753606592 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
 script = ExtResource("3_4mykr")
 cloudElement1 = NodePath("../TextureRect")
 cloudElement2 = NodePath("../TextureRect2")
 cloudElement3 = NodePath("../TextureRect3")
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
-[node name="Cloud2" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control/Background" unique_id=1280791373]
+[node name="Cloud2" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/Background" unique_id=1280791373]
 anchors_preset = 0
-offset_left = 255.0
-offset_top = 381.0
-offset_right = 367.0
-offset_bottom = 475.0
+offset_left = 301.0
+offset_top = 448.0
+offset_right = 413.0
+offset_bottom = 542.0
 
-[node name="TextureRect2" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud2" unique_id=1840805061]
+[node name="TextureRect2" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud2" unique_id=1840805061]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -357,7 +388,7 @@ texture = SubResource("AtlasTexture_4mykr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud2" unique_id=370106621]
+[node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud2" unique_id=370106621]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -374,7 +405,7 @@ texture = SubResource("AtlasTexture_e86h8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud2" unique_id=1408137816]
+[node name="TextureRect3" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud2" unique_id=1408137816]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -391,21 +422,21 @@ texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud2" unique_id=514140447 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud2" unique_id=514140447 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
 script = ExtResource("3_4mykr")
 cloudElement1 = NodePath("../TextureRect2")
 cloudElement2 = NodePath("../TextureRect")
 cloudElement3 = NodePath("../TextureRect3")
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
-[node name="Cloud3" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control/Background" unique_id=1228101481]
+[node name="Cloud3" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/Background" unique_id=1228101481]
 anchors_preset = 0
 offset_left = 246.0
 offset_top = 25.0
 offset_right = 358.0
 offset_bottom = 119.0
 
-[node name="TextureRect2" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud3" unique_id=1608158778]
+[node name="TextureRect2" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud3" unique_id=1608158778]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -422,7 +453,7 @@ texture = SubResource("AtlasTexture_4mykr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud3" unique_id=1419460092]
+[node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud3" unique_id=1419460092]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -439,7 +470,7 @@ texture = SubResource("AtlasTexture_e86h8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud3" unique_id=1701207642]
+[node name="TextureRect3" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud3" unique_id=1701207642]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -456,14 +487,14 @@ texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control/Background/Cloud3" unique_id=1976168992 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control/Background/Cloud3" unique_id=1976168992 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
 script = ExtResource("3_4mykr")
 cloudElement1 = NodePath("../TextureRect")
 cloudElement2 = NodePath("../TextureRect3")
 cloudElement3 = NodePath("../TextureRect2")
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control" unique_id=1711720187]
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control" unique_id=1711720187]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -475,7 +506,7 @@ theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 14
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer" unique_id=1650945486 node_paths=PackedStringArray("weatherIcon")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer" unique_id=1650945486 node_paths=PackedStringArray("weatherIcon")]
 layout_mode = 2
 script = ExtResource("5_r3xh3")
 weatherIcon = NodePath("Control/TextureRect")
@@ -485,12 +516,59 @@ fogIcon = SubResource("AtlasTexture_ae6ih")
 rainIcon = SubResource("AtlasTexture_s5l8j")
 thunderstromIcon = SubResource("AtlasTexture_reyk0")
 
-[node name="Control" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1029782624]
+[node name="Control2" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=641167040]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2" unique_id=1137228643]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2" unique_id=74378385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2/MarginContainer" unique_id=414114146]
+custom_minimum_size = Vector2(0, 32)
+custom_maximum_size = Vector2(-1, 32)
+layout_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer" unique_id=760714263]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_1b3cl")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer" unique_id=882186290]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_2eyeo")
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer" unique_id=198172140]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_ksufs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1029782624]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control" unique_id=966135351]
+[node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control" unique_id=966135351]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -508,7 +586,7 @@ texture = SubResource("AtlasTexture_k1qkk")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Label2" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control" unique_id=1025481524]
+[node name="Label2" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control" unique_id=1025481524]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 257.0
@@ -519,14 +597,14 @@ theme_override_font_sizes/font_size = 32
 text = "Cloudy"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=908900181]
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=908900181]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 64
 text = "  32°ᶜ"
 horizontal_alignment = 1
 
-[node name="Control2" type="Control" parent="Home/ScrollContainer/VBoxContainer2" unique_id=1824416634]
+[node name="Control2" type="Control" parent="Home/WeatherPage/VBoxContainer2" unique_id=1824416634]
 custom_minimum_size = Vector2(360, 640)
 custom_maximum_size = Vector2(360, -1)
 propagate_maximum_size = true
@@ -535,7 +613,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="Background" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2" unique_id=1753205953]
+[node name="Background" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2" unique_id=1753205953]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -543,14 +621,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Cloud" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background" unique_id=1305861921]
+[node name="Cloud" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/Background" unique_id=1305861921]
 anchors_preset = 0
 offset_left = 312.0
 offset_top = 189.0
 offset_right = 424.0
 offset_bottom = 283.0
 
-[node name="TextureRect2" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud" unique_id=1583956064]
+[node name="TextureRect2" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud" unique_id=1583956064]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -567,7 +645,7 @@ texture = SubResource("AtlasTexture_4mykr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud" unique_id=582337391]
+[node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud" unique_id=582337391]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -584,7 +662,7 @@ texture = SubResource("AtlasTexture_e86h8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud" unique_id=2017597280]
+[node name="TextureRect3" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud" unique_id=2017597280]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -601,21 +679,21 @@ texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud" unique_id=824210857 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud" unique_id=824210857 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
 script = ExtResource("3_4mykr")
 cloudElement1 = NodePath("../TextureRect")
 cloudElement2 = NodePath("../TextureRect2")
 cloudElement3 = NodePath("../TextureRect3")
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
-[node name="Cloud2" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background" unique_id=952700473]
+[node name="Cloud2" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/Background" unique_id=952700473]
 anchors_preset = 0
 offset_left = 30.0
 offset_top = 400.0
 offset_right = 142.0
 offset_bottom = 494.0
 
-[node name="TextureRect2" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud2" unique_id=600789795]
+[node name="TextureRect2" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud2" unique_id=600789795]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -632,7 +710,7 @@ texture = SubResource("AtlasTexture_4mykr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud2" unique_id=910891262]
+[node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud2" unique_id=910891262]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -649,7 +727,7 @@ texture = SubResource("AtlasTexture_e86h8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud2" unique_id=878054719]
+[node name="TextureRect3" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud2" unique_id=878054719]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -666,21 +744,21 @@ texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud2" unique_id=2082396165 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud2" unique_id=2082396165 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
 script = ExtResource("3_4mykr")
 cloudElement1 = NodePath("../TextureRect")
 cloudElement2 = NodePath("../TextureRect3")
 cloudElement3 = NodePath("../TextureRect2")
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
-[node name="Cloud3" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background" unique_id=1740321788]
+[node name="Cloud3" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/Background" unique_id=1740321788]
 anchors_preset = 0
 offset_left = 6.0
 offset_top = -33.0
 offset_right = 118.0
 offset_bottom = 61.0
 
-[node name="TextureRect2" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud3" unique_id=212094326]
+[node name="TextureRect2" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud3" unique_id=212094326]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -697,7 +775,7 @@ texture = SubResource("AtlasTexture_4mykr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud3" unique_id=447763579]
+[node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud3" unique_id=447763579]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -714,7 +792,7 @@ texture = SubResource("AtlasTexture_e86h8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud3" unique_id=1640726861]
+[node name="TextureRect3" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud3" unique_id=1640726861]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -731,14 +809,14 @@ texture = SubResource("AtlasTexture_q7ndp")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control2/Background/Cloud3" unique_id=642425854 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/Background/Cloud3" unique_id=642425854 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
 script = ExtResource("3_4mykr")
 cloudElement1 = NodePath("../TextureRect3")
 cloudElement2 = NodePath("../TextureRect")
 cloudElement3 = NodePath("../TextureRect2")
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2" unique_id=1072381594]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2" unique_id=1072381594]
 custom_minimum_size = Vector2(360, 640)
 custom_maximum_size = Vector2(360, -1)
 layout_mode = 0
@@ -747,21 +825,21 @@ offset_bottom = 640.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer" unique_id=2030319840]
+[node name="Control" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer" unique_id=2030319840]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.07
 mouse_filter = 1
 theme = ExtResource("5_nmebp")
 
-[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control" unique_id=1455881538]
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control" unique_id=1455881538]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 4.0
 offset_right = 259.0
 offset_bottom = 44.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control" unique_id=973113821]
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control" unique_id=973113821]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -773,10 +851,10 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 123
 theme_override_constants/margin_bottom = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer" unique_id=174961749]
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer" unique_id=174961749]
 layout_mode = 2
 
-[node name="PersonalisedPageButton" type="Button" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=6622927]
+[node name="PersonalisedPageButton" type="Button" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=6622927]
 texture_filter = 4
 layout_mode = 2
 size_flags_horizontal = 3
@@ -785,19 +863,19 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_37pkv")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cjet7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_nmebp")
 
-[node name="UIScaleAnim2" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/PersonalisedPageButton" unique_id=1743151928]
+[node name="UIScaleAnim2" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/PersonalisedPageButton" unique_id=1743151928]
 script = ExtResource("2_d5v6j")
 time = 0.1
 amount = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://d0m3u1qpaale6"
 
-[node name="VSeparator" type="VSeparator" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=718256697]
+[node name="VSeparator" type="VSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=718256697]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/separation = 30
 theme_override_styles/separator = SubResource("StyleBoxLine_nmebp")
 
-[node name="AIOverViewPageButton" type="Button" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=696880571]
+[node name="AIOverViewPageButton" type="Button" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=696880571]
 texture_filter = 4
 layout_mode = 2
 size_flags_horizontal = 3
@@ -806,13 +884,13 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_e86h8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_d5v6j")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w5o2e")
 
-[node name="UIScaleAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/AIOverViewPageButton" unique_id=58396603]
+[node name="UIScaleAnim" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/AIOverViewPageButton" unique_id=58396603]
 script = ExtResource("2_d5v6j")
 time = 0.1
 amount = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://d0m3u1qpaale6"
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer" unique_id=1231819239 node_paths=PackedStringArray("personalisedPage", "aiOverViwePage", "pageScroller")]
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer" unique_id=1231819239 node_paths=PackedStringArray("personalisedPage", "aiOverViwePage", "pageScroller")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 0
@@ -825,243 +903,68 @@ aiOverViwePage = NodePath("ScrollContainer/HBoxContainer/AIWeatherOverviewPage")
 pageScroller = NodePath("ScrollContainer")
 scrollAnimTime = 0.2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer" unique_id=992066996]
+[node name="ScrollContainer" type="ScrollContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer" unique_id=992066996]
 layout_mode = 2
 mouse_filter = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer" unique_id=528865805]
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer" unique_id=528865805]
 custom_minimum_size = Vector2(720, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PersonalisedPage" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1652245701 node_paths=PackedStringArray("informationPage", "widgetSelectionPage")]
+[node name="PersonalisedPage" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1652245701 node_paths=PackedStringArray("informationPage", "widgetSelectionPage")]
 layout_mode = 2
 script = ExtResource("3_d5v6j")
 informationPage = NodePath("InformationPageContainer")
 widgetSelectionPage = NodePath("WedgetSelectionPageContainer")
 
-[node name="InformationPageContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=2122824465]
-custom_minimum_size = Vector2(360, 0)
-custom_maximum_size = Vector2(360, -1)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 4
-
-[node name="InformationPage" type="ScrollContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/InformationPageContainer" unique_id=288403298 node_paths=PackedStringArray("widgetContainer")]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
-script = ExtResource("2_x7m3x")
-currentWidgets = ExtResource("6_24bgx")
-widgetContainer = NodePath("VBoxContainer")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/InformationPageContainer/InformationPage" unique_id=1359809199]
-custom_minimum_size = Vector2(340, 0)
-custom_maximum_size = Vector2(340, -1)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="EditModeToggleButton" type="Button" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=757768616]
-custom_minimum_size = Vector2(200, 10)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_v0elx")
-
-[node name="UIScaleAnim" type="Node" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/EditModeToggleButton" unique_id=1632773519]
-script = ExtResource("2_d5v6j")
-time = 0.1
-amount = Vector2(1.05, 1.05)
-metadata/_custom_type_script = "uid://d0m3u1qpaale6"
-
-[node name="WedgetSelectionPageContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=718060000]
-visible = false
-custom_minimum_size = Vector2(360, 0)
-custom_maximum_size = Vector2(360, -1)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer" unique_id=1416505972]
+[node name="Control" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=481861365]
+custom_minimum_size = Vector2(0, 32)
+custom_maximum_size = Vector2(-1, 32)
 layout_mode = 2
 theme = ExtResource("5_nmebp")
 
-[node name="WidgetSelectionPage" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer" unique_id=997137585 node_paths=PackedStringArray("widgetCoustomizationPage", "widgetPersonaPage")]
-layout_mode = 2
-script = ExtResource("8_p568m")
-widgetCoustomizationPage = NodePath("SelectionMenu/CustomizationPage")
-widgetPersonaPage = NodePath("SelectionMenu/PersonaPage")
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control" unique_id=1604549008]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Buttons" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" unique_id=192329643]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.4
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 80
-
-[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons" unique_id=434214587]
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("5_nmebp")
-theme_override_styles/panel = SubResource("StyleBoxFlat_57kqf")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons" unique_id=1110761618]
-custom_maximum_size = Vector2(-1, 35)
-layout_mode = 2
-
-[node name="PersonaButton" type="TextureButton" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=1701371032]
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = SubResource("AtlasTexture_37pkv")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="VSeparator" type="VSeparator" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=368381260]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_57kqf")
-
-[node name="CustomizationButton" type="TextureButton" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=1406101150]
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = SubResource("AtlasTexture_24bgx")
-stretch_mode = 5
-
-[node name="SelectionMenu" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" unique_id=1686770500]
-custom_minimum_size = Vector2(340, 0)
-custom_maximum_size = Vector2(353, -1)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control" unique_id=892418565]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_bottom = 0
 
-[node name="CustomizationPage" type="ScrollContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu" unique_id=799040475]
+[node name="ScrollContainer" type="ScrollContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer" unique_id=1982654857]
 layout_mode = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage" unique_id=1169340370]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="GridContainer" type="GridContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer" unique_id=1961386781]
-custom_minimum_size = Vector2(300, 0)
-custom_maximum_size = Vector2(330, -1)
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer" unique_id=999227392]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/h_separation = 38
-theme_override_constants/v_separation = 20
-columns = 4
 
-[node name="TestWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=2036872476 instance=ExtResource("11_nmebp")]
+[node name="HealthConcious" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1642784507]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-
-[node name="RainfallChanceWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1837677638 instance=ExtResource("6_iq418")]
-layout_mode = 2
-
-[node name="UVWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1693207958 instance=ExtResource("7_225l2")]
-layout_mode = 2
-
-[node name="AQIWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1388619265 instance=ExtResource("8_x7m3x")]
-layout_mode = 2
-
-[node name="PollenCountWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=110681436 instance=ExtResource("9_v0elx")]
-layout_mode = 2
-
-[node name="HumidityWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=963581016 instance=ExtResource("10_cjet7")]
-layout_mode = 2
-
-[node name="SunriseWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=398810363 instance=ExtResource("16_ekw0x")]
-layout_mode = 2
-
-[node name="SunsetWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1552500334 instance=ExtResource("17_57kqf")]
-layout_mode = 2
-
-[node name="RunningTimeWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1162059427 instance=ExtResource("18_r4p1x")]
-layout_mode = 2
-
-[node name="WindWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1104801174 instance=ExtResource("19_4mykr")]
-layout_mode = 2
-
-[node name="HeatWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1231223841 instance=ExtResource("20_q7ndp")]
-layout_mode = 2
-
-[node name="SavedDestinationsWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=2044286947 instance=ExtResource("21_mukki")]
-visible = false
-layout_mode = 2
-
-[node name="PackingSuggestionsWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1843974447 instance=ExtResource("22_vguhh")]
-visible = false
-layout_mode = 2
-
-[node name="FrostAlertWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1817894796 instance=ExtResource("23_xv667")]
-visible = false
-layout_mode = 2
-
-[node name="SoilMoistureWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=393477955 instance=ExtResource("24_57kqf")]
-layout_mode = 2
-
-[node name="WaterTempWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=750282030 instance=ExtResource("29_phtru")]
-layout_mode = 2
-
-[node name="WaveHeightWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1986088936 instance=ExtResource("30_ve7xk")]
-layout_mode = 2
-
-[node name="TidesWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1340391413 instance=ExtResource("31_p7q4y")]
-layout_mode = 2
-
-[node name="SeaConditionWidgetToggler" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1046083603 instance=ExtResource("32_r3xh3")]
-layout_mode = 2
-
-[node name="PersonaPage" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu" unique_id=2019788157]
-visible = false
-layout_mode = 2
-theme = ExtResource("5_nmebp")
-
-[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage" unique_id=953047184]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage" unique_id=1606880995]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer" unique_id=779028964]
-layout_mode = 2
-
-[node name="HealthConcious" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=1642784507]
-layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 script = ExtResource("16_w54lv")
 widgetData = ExtResource("17_tnfjc")
 
-[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer/HealthConcious" unique_id=2104986267]
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer/HealthConcious" unique_id=2104986267]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1073,17 +976,21 @@ text = "Health Conscious"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=852249073]
+[node name="VSeparator" type="VSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=243709048]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_p568m")
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_5r4sd")
 
-[node name="Fitness" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=1065593349]
+[node name="Fitness" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1065593349]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 script = ExtResource("16_w54lv")
 widgetData = ExtResource("18_342xe")
 
-[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer/Fitness" unique_id=83187116]
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer/Fitness" unique_id=83187116]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1095,17 +1002,21 @@ text = "Fitness"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=1225136520]
+[node name="VSeparator2" type="VSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1110741217]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_p568m")
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_5r4sd")
 
-[node name="BeachGoers" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=2109132072]
+[node name="BeachGoers" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=2109132072]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 script = ExtResource("16_w54lv")
 widgetData = ExtResource("32_xv667")
 
-[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer/BeachGoers" unique_id=70969713]
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer/BeachGoers" unique_id=70969713]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1117,17 +1028,21 @@ text = "Beach Goers"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=687487567]
+[node name="VSeparator3" type="VSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=227999397]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_p568m")
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_5r4sd")
 
-[node name="Farmer" type="Control" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer" unique_id=1055024010]
+[node name="Farmer" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1055024010]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 script = ExtResource("16_w54lv")
 widgetData = ExtResource("20_xqap3")
 
-[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage/MarginContainer/VBoxContainer/Farmer" unique_id=1485599415]
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer/Farmer" unique_id=1485599415]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1139,49 +1054,260 @@ text = "Farmer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AIWeatherOverviewPage" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1033905318 node_paths=PackedStringArray("summary", "greetingLabel")]
+[node name="InformationPageContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=2122824465]
+custom_minimum_size = Vector2(360, 0)
+custom_maximum_size = Vector2(360, -1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="InformationPage" type="ScrollContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/InformationPageContainer" unique_id=288403298 node_paths=PackedStringArray("widgetContainer")]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("2_x7m3x")
+currentWidgets = ExtResource("6_24bgx")
+widgetContainer = NodePath("VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/InformationPageContainer/InformationPage" unique_id=1359809199]
+custom_minimum_size = Vector2(340, 0)
+custom_maximum_size = Vector2(340, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EditModeToggleButton" type="Button" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=757768616]
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_v0elx")
+
+[node name="UIScaleAnim" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/EditModeToggleButton" unique_id=1632773519]
+script = ExtResource("2_d5v6j")
+time = 0.1
+amount = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://d0m3u1qpaale6"
+
+[node name="WedgetSelectionPageContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=718060000]
+visible = false
+custom_minimum_size = Vector2(360, 0)
+custom_maximum_size = Vector2(360, -1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+mouse_filter = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer" unique_id=1416505972]
+layout_mode = 2
+theme = ExtResource("5_nmebp")
+
+[node name="WidgetSelectionPage" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer" unique_id=997137585 node_paths=PackedStringArray("widgetCoustomizationPage", "widgetPersonaPage")]
+layout_mode = 2
+script = ExtResource("8_p568m")
+widgetCoustomizationPage = NodePath("SelectionMenu/CustomizationPage")
+widgetPersonaPage = NodePath("SelectionMenu/PersonaPage")
+
+[node name="Buttons" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" unique_id=192329643]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 80
+
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons" unique_id=434214587]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("5_nmebp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_57kqf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons" unique_id=1110761618]
+custom_maximum_size = Vector2(-1, 35)
+layout_mode = 2
+
+[node name="PersonaButton" type="TextureButton" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=1701371032]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_37pkv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=368381260]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_57kqf")
+
+[node name="CustomizationButton" type="TextureButton" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer" unique_id=1406101150]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_24bgx")
+stretch_mode = 5
+
+[node name="SelectionMenu" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" unique_id=1686770500]
+custom_minimum_size = Vector2(340, 0)
+custom_maximum_size = Vector2(353, -1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 23
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="CustomizationPage" type="ScrollContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu" unique_id=799040475]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage" unique_id=1169340370]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer" unique_id=1961386781]
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(330, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 38
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="TestWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=2036872476 instance=ExtResource("11_nmebp")]
+layout_mode = 2
+
+[node name="RainfallChanceWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1837677638 instance=ExtResource("6_iq418")]
+layout_mode = 2
+
+[node name="UVWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1693207958 instance=ExtResource("7_225l2")]
+layout_mode = 2
+
+[node name="AQIWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1388619265 instance=ExtResource("8_x7m3x")]
+layout_mode = 2
+
+[node name="PollenCountWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=110681436 instance=ExtResource("9_v0elx")]
+layout_mode = 2
+
+[node name="HumidityWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=963581016 instance=ExtResource("10_cjet7")]
+layout_mode = 2
+
+[node name="SunriseWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=398810363 instance=ExtResource("16_ekw0x")]
+layout_mode = 2
+
+[node name="SunsetWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1552500334 instance=ExtResource("17_57kqf")]
+layout_mode = 2
+
+[node name="RunningTimeWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1162059427 instance=ExtResource("18_r4p1x")]
+layout_mode = 2
+
+[node name="WindWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1104801174 instance=ExtResource("19_4mykr")]
+layout_mode = 2
+
+[node name="HeatWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1231223841 instance=ExtResource("20_q7ndp")]
+layout_mode = 2
+
+[node name="SavedDestinationsWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=2044286947 instance=ExtResource("21_mukki")]
+visible = false
+layout_mode = 2
+
+[node name="PackingSuggestionsWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1843974447 instance=ExtResource("22_vguhh")]
+visible = false
+layout_mode = 2
+
+[node name="FrostAlertWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1817894796 instance=ExtResource("23_xv667")]
+visible = false
+layout_mode = 2
+
+[node name="SoilMoistureWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=393477955 instance=ExtResource("24_57kqf")]
+layout_mode = 2
+
+[node name="WaterTempWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=750282030 instance=ExtResource("29_phtru")]
+layout_mode = 2
+
+[node name="WaveHeightWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1986088936 instance=ExtResource("30_ve7xk")]
+layout_mode = 2
+
+[node name="TidesWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1340391413 instance=ExtResource("31_p7q4y")]
+layout_mode = 2
+
+[node name="SeaConditionWidgetToggler" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/CustomizationPage/MarginContainer/GridContainer" unique_id=1046083603 instance=ExtResource("32_r3xh3")]
+layout_mode = 2
+
+[node name="PersonaPage" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu" unique_id=2019788157]
+visible = false
+layout_mode = 2
+theme = ExtResource("5_nmebp")
+
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage" unique_id=953047184]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/SelectionMenu/PersonaPage" unique_id=1606880995]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AIWeatherOverviewPage" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1033905318 node_paths=PackedStringArray("summary", "greetingLabel")]
 custom_maximum_size = Vector2(350, -1)
 layout_mode = 2
 script = ExtResource("13_w5o2e")
 summary = NodePath("MarginContainer/MarginContainer/RichTextLabel")
 greetingLabel = NodePath("MarginContainer3/MarginContainer/VBoxContainer/Label")
 
-[node name="MarginContainer3" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage" unique_id=1801811005]
+[node name="MarginContainer3" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage" unique_id=1801811005]
 layout_mode = 2
 theme = ExtResource("5_nmebp")
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_right = 14
 
-[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3" unique_id=144138467]
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3" unique_id=144138467]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3" unique_id=47933598]
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3" unique_id=47933598]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer" unique_id=1407182569]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer" unique_id=1407182569]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer/VBoxContainer" unique_id=661509458]
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer/VBoxContainer" unique_id=661509458]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 theme_override_font_sizes/font_size = 24
 text = "Good Morning"
 
-[node name="Label2" type="Label" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer/VBoxContainer" unique_id=671897521]
+[node name="Label2" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer3/MarginContainer/VBoxContainer" unique_id=671897521]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 theme_override_font_sizes/font_size = 32
 text = "Prince"
 
-[node name="HSeparator" type="HSeparator" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage" unique_id=1190679326]
+[node name="HSeparator" type="HSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage" unique_id=1190679326]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxLine_r4p1x")
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage" unique_id=1316863725]
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage" unique_id=1316863725]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("5_nmebp")
@@ -1189,13 +1315,13 @@ theme_override_constants/margin_left = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Panel" type="Panel" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer" unique_id=532298985]
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer" unique_id=532298985]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer" unique_id=906282094]
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer" unique_id=906282094]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer/MarginContainer" unique_id=1489080582]
+[node name="RichTextLabel" type="RichTextLabel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage/MarginContainer/MarginContainer" unique_id=1489080582]
 custom_maximum_size = Vector2(330, -1)
 layout_mode = 2
 size_flags_vertical = 3
@@ -1206,7 +1332,7 @@ text = "The city is expected to see partly cloudy skies today, with temperatures
 
 There is a moderate chance of rainfall and thunderstorms during the evening. People travelling outdoors are advised to carry an umbrella and keep an eye on local weather alerts."
 
-[node name="SimulationPage" type="Control" parent="Home" unique_id=1711001220]
+[node name="SimulationOverlay" type="Control" parent="Home" unique_id=1711001220]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1216,7 +1342,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("34_vguhh")
 
-[node name="Panel" type="Panel" parent="Home/SimulationPage" unique_id=1249040563]
+[node name="Panel" type="Panel" parent="Home/SimulationOverlay" unique_id=1249040563]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1224,7 +1350,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/SimulationPage" unique_id=709914473]
+[node name="MarginContainer" type="MarginContainer" parent="Home/SimulationOverlay" unique_id=709914473]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1236,26 +1362,26 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 60
 
-[node name="Panel" type="Panel" parent="Home/SimulationPage/MarginContainer" unique_id=865849450]
+[node name="Panel" type="Panel" parent="Home/SimulationOverlay/MarginContainer" unique_id=865849450]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/SimulationPage/MarginContainer" unique_id=1170059901]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/SimulationOverlay/MarginContainer" unique_id=1170059901]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer" unique_id=1455951122]
+[node name="Label" type="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer" unique_id=1455951122]
 layout_mode = 2
 text = "Simulate Conditions"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Home/SimulationPage/MarginContainer/VBoxContainer" unique_id=67007147]
+[node name="HSeparator" type="HSeparator" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer" unique_id=67007147]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Home/SimulationPage/MarginContainer/VBoxContainer" unique_id=1853610511]
+[node name="Control" type="Control" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer" unique_id=1853610511]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control" unique_id=241389254]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control" unique_id=241389254]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1263,12 +1389,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer" unique_id=1669360289]
+[node name="ScrollContainer" type="ScrollContainer" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer" unique_id=1669360289]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer" unique_id=1411894359]
+[node name="MarginContainer" type="MarginContainer" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer" unique_id=1411894359]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1277,128 +1403,128 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer" unique_id=1271807841]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer" unique_id=1271807841]
 layout_mode = 2
 
-[node name="TestDataModel" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1402698567 instance=ExtResource("34_mukki")]
+[node name="TestDataModel" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1402698567 instance=ExtResource("34_mukki")]
 layout_mode = 2
 
-[node name="TestDataModel2" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1851794553 instance=ExtResource("34_mukki")]
+[node name="TestDataModel2" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1851794553 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 1
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel2/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1851794553, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel2/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1851794553, 1271245094) index="0" unique_id=723996716]
 text = "Temp"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel2/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1851794553, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel2/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1851794553, 1271245094) index="1" unique_id=1800767085]
 suffix = "°c"
 
-[node name="TestDataModel3" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1948864040 instance=ExtResource("34_mukki")]
+[node name="TestDataModel3" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1948864040 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 2
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel3/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1948864040, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel3/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1948864040, 1271245094) index="0" unique_id=723996716]
 text = "AQI"
 
-[node name="TestDataModel4" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=541524037 instance=ExtResource("34_mukki")]
+[node name="TestDataModel4" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=541524037 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 3
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel4/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(541524037, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel4/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(541524037, 1271245094) index="0" unique_id=723996716]
 text = "Humidity"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel4/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(541524037, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel4/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(541524037, 1271245094) index="1" unique_id=1800767085]
 suffix = "%"
 
-[node name="TestDataModel5" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1365146955 instance=ExtResource("34_mukki")]
+[node name="TestDataModel5" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1365146955 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 4
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel5/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1365146955, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel5/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1365146955, 1271245094) index="0" unique_id=723996716]
 text = "Rain Chance"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel5/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1365146955, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel5/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1365146955, 1271245094) index="1" unique_id=1800767085]
 suffix = "%"
 
-[node name="TestDataModel6" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=919707874 instance=ExtResource("34_mukki")]
+[node name="TestDataModel6" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=919707874 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 5
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel6/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(919707874, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel6/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(919707874, 1271245094) index="0" unique_id=723996716]
 text = "Soil Moisture"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel6/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(919707874, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel6/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(919707874, 1271245094) index="1" unique_id=1800767085]
 suffix = "%"
 
-[node name="TestDataModel7" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=159992577 instance=ExtResource("34_mukki")]
+[node name="TestDataModel7" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=159992577 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 6
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel7/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(159992577, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel7/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(159992577, 1271245094) index="0" unique_id=723996716]
 text = "Sunrise"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel7/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(159992577, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel7/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(159992577, 1271245094) index="1" unique_id=1800767085]
 suffix = "AM"
 
-[node name="TestDataModel8" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2070757643 instance=ExtResource("34_mukki")]
+[node name="TestDataModel8" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2070757643 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 7
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel8/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(2070757643, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel8/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(2070757643, 1271245094) index="0" unique_id=723996716]
 text = "Sunset"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel8/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(2070757643, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel8/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(2070757643, 1271245094) index="1" unique_id=1800767085]
 suffix = "PM"
 
-[node name="TestDataModel9" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1838622619 instance=ExtResource("34_mukki")]
+[node name="TestDataModel9" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1838622619 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 8
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel9/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1838622619, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel9/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1838622619, 1271245094) index="0" unique_id=723996716]
 text = "UV Index"
 
-[node name="TestDataModel10" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=487749871 instance=ExtResource("34_mukki")]
+[node name="TestDataModel10" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=487749871 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 9
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel10/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(487749871, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel10/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(487749871, 1271245094) index="0" unique_id=723996716]
 text = "Wind"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel10/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(487749871, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel10/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(487749871, 1271245094) index="1" unique_id=1800767085]
 suffix = "Km/Hr"
 
-[node name="TestDataModel11" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1749528866 instance=ExtResource("34_mukki")]
+[node name="TestDataModel11" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1749528866 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 11
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel11/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1749528866, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel11/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1749528866, 1271245094) index="0" unique_id=723996716]
 text = "Wave Height"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel11/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1749528866, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel11/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1749528866, 1271245094) index="1" unique_id=1800767085]
 suffix = "ft"
 
-[node name="TestDataModel12" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1146280340 instance=ExtResource("34_mukki")]
+[node name="TestDataModel12" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1146280340 instance=ExtResource("34_mukki")]
 layout_mode = 2
 dataType = 10
 
-[node name="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel12/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1146280340, 1271245094) index="0" unique_id=723996716]
+[node name="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel12/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1146280340, 1271245094) index="0" unique_id=723996716]
 text = "Wave Temp"
 
-[node name="SpinBox" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel12/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1146280340, 1271245094) index="1" unique_id=1800767085]
+[node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel12/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(1146280340, 1271245094) index="1" unique_id=1800767085]
 suffix = "°c"
 
-[node name="WeatherSelectionDataModel" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1388968781 instance=ExtResource("41_ve7xk")]
+[node name="WeatherSelectionDataModel" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1388968781 instance=ExtResource("41_ve7xk")]
 layout_mode = 2
 
-[node name="TimeDataModel" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=197263041 instance=ExtResource("42_p7q4y")]
+[node name="TimeDataModel" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=197263041 instance=ExtResource("42_p7q4y")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer" unique_id=1054282162]
+[node name="Control" type="Control" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer" unique_id=1054282162]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Button" type="Button" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" unique_id=330280806]
+[node name="Button" type="Button" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" unique_id=330280806]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1406,7 +1532,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" unique_id=523787595]
+[node name="Label" type="Label" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/Control" unique_id=523787595]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1417,42 +1543,242 @@ text = "Simulate"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="Home" unique_id=2079889411]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="LocationSelectionOverlay" type="Control" parent="Home" unique_id=2079889411]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Home/Control" unique_id=1420621945]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Panel" type="Panel" parent="Home/LocationSelectionOverlay" unique_id=1420621945]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureButton" type="TextureButton" parent="Home/Control" unique_id=198172140]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = SubResource("AtlasTexture_ksufs")
-ignore_texture_size = true
-stretch_mode = 5
+[node name="MarginContainer" type="MarginContainer" parent="Home/LocationSelectionOverlay" unique_id=71092176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 60
 
-[connection signal="button_up" from="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/PersonalisedPageButton" to="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer" method="_on_personalised_page_button_button_up"]
-[connection signal="button_up" from="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/AIOverViewPageButton" to="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer" method="_on_ai_over_view_page_button_button_up"]
-[connection signal="button_up" from="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/EditModeToggleButton" to="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" method="_on_edit_mode_toggle_button_button_up"]
-[connection signal="button_up" from="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer/PersonaButton" to="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" method="_on_persona_button_button_up"]
-[connection signal="button_up" from="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer/CustomizationButton" to="Home/ScrollContainer/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" method="_on_customization_button_button_up"]
-[connection signal="button_up" from="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/Control/Button" to="Home" method="_on_button_button_up"]
-[connection signal="button_up" from="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/Control/Button" to="Home/SimulationPage" method="_on_button_button_up"]
-[connection signal="button_up" from="Home/Control/TextureButton" to="Home" method="_on_texture_button_button_up"]
+[node name="Panel" type="Panel" parent="Home/LocationSelectionOverlay/MarginContainer" unique_id=1056608973]
+layout_mode = 2
 
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel2"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel3"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel4"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel5"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel6"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel7"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel8"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel9"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel10"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel11"]
-[editable path="Home/SimulationPage/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel12"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer" unique_id=1632371829]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer" unique_id=1152499904]
+layout_mode = 2
+text = "Select Location"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer" unique_id=719477609]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer" unique_id=1331803638]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer" unique_id=1485178662]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=2145854044]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("45_l3hmi")
+saveFile = ExtResource("46_14f00")
+
+[node name="Panel" type="Panel" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control" unique_id=956807649]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control" unique_id=887863255]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control/MarginContainer" unique_id=1421570808]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=120112811]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "City 1"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=1550557871]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=637355148]
+layout_mode = 2
+size_flags_vertical = 6
+text = "31°c"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=51727803]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Cloudy"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1248737542]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("45_l3hmi")
+saveFile = ExtResource("47_6q4rx")
+
+[node name="Panel" type="Panel" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control2" unique_id=948575700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control2" unique_id=1310019109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control2/MarginContainer" unique_id=1195331059]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer" unique_id=1921450045]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "City 2"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer" unique_id=106246698]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1018755224]
+layout_mode = 2
+size_flags_vertical = 6
+text = "27°c"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=933589267]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Thunderstrom"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Control3" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1586462832]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("45_l3hmi")
+saveFile = ExtResource("48_8dtu3")
+
+[node name="Panel" type="Panel" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control3" unique_id=2027488274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control3" unique_id=1786572542]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control3/MarginContainer" unique_id=1831860200]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control3/MarginContainer/HBoxContainer" unique_id=126327784]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "City 3"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control3/MarginContainer/HBoxContainer" unique_id=724575397]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1622768073]
+layout_mode = 2
+size_flags_vertical = 6
+text = "29°c"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control3/MarginContainer/HBoxContainer/VBoxContainer" unique_id=939582782]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Rain"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer/TextureButton2" to="Home" method="_on_texture_button_2_button_up"]
+[connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer/TextureButton" to="Home" method="_on_texture_button_button_up"]
+[connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/PersonalisedPageButton" to="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer" method="_on_personalised_page_button_button_up"]
+[connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/AIOverViewPageButton" to="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer" method="_on_ai_over_view_page_button_button_up"]
+[connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/EditModeToggleButton" to="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" method="_on_edit_mode_toggle_button_button_up"]
+[connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer/PersonaButton" to="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" method="_on_persona_button_button_up"]
+[connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer/CustomizationButton" to="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" method="_on_customization_button_button_up"]
+[connection signal="button_up" from="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/Control/Button" to="Home" method="_on_button_button_up"]
+[connection signal="button_up" from="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/Control/Button" to="Home/SimulationOverlay" method="_on_button_button_up"]
+
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel2"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel3"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel4"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel5"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel6"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel7"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel8"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel9"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel10"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel11"]
+[editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel12"]
