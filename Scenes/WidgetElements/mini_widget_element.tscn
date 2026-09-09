@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c1hv6x1o7jtd8"]
+
+[ext_resource type="Texture2D" uid="uid://4mfxfrwlh56o" path="res://Assets/Icons V5.png" id="1_re74r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnvso"]
+atlas = ExtResource("1_re74r")
+region = Rect2(40, 32, 160, 160)
+
+[node name="MiniWidgetElement" type="Control" unique_id=850420543]
+custom_minimum_size = Vector2(80, 133)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1049060273]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="miniWeatherWidget" type="VBoxContainer" parent="." unique_id=1867633855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="miniWeatherWidget" unique_id=1904577319]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Fri"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="miniWeatherWidget" unique_id=1321723844]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.6
+texture = SubResource("AtlasTexture_wnvso")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="miniWeatherWidget" unique_id=1927907802]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 12
+text = "32°c/26°c"
+horizontal_alignment = 1
+vertical_alignment = 1

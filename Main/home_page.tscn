@@ -10,12 +10,13 @@
 [ext_resource type="Script" uid="uid://d3874rp0lquhd" path="res://Scripts/information_page_manager.gd" id="3_d5v6j"]
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="5_nmebp"]
 [ext_resource type="Script" uid="uid://lm26og7x25yk" path="res://Scripts/general_information_manager.gd" id="5_r3xh3"]
-[ext_resource type="Resource" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
+[ext_resource type="Resource" uid="uid://c8lh2oica7ml8" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
 [ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
 [ext_resource type="Texture2D" uid="uid://dhthqd42h6ub8" path="res://Assets/Icons V7.png" id="7_5r4sd"]
 [ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Scenes/Togglers/uv_widget_toggler.tscn" id="7_225l2"]
 [ext_resource type="Script" uid="uid://blmgckt1ioyxq" path="res://Scripts/widget_selection_page_manager.gd" id="8_p568m"]
 [ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Scenes/Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
+[ext_resource type="PackedScene" uid="uid://c1hv6x1o7jtd8" path="res://Scenes/WidgetElements/mini_widget_element.tscn" id="9_14f00"]
 [ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Scenes/Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
 [ext_resource type="PackedScene" uid="uid://cfl6m605leyll" path="res://Scenes/Togglers/humidity_widget_toggler.tscn" id="10_cjet7"]
 [ext_resource type="PackedScene" uid="uid://cnoe4vfxu5wgw" path="res://Scenes/Togglers/test_widget_toggler.tscn" id="11_nmebp"]
@@ -45,9 +46,9 @@
 [ext_resource type="PackedScene" uid="uid://ddvk16jg5d0fs" path="res://Scenes/DataModels/weather_selection_data_model.tscn" id="41_ve7xk"]
 [ext_resource type="PackedScene" uid="uid://pcdbvj7bk4u7" path="res://Scenes/DataModels/time_data_model.tscn" id="42_p7q4y"]
 [ext_resource type="Script" uid="uid://dgmg2rbpyigig" path="res://Scripts/location_selector.gd" id="45_l3hmi"]
-[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
-[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
-[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
+[ext_resource type="Resource" uid="uid://dyuxomo4kxqu4" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
+[ext_resource type="Resource" uid="uid://d3cfcusr74w64" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
+[ext_resource type="Resource" uid="uid://ds0wh30jc3qwv" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1g48"]
 bg_color = Color(1, 1, 1, 1)
@@ -109,6 +110,22 @@ region = Rect2(208, 824, 88, 88)
 atlas = ExtResource("11_q7ndp")
 region = Rect2(576, 424, 168, 144)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_14f00"]
+atlas = ExtResource("12_mukki")
+region = Rect2(192, 40, 168, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q4rx"]
+atlas = ExtResource("12_mukki")
+region = Rect2(656, 56, 128, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dtu3"]
+atlas = ExtResource("11_q7ndp")
+region = Rect2(776, 416, 152, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41bbq"]
+atlas = ExtResource("11_q7ndp")
+region = Rect2(944, 416, 184, 176)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_528qc"]
 atlas = ExtResource("1_cjet7")
 region = Rect2(8, -8, 928, 888)
@@ -148,16 +165,6 @@ modulate_color = Color(0.13333334, 0.56078434, 1, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5o2e"]
 texture = SubResource("AtlasTexture_dai13")
 modulate_color = Color(0.60784316, 0.8117647, 1, 1)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_5r4sd"]
-content_margin_left = 0.0
-content_margin_top = 4.0
-content_margin_right = 0.0
-content_margin_bottom = 4.0
-color = Color(1, 1, 1, 1)
-grow_begin = -3.0
-grow_end = -3.0
-vertical = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0elx"]
 content_margin_left = 4.0
@@ -235,7 +242,7 @@ simulationPage = NodePath("SimulationOverlay")
 simulateButton = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control2/MarginContainer/HBoxContainer/TextureButton")
 homePageScroller = NodePath("WeatherPage")
 locationSelectionOverlay = NodePath("LocationSelectionOverlay")
-label = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control/Label2")
+label = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Label2")
 tempLabel = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Label")
 background = NodePath("Panel")
 rainParticle = NodePath("CPUParticles2D")
@@ -508,6 +515,7 @@ theme_override_constants/margin_bottom = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer" unique_id=1650945486 node_paths=PackedStringArray("weatherIcon")]
 layout_mode = 2
+theme_override_constants/separation = 7
 script = ExtResource("5_r3xh3")
 weatherIcon = NodePath("Control/TextureRect")
 clearIcon = SubResource("AtlasTexture_x8htg")
@@ -563,6 +571,10 @@ texture_normal = SubResource("AtlasTexture_ksufs")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="Control4" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1137882767]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Control" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1029782624]
 layout_mode = 2
 size_flags_vertical = 3
@@ -570,39 +582,93 @@ mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control" unique_id=966135351]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.0
-offset_top = -27.0
-offset_right = 88.0
-offset_bottom = 144.42902
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_k1qkk")
-expand_mode = 5
+expand_mode = 3
 stretch_mode = 5
 
-[node name="Label2" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control" unique_id=1025481524]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 257.0
-offset_right = 337.0
-offset_bottom = 458.0
+[node name="Label2" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=1025481524]
+custom_maximum_size = Vector2(-1, 48)
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
 text = "Cloudy"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=908900181]
+custom_maximum_size = Vector2(-1, 98)
 layout_mode = 2
 size_flags_vertical = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(11, 0)
 theme_override_font_sizes/font_size = 64
-text = "  32°ᶜ"
+text = "32°ᶜ"
 horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer" unique_id=2099755202]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3" unique_id=2041505278]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer" unique_id=2399810]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="MiniWidgetElement" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer" unique_id=850420543 instance=ExtResource("9_14f00")]
+layout_mode = 2
+
+[node name="MiniWidgetElement2" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer" unique_id=1663722664 instance=ExtResource("9_14f00")]
+layout_mode = 2
+
+[node name="Label2" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement2/miniWeatherWidget" parent_id_path=PackedInt32Array(1663722664, 1867633855) index="0" unique_id=1904577319]
+text = "Sat"
+
+[node name="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement2/miniWeatherWidget" parent_id_path=PackedInt32Array(1663722664, 1867633855) index="1" unique_id=1321723844]
+texture = SubResource("AtlasTexture_14f00")
+
+[node name="MiniWidgetElement3" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer" unique_id=344219445 instance=ExtResource("9_14f00")]
+layout_mode = 2
+
+[node name="Label2" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement3/miniWeatherWidget" parent_id_path=PackedInt32Array(344219445, 1867633855) index="0" unique_id=1904577319]
+text = "Sun"
+
+[node name="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement3/miniWeatherWidget" parent_id_path=PackedInt32Array(344219445, 1867633855) index="1" unique_id=1321723844]
+texture = SubResource("AtlasTexture_6q4rx")
+
+[node name="MiniWidgetElement4" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer" unique_id=1644157559 instance=ExtResource("9_14f00")]
+layout_mode = 2
+
+[node name="Label2" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement4/miniWeatherWidget" parent_id_path=PackedInt32Array(1644157559, 1867633855) index="0" unique_id=1904577319]
+text = "Mon"
+
+[node name="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement4/miniWeatherWidget" parent_id_path=PackedInt32Array(1644157559, 1867633855) index="1" unique_id=1321723844]
+texture = SubResource("AtlasTexture_8dtu3")
+
+[node name="MiniWidgetElement5" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer" unique_id=1348483887 instance=ExtResource("9_14f00")]
+layout_mode = 2
+
+[node name="Label2" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement5/miniWeatherWidget" parent_id_path=PackedInt32Array(1348483887, 1867633855) index="0" unique_id=1904577319]
+text = "Tue"
+
+[node name="TextureRect" parent="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement5/miniWeatherWidget" parent_id_path=PackedInt32Array(1348483887, 1867633855) index="1" unique_id=1321723844]
+texture = SubResource("AtlasTexture_41bbq")
 
 [node name="Control2" type="Control" parent="Home/WeatherPage/VBoxContainer2" unique_id=1824416634]
 custom_minimum_size = Vector2(360, 640)
@@ -922,12 +988,13 @@ informationPage = NodePath("InformationPageContainer")
 widgetSelectionPage = NodePath("WedgetSelectionPageContainer")
 
 [node name="Control" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=481861365]
-custom_minimum_size = Vector2(0, 32)
-custom_maximum_size = Vector2(-1, 32)
+custom_minimum_size = Vector2(0, 40)
+custom_maximum_size = Vector2(-1, 40)
 layout_mode = 2
 theme = ExtResource("5_nmebp")
 
 [node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control" unique_id=1604549008]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -950,12 +1017,21 @@ layout_mode = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer" unique_id=999227392]
+[node name="MarginContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer" unique_id=1809193069]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer" unique_id=999227392]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HealthConcious" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1642784507]
+[node name="HealthConcious" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1642784507 node_paths=PackedStringArray("panel", "label")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -963,8 +1039,19 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("16_w54lv")
 widgetData = ExtResource("17_tnfjc")
+panel = NodePath("Panel")
+label = NodePath("Label")
 
-[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer/HealthConcious" unique_id=2104986267]
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/HealthConcious" unique_id=1757406316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/HealthConcious" unique_id=2104986267]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -976,12 +1063,13 @@ text = "Health Conscious"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VSeparator" type="VSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=243709048]
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/separator = SubResource("StyleBoxLine_5r4sd")
+[node name="UIScaleAnim2" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/HealthConcious" unique_id=1663897702]
+script = ExtResource("2_d5v6j")
+time = 0.1
+amount = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://d0m3u1qpaale6"
 
-[node name="Fitness" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1065593349]
+[node name="Fitness" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1065593349 node_paths=PackedStringArray("panel", "label")]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -989,8 +1077,19 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("16_w54lv")
 widgetData = ExtResource("18_342xe")
+panel = NodePath("Panel")
+label = NodePath("Label")
 
-[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer/Fitness" unique_id=83187116]
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Fitness" unique_id=1205303861]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Fitness" unique_id=83187116]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1002,12 +1101,13 @@ text = "Fitness"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VSeparator2" type="VSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1110741217]
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/separator = SubResource("StyleBoxLine_5r4sd")
+[node name="UIScaleAnim2" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Fitness" unique_id=1458843359]
+script = ExtResource("2_d5v6j")
+time = 0.1
+amount = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://d0m3u1qpaale6"
 
-[node name="BeachGoers" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=2109132072]
+[node name="BeachGoers" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer" unique_id=2109132072 node_paths=PackedStringArray("panel", "label")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1015,8 +1115,19 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("16_w54lv")
 widgetData = ExtResource("32_xv667")
+panel = NodePath("Panel")
+label = NodePath("Label")
 
-[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer/BeachGoers" unique_id=70969713]
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/BeachGoers" unique_id=371268232]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/BeachGoers" unique_id=70969713]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1028,12 +1139,13 @@ text = "Beach Goers"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VSeparator3" type="VSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=227999397]
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/separator = SubResource("StyleBoxLine_5r4sd")
+[node name="UIScaleAnim2" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/BeachGoers" unique_id=220870791]
+script = ExtResource("2_d5v6j")
+time = 0.1
+amount = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://d0m3u1qpaale6"
 
-[node name="Farmer" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1055024010]
+[node name="Farmer" type="Control" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer" unique_id=1055024010 node_paths=PackedStringArray("panel", "label")]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1041,8 +1153,19 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("16_w54lv")
 widgetData = ExtResource("20_xqap3")
+panel = NodePath("Panel")
+label = NodePath("Label")
 
-[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/HBoxContainer/Farmer" unique_id=1485599415]
+[node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Farmer" unique_id=213253804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Farmer" unique_id=1485599415]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1053,6 +1176,12 @@ theme_override_font_sizes/font_size = 14
 text = "Farmer"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UIScaleAnim2" type="Node" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/Control/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Farmer" unique_id=788684851]
+script = ExtResource("2_d5v6j")
+time = 0.1
+amount = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://d0m3u1qpaale6"
 
 [node name="InformationPageContainer" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=2122824465]
 custom_minimum_size = Vector2(360, 0)
@@ -1491,7 +1620,7 @@ dataType = 9
 text = "Wind"
 
 [node name="SpinBox" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel10/MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(487749871, 1271245094) index="1" unique_id=1800767085]
-suffix = "Km/Hr"
+suffix = "km/hr"
 
 [node name="TestDataModel11" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1749528866 instance=ExtResource("34_mukki")]
 layout_mode = 2
@@ -1771,6 +1900,10 @@ vertical_alignment = 1
 [connection signal="button_up" from="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/Control/Button" to="Home" method="_on_button_button_up"]
 [connection signal="button_up" from="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/Control/Button" to="Home/SimulationOverlay" method="_on_button_button_up"]
 
+[editable path="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement2"]
+[editable path="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement3"]
+[editable path="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement4"]
+[editable path="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement5"]
 [editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel2"]
 [editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel3"]
 [editable path="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TestDataModel4"]

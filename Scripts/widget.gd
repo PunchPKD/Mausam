@@ -9,6 +9,12 @@ enum WidgetRanks{TOP, MIDDLE, BOTTOM}
 @export var focusedInformationElement: Control
 @export var dataType: DataTypeEnum.DataTypes
 @export var label: Label
+@export var minValue: int
+@export var maxValue: int
+@export var colorCoded: bool = false
+var green: Color = Color("7aff99ff")
+var yellow: Color = Color("ffff3dff")
+var red: Color = Color("fc2828ff")
 
 var informationMode: InformationModes = InformationModes.SIMPLE:
 	set(value):
@@ -43,5 +49,19 @@ func change_information_element(element: Control) -> void:
 func on_update_data(datas: Dictionary[DataTypeEnum.DataTypes, String]) -> void:
 	if label and datas.has(dataType):
 		label.text = datas.get(dataType)
+		set_label_color(int(datas.get(dataType)))
+	
+func set_label_color(data:int) -> void:
+	if colorCoded == false:
+		return
+	var step: int = int((maxValue - minValue)/3)
+	var greenFlag: int = step + minValue
+	var yellowFlag: int = maxValue - step
+	if data <= greenFlag:
+		label.modulate = green
+	elif data <= yellowFlag:
+		label.modulate = yellow
+	else:
+		label.modulate = red
 
 #chang

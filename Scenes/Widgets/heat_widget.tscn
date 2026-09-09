@@ -16,6 +16,9 @@ theme = ExtResource("1_mvdfm")
 script = ExtResource("2_fsgft")
 dataType = 1
 label = NodePath("SimpleInformationWidgetElement/MarginContainer/Label2")
+minValue = 20
+maxValue = 45
+colorCoded = true
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 
 [node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_x8hov")]
@@ -27,6 +30,7 @@ grow_vertical = 1
 text = "Heat"
 
 [node name="Label2" parent="SimpleInformationWidgetElement/MarginContainer" parent_id_path=PackedInt32Array(901733219, 1110623652) index="1" unique_id=2140174032]
+modulate = Color(1, 0.90000004, 0, 1)
 text = "34 °C"
 
 [editable path="SimpleInformationWidgetElement"]
