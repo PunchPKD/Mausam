@@ -35,6 +35,8 @@ var currentInformationElement: Control
 
 func _ready() -> void:
 	SignalBus.UpdateData.connect(on_update_data)
+	SignalBus.IncreaseWidgetScore.connect(on_increase_widget_score)
+	SignalBus.ResetWidgetScore.connect(on_reset_widget_score)
 	on_update_data(SaveManager.saveFile.widgetsData)
 	
 func _gui_input(event: InputEvent) -> void:
@@ -75,3 +77,5 @@ func on_increase_widget_score(tag: TagsEnum.WeatherTags) -> void:
 	for tempTag in widgetTags:
 		if tempTag == tag:
 			widgetScore += 1
+	if label:
+		print(self.name +" "+ str(widgetScore))

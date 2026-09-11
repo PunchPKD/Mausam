@@ -19,6 +19,7 @@ label = NodePath("SimpleInformationWidgetElement/MarginContainer/Label2")
 minValue = 1
 maxValue = 89
 colorCoded = true
+widgetTags = Array[int]([9, 8])
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 
 [node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_k2w00")]

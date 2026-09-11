@@ -16,6 +16,7 @@ theme = ExtResource("1_oy0sa")
 script = ExtResource("1_qvrig")
 dataType = 3
 label = NodePath("SimpleInformationWidgetElement/MarginContainer/Label2")
+widgetTags = Array[int]([4, 8])
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 
 [node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_r2od0")]

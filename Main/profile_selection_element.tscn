@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dhk3gvcdt6nur"]
+
+[ext_resource type="Script" uid="uid://cenc4gb13qqk6" path="res://Scripts/profile_selection_element.gd" id="1_hsbay"]
+
+[node name="ProfileSelectionElement" type="Button" unique_id=1768558154]
+custom_minimum_size = Vector2(64, 24)
+theme_override_font_sizes/font_size = 12
+toggle_mode = true
+text = "Farmer"
+script = ExtResource("1_hsbay")
+tags = Array[int]([7])
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

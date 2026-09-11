@@ -49,6 +49,7 @@ func get_widget(widgetScene: PackedScene) -> Widget:
 	return tempWidget
 
 func reassign_widget_rank() -> void:
+	print("run")
 	currentWidgets.widgets.sort_custom(
 		func(a: PackedScene, b: PackedScene) -> bool:
 			return get_widget(a).widgetScore > get_widget(b).widgetScore
@@ -60,7 +61,6 @@ func reassign_widget_rank() -> void:
 		var tempwidget: Widget = get_widget(widgetScene)
 		widgetContainer.move_child(tempwidget, i)
 		i += 1
-		
 	
 func on_select_element(element: Control) -> void:
 	if currentSelectedElement == element:

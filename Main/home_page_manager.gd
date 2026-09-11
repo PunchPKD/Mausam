@@ -5,6 +5,7 @@ class_name HomePageManager
 @export var simulateButton: TextureButton
 @export var homePageScroller: ScrollContainer
 @export var locationSelectionOverlay: Control
+@export var profileOverlay: Control
 
 @export var label: Label
 @export var tempLabel: Label
@@ -67,6 +68,11 @@ func _on_button_button_up() -> void:
 func on_toggle_location_selection_overlay() -> void:
 	locationSelectionOverlay.visible = !locationSelectionOverlay.visible
 
-
 func _on_texture_button_2_button_up() -> void:
 	on_toggle_location_selection_overlay()
+
+func _on_profile_done_button_button_up() -> void:
+	toogle_visiblity(profileOverlay)
+
+func _on_texture_button_3_button_up() -> void:
+	toogle_visiblity(profileOverlay)

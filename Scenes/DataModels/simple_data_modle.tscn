@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4krdwnauo3ud"]
 
 [ext_resource type="Script" uid="uid://dq2q2c28cht21" path="res://Scripts/simple_data_model.gd" id="1_fi03p"]
-[ext_resource type="Resource" uid="uid://oopa8v2cgj8h" path="res://Data/WidgetData/Saves/save1.tres" id="2_ipgux"]
+[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save1.tres" id="2_ipgux"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_q7ndp"]
 

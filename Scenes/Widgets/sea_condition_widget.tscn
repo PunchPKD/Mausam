@@ -15,6 +15,7 @@ mouse_filter = 1
 theme = ExtResource("1_25tjs")
 script = ExtResource("2_46ewv")
 label = NodePath("SimpleInformationWidgetElement/MarginContainer/Label2")
+widgetTags = Array[int]([5])
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 
 [node name="SimpleInformationWidgetElement" parent="." unique_id=901733219 instance=ExtResource("3_jl1ot")]

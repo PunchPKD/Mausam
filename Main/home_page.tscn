@@ -52,7 +52,8 @@
 [ext_resource type="Resource" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
 [ext_resource type="Resource" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
 [ext_resource type="PackedScene" uid="uid://b0xtnx3lbho7o" path="res://Scenes/DataModels/boolean_data_model.tscn" id="48_41bbq"]
-[ext_resource type="Script" uid="uid://cenc4gb13qqk6" path="res://Scripts/profile_selection_element.gd" id="53_obccm"]
+[ext_resource type="PackedScene" uid="uid://dhk3gvcdt6nur" path="res://Main/profile_selection_element.tscn" id="53_obccm"]
+[ext_resource type="Script" uid="uid://hrjubdr8c34s" path="res://Scripts/profile_manager.gd" id="53_upxv6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1g48"]
 bg_color = Color(1, 1, 1, 1)
@@ -238,7 +239,7 @@ VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_atha1")
 
 [node name="HomePage" type="Node2D" unique_id=740829968]
 
-[node name="Home" type="Control" parent="." unique_id=1878901306 node_paths=PackedStringArray("simulationPage", "simulateButton", "homePageScroller", "locationSelectionOverlay", "label", "tempLabel", "background", "rainParticle")]
+[node name="Home" type="Control" parent="." unique_id=1878901306 node_paths=PackedStringArray("simulationPage", "simulateButton", "homePageScroller", "locationSelectionOverlay", "profileOverlay", "label", "tempLabel", "background", "rainParticle")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 360.0
@@ -250,6 +251,7 @@ simulationPage = NodePath("SimulationOverlay")
 simulateButton = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/TopMenu/MarginContainer/HBoxContainer/TextureButton")
 homePageScroller = NodePath("WeatherPage")
 locationSelectionOverlay = NodePath("LocationSelectionOverlay")
+profileOverlay = NodePath("ProfileOverlay")
 label = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Label2")
 tempLabel = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Label")
 background = NodePath("Panel")
@@ -1953,12 +1955,14 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ProfileOverlay" type="Control" parent="Home" unique_id=931172147]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("53_upxv6")
 
 [node name="Panel" type="Panel" parent="Home/ProfileOverlay" unique_id=422385087]
 layout_mode = 1
@@ -2048,14 +2052,32 @@ layout_mode = 2
 [node name="HFlowContainer" type="HFlowContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer" unique_id=1289596079]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 7
 
-[node name="ProfileSelectionElement" type="Button" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer/HFlowContainer" unique_id=247855093]
-custom_minimum_size = Vector2(64, 24)
+[node name="ProfileSelectionElement" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer/HFlowContainer" unique_id=1768558154 instance=ExtResource("53_obccm")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Farmer"
-script = ExtResource("53_obccm")
-tags = Array[int]([0])
+text = "Agriculture"
+
+[node name="ProfileSelectionElement2" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer/HFlowContainer" unique_id=1388626165 instance=ExtResource("53_obccm")]
+layout_mode = 2
+text = "Health"
+tags = Array[int]([4])
+
+[node name="ProfileSelectionElement3" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer/HFlowContainer" unique_id=1000065068 instance=ExtResource("53_obccm")]
+layout_mode = 2
+text = "Fitness"
+tags = Array[int]([6])
+
+[node name="ProfileSelectionElement4" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer/HFlowContainer" unique_id=977470449 instance=ExtResource("53_obccm")]
+layout_mode = 2
+text = "Beach"
+tags = Array[int]([5])
+
+[node name="ProfileSelectionElement5" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer/HFlowContainer" unique_id=787122839 instance=ExtResource("53_obccm")]
+layout_mode = 2
+text = "Travelling"
+tags = Array[int]([9, 8, 2])
 
 [node name="FavWeather" type="Control" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1324646329]
 layout_mode = 2
@@ -2086,7 +2108,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="Button" type="Button" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Done" unique_id=1267002935]
+[node name="ProfileDoneButton" type="Button" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Done" unique_id=1267002935]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2095,6 +2117,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Done"
 
+[connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/TopMenu/MarginContainer/HBoxContainer/TextureButton3" to="Home" method="_on_texture_button_3_button_up"]
 [connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/TopMenu/MarginContainer/HBoxContainer/TextureButton2" to="Home" method="_on_texture_button_2_button_up"]
 [connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/TopMenu/MarginContainer/HBoxContainer/TextureButton" to="Home" method="_on_texture_button_button_up"]
 [connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer/PersonalisedPageButton" to="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer" method="_on_personalised_page_button_button_up"]
@@ -2104,6 +2127,8 @@ text = "Done"
 [connection signal="button_up" from="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage/Buttons/HBoxContainer/CustomizationButton" to="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/WedgetSelectionPageContainer/WidgetSelectionPage" method="_on_customization_button_button_up"]
 [connection signal="button_up" from="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/Control/Button" to="Home" method="_on_button_button_up"]
 [connection signal="button_up" from="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/Control/Button" to="Home/SimulationOverlay" method="_on_button_button_up"]
+[connection signal="button_up" from="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Done/ProfileDoneButton" to="Home" method="_on_profile_done_button_button_up"]
+[connection signal="button_up" from="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Done/ProfileDoneButton" to="Home/ProfileOverlay" method="_on_button_button_up"]
 
 [editable path="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement2"]
 [editable path="Home/WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/MiniWidgetElement3"]
