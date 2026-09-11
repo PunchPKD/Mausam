@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://cfj4dk0juru13"]
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3]
 
-[ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
-[ext_resource type="PackedScene" uid="uid://b83agjs5hi1kq" path="res://Scenes/Widgets/sunrise_widget.tscn" id="2_0gx4x"]
-[ext_resource type="PackedScene" uid="uid://c0ian1u23iape" path="res://Scenes/Widgets/sunset_widget.tscn" id="3_4luev"]
-[ext_resource type="PackedScene" uid="uid://db2gpttlio4re" path="res://Scenes/Widgets/wind_widget.tscn" id="4_ik1d8"]
-[ext_resource type="PackedScene" uid="uid://xlvk4k78yi2g" path="res://Scenes/Widgets/heat_widget.tscn" id="5_j75gj"]
-[ext_resource type="PackedScene" uid="uid://plptwnhc8nfb" path="res://Scenes/Widgets/running_time_widget.tscn" id="6_fr3on"]
+[ext_resource type="Script" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
+[ext_resource type="PackedScene" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="2_0gx4x"]
+[ext_resource type="PackedScene" path="res://Scenes/Widgets/soil_moisture_widget.tscn" id="3_4luev"]
+[ext_resource type="PackedScene" path="res://Scenes/Widgets/heat_widget.tscn" id="4_ik1d8"]
 
 [resource]
 script = ExtResource("1_wysnf")
-widgets = Array[PackedScene]([ExtResource("2_0gx4x"), ExtResource("3_4luev"), ExtResource("4_ik1d8"), ExtResource("5_j75gj"), ExtResource("6_fr3on")])
+widgets = Array[PackedScene]([ExtResource("2_0gx4x"), ExtResource("3_4luev"), ExtResource("4_ik1d8")])
 metadata/_custom_type_script = "uid://bb71vchu7q6kv"

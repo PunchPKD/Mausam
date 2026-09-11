@@ -12,6 +12,10 @@ enum WidgetRanks{TOP, MIDDLE, BOTTOM}
 @export var minValue: int
 @export var maxValue: int
 @export var colorCoded: bool = false
+@export var widgetTags: Array[TagsEnum.WeatherTags]
+
+var widgetScore: int
+
 var green: Color = Color("7aff99ff")
 var yellow: Color = Color("ffff3dff")
 var red: Color = Color("fc2828ff")
@@ -64,4 +68,10 @@ func set_label_color(data:int) -> void:
 	else:
 		label.modulate = red
 
-#chang
+func on_reset_widget_score() -> void:
+	widgetScore = 0
+
+func on_increase_widget_score(tag: TagsEnum.WeatherTags) -> void:
+	for tempTag in widgetTags:
+		if tempTag == tag:
+			widgetScore += 1

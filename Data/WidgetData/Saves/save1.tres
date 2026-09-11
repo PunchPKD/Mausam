@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="BaseSaveFile" format=3 uid="uid://dqu66uq27yqyu"]
+[gd_resource type="Resource" script_class="BaseSaveFile" format=3]
 
-[ext_resource type="Script" uid="uid://4h6cank6jlsb" path="res://Scripts/base_save_file.gd" id="1_d13r8"]
+[ext_resource type="Script" path="res://Scripts/base_save_file.gd" id="1_d13r8"]
 
 [resource]
 script = ExtResource("1_d13r8")
 widgetsData = Dictionary[int, String]({
 0: "53",
 1: "29°c",
-2: "3",
+2: "76",
 3: "47%",
 4: "53%",
 5: "78%",
@@ -17,6 +17,7 @@ widgetsData = Dictionary[int, String]({
 9: "2km/hr",
 10: "26°c",
 11: "1ft",
-14: "1"
+14: "1",
+17: "false"
 })
 metadata/_custom_type_script = "uid://4h6cank6jlsb"

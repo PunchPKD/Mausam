@@ -12,5 +12,5 @@ func _gui_input(event: InputEvent) -> void:
 		time = 0
 	if Input.is_action_pressed("Click"):
 		time += 0.1
-	if Input.is_action_just_released("Click") and time < 6:
+	if Input.is_action_just_released("Click") and time < 2:
 		SignalBus.AddWidgetList.emit(widgetData)

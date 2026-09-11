@@ -17,6 +17,7 @@ enum DataTypes{
 				SeaCondition,
 				Weather,
 				Hour,
-				Minute
+				Minute,
+				ThunderAlrt
 				}
 #change
