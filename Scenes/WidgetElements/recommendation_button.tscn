@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dbalp7gfkupr3"]
+
+[ext_resource type="Script" uid="uid://ddg8o8s12ckkm" path="res://Scripts/recommendation_button.gd" id="1_2hknb"]
+
+[node name="RecommendationButton" type="Button" unique_id=1322210185]
+custom_minimum_size = Vector2(45, 45)
+offset_right = 8.0
+offset_bottom = 8.0
+text = "test"
+script = ExtResource("1_2hknb")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

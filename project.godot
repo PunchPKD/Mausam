@@ -14,7 +14,9 @@ config/name="Mausam"
 run/main_scene="uid://d0mvh51047xp4"
 config/features=PackedStringArray("4.7", "Mobile")
 run/low_processor_mode=true
+boot_splash/image="uid://dgjr303dwyh6d"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=300
 
 [autoload]
 

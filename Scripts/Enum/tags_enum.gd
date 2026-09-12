@@ -10,5 +10,15 @@ enum WeatherTags {
 	Fitness,
 	Agriculture,
 	Weather,
-	Wind
+	Wind,
+	Fog,
+	Thunderstrom,
+	Indoor,
+	Outdoor,
+	Walk,
+	Bicycle,
+	TwoWheeler,
+	Car,
+	Bus,
+	Train
 }

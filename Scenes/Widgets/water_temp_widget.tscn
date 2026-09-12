@@ -16,6 +16,9 @@ theme = ExtResource("1_owavj")
 script = ExtResource("2_xjjce")
 dataType = 10
 label = NodePath("SimpleInformationWidgetElement/MarginContainer/Label2")
+minValue = 20
+maxValue = 35
+colorCoded = true
 widgetTags = Array[int]([2, 5])
 metadata/_custom_type_script = "uid://cxxpresugwfbc"
 

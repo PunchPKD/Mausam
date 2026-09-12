@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://coglan5bmtsr1"]
+
+[ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_mp2i2"]
+[ext_resource type="PackedScene" uid="uid://domc0jl0kvg5w" path="res://Scenes/Widgets/aqi_widget.tscn" id="2_6p5es"]
+[ext_resource type="PackedScene" uid="uid://xlvk4k78yi2g" path="res://Scenes/Widgets/heat_widget.tscn" id="3_wllaq"]
+[ext_resource type="PackedScene" uid="uid://buaoggodkrdoa" path="res://Scenes/Widgets/humidity_widget.tscn" id="4_n5vju"]
+[ext_resource type="PackedScene" uid="uid://c0qxmibts6b4c" path="res://Scenes/Widgets/pollen_count_widget.tscn" id="5_sdng6"]
+[ext_resource type="PackedScene" uid="uid://mjnsavuaxas5" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="6_5fhbf"]
+[ext_resource type="PackedScene" uid="uid://plptwnhc8nfb" path="res://Scenes/Widgets/running_time_widget.tscn" id="7_ihrlf"]
+[ext_resource type="PackedScene" uid="uid://d3xotqnr4d71j" path="res://Scenes/Widgets/sea_condition_widget.tscn" id="8_ic7qk"]
+[ext_resource type="PackedScene" uid="uid://dboxqrdr1anrq" path="res://Scenes/Widgets/soil_moisture_widget.tscn" id="9_ypc8e"]
+[ext_resource type="PackedScene" uid="uid://b83agjs5hi1kq" path="res://Scenes/Widgets/sunrise_widget.tscn" id="10_alddx"]
+[ext_resource type="PackedScene" uid="uid://c0ian1u23iape" path="res://Scenes/Widgets/sunset_widget.tscn" id="11_mio38"]
+[ext_resource type="PackedScene" uid="uid://bt7hdi8qeqkqi" path="res://Scenes/Widgets/test_widget.tscn" id="12_goke0"]
+[ext_resource type="PackedScene" uid="uid://coaefp00u6k6" path="res://Scenes/Widgets/tides_widget.tscn" id="13_v1rt5"]
+[ext_resource type="PackedScene" uid="uid://dt0jybtps0l2w" path="res://Scenes/Widgets/uv_index_widget.tscn" id="14_g53g0"]
+[ext_resource type="PackedScene" uid="uid://bqyya2osev7mg" path="res://Scenes/Widgets/water_temp_widget.tscn" id="15_gl3r5"]
+[ext_resource type="PackedScene" uid="uid://c7uffmuak760b" path="res://Scenes/Widgets/wave_height_widget.tscn" id="16_yydqp"]
+[ext_resource type="PackedScene" uid="uid://db2gpttlio4re" path="res://Scenes/Widgets/wind_widget.tscn" id="17_ddgo7"]
+
+[resource]
+script = ExtResource("1_mp2i2")
+widgets = Array[PackedScene]([ExtResource("2_6p5es"), ExtResource("3_wllaq"), ExtResource("4_n5vju"), ExtResource("5_sdng6"), ExtResource("6_5fhbf"), ExtResource("7_ihrlf"), ExtResource("8_ic7qk"), ExtResource("9_ypc8e"), ExtResource("10_alddx"), ExtResource("11_mio38"), ExtResource("12_goke0"), ExtResource("13_v1rt5"), ExtResource("14_g53g0"), ExtResource("15_gl3r5"), ExtResource("16_yydqp"), ExtResource("17_ddgo7")])
+metadata/_custom_type_script = "uid://bb71vchu7q6kv"

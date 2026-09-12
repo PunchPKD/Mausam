@@ -4,6 +4,7 @@ class_name WidgetManager
 var widgets : Dictionary[String, Widget] = {}
 var currentSelectedElement: Control
 
+@export var allWidgets: BaseWidgetData
 @export var currentWidgets: BaseWidgetData
 @export var widgetContainer: Control
 
@@ -14,6 +15,8 @@ func _ready() -> void:
 	SignalBus.UpdateWidgetScore.connect(on_update_widget_score)
 	
 	await get_tree().process_frame
+	for widget in allWidgets.widgets:
+		get_widget(widget)
 	var tempWidgetData: BaseWidgetData = currentWidgets
 	for widget in tempWidgetData.widgets:
 		SignalBus.AddWidget.emit(widget)
@@ -28,7 +31,6 @@ func on_add_widget_list(widgetData: BaseWidgetData) -> void:
 func on_add_widget(widgetScene: PackedScene) -> void:
 	var tempWidget: Widget = get_widget(widgetScene)
 	tempWidget.visible = true
-	widgetContainer.move_child(tempWidget, -1)
 	if currentWidgets.widgets.has(widgetScene) == false:
 		currentWidgets.widgets.append(widgetScene)
 	ResourceSaver.save(currentWidgets)
@@ -36,7 +38,6 @@ func on_add_widget(widgetScene: PackedScene) -> void:
 func on_remove_widget(widgetScene: PackedScene) -> void:
 	var tempWidget: Widget = get_widget(widgetScene)
 	get_widget(widgetScene).visible = false
-	widgetContainer.move_child(tempWidget, -1)
 	currentWidgets.widgets.erase(widgetScene)
 	ResourceSaver.save(currentWidgets)
 	
@@ -46,18 +47,18 @@ func get_widget(widgetScene: PackedScene) -> Widget:
 	var tempWidget: Widget = widgetScene.instantiate()
 	widgets[widgetScene.resource_path] = tempWidget
 	widgetContainer.add_child(tempWidget)
+	tempWidget.visible = false
 	return tempWidget
 
 func reassign_widget_rank() -> void:
-	print("run")
-	currentWidgets.widgets.sort_custom(
+	allWidgets.widgets.sort_custom(
 		func(a: PackedScene, b: PackedScene) -> bool:
 			return get_widget(a).widgetScore > get_widget(b).widgetScore
 	)
 	
 	var i: int = 0
 	
-	for widgetScene in currentWidgets.widgets:
+	for widgetScene in allWidgets.widgets:
 		var tempwidget: Widget = get_widget(widgetScene)
 		widgetContainer.move_child(tempwidget, i)
 		i += 1
@@ -71,3 +72,16 @@ func on_select_element(element: Control) -> void:
 func on_update_widget_score() -> void:
 	await get_tree().create_timer(1).timeout
 	reassign_widget_rank()
+	update_recommendation()
+
+func update_recommendation() -> void:
+	var i: int = 0
+	SignalBus.ResetRecommendation.emit()
+	for widgetScene in allWidgets.widgets:
+		if i > 5:
+			break
+		if get_widget(widgetScene).visible == false:
+			SignalBus.AddRecommendation.emit(widgetScene)
+			i += 1
+		elif get_widget(widgetScene).visible == true:
+			i += 1

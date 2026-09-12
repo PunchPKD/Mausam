@@ -1,24 +1,14 @@
-[gd_resource type="Resource" script_class="BaseWidgetData" format=3]
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://ex8uovx2pyde"]
 
-[ext_resource type="Script" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/rainfall_chances_widget.tscn" id="2_0gx4x"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/soil_moisture_widget.tscn" id="3_4luev"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/heat_widget.tscn" id="4_ik1d8"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/test_widget.tscn" id="5_j75gj"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/pollen_count_widget.tscn" id="6_fr3on"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/humidity_widget.tscn" id="7_folv1"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/uv_index_widget.tscn" id="8_jufte"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/sunrise_widget.tscn" id="9_jg0ii"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/sunset_widget.tscn" id="10_x8htg"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/aqi_widget.tscn" id="11_uxr5l"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/running_time_widget.tscn" id="12_ae6ih"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/wind_widget.tscn" id="13_s5l8j"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/water_temp_widget.tscn" id="14_reyk0"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/wave_height_widget.tscn" id="15_ewnwh"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/tides_widget.tscn" id="16_dryce"]
-[ext_resource type="PackedScene" path="res://Scenes/Widgets/sea_condition_widget.tscn" id="17_vvs1w"]
+[ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
+[ext_resource type="PackedScene" uid="uid://c7uffmuak760b" path="res://Scenes/Widgets/wave_height_widget.tscn" id="6_fr3on"]
+[ext_resource type="PackedScene" uid="uid://d3xotqnr4d71j" path="res://Scenes/Widgets/sea_condition_widget.tscn" id="7_folv1"]
+[ext_resource type="PackedScene" uid="uid://c0ian1u23iape" path="res://Scenes/Widgets/sunset_widget.tscn" id="8_jufte"]
+[ext_resource type="PackedScene" uid="uid://bqyya2osev7mg" path="res://Scenes/Widgets/water_temp_widget.tscn" id="9_jg0ii"]
+[ext_resource type="PackedScene" uid="uid://coaefp00u6k6" path="res://Scenes/Widgets/tides_widget.tscn" id="10_x8htg"]
+[ext_resource type="PackedScene" uid="uid://b83agjs5hi1kq" path="res://Scenes/Widgets/sunrise_widget.tscn" id="11_uxr5l"]
 
 [resource]
 script = ExtResource("1_wysnf")
-widgets = Array[PackedScene]([ExtResource("14_reyk0"), ExtResource("17_vvs1w"), ExtResource("16_dryce"), ExtResource("15_ewnwh"), ExtResource("2_0gx4x"), ExtResource("8_jufte"), ExtResource("5_j75gj"), ExtResource("11_uxr5l"), ExtResource("6_fr3on"), ExtResource("9_jg0ii"), ExtResource("10_x8htg"), ExtResource("7_folv1"), ExtResource("12_ae6ih"), ExtResource("13_s5l8j"), ExtResource("4_ik1d8"), ExtResource("3_4luev")])
+widgets = Array[PackedScene]([ExtResource("7_folv1"), ExtResource("10_x8htg"), ExtResource("9_jg0ii"), ExtResource("6_fr3on"), ExtResource("8_jufte"), ExtResource("11_uxr5l")])
 metadata/_custom_type_script = "uid://bb71vchu7q6kv"

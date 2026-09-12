@@ -14,6 +14,9 @@ signal UpdateWidgetScore()
 signal SaveFileChanged(file: BaseSaveFile)
 signal IncreaseWidgetScore(tag: TagsEnum.WeatherTags)
 signal ResetWidgetScore()
+signal ResetRecommendation()
+signal AddRecommendation(widgetScene: PackedScene)
+signal ToggleRecommendation()
 
 func set_data(dataType: DataTypeEnum.DataTypes, value: String) -> void:
 	Datas[dataType] = value

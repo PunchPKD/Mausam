@@ -77,5 +77,4 @@ func on_increase_widget_score(tag: TagsEnum.WeatherTags) -> void:
 	for tempTag in widgetTags:
 		if tempTag == tag:
 			widgetScore += 1
-	if label:
-		print(self.name +" "+ str(widgetScore))
+			
