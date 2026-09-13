@@ -1,12 +1,11 @@
 extends Control
 class_name Widget
 
-enum InformationModes{SIMPLE, DETAILED, FOCUSED}
+enum InformationModes{SIMPLE, DETAILED}
 enum WidgetRanks{TOP, MIDDLE, BOTTOM}
 
 @export var simpleInformationElement: Control
 @export var detailedInformationElement: Control
-@export var focusedInformationElement: Control
 @export var dataType: DataTypeEnum.DataTypes
 @export var label: Label
 @export var minValue: int
@@ -23,9 +22,7 @@ var red: Color = Color("fc2828ff")
 var informationMode: InformationModes = InformationModes.SIMPLE:
 	set(value):
 		informationMode = value
-		if value == InformationModes.FOCUSED:
-			change_information_element(focusedInformationElement)
-		elif value == InformationModes.DETAILED:
+		if value == InformationModes.DETAILED:
 			change_information_element(detailedInformationElement)
 		elif value == InformationModes.SIMPLE:
 			change_information_element(simpleInformationElement)

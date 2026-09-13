@@ -4,27 +4,38 @@
 [ext_resource type="Script" uid="uid://dvu8wvbtnil2v" path="res://Main/home_page_manager.gd" id="1_xv667"]
 [ext_resource type="Script" uid="uid://d0m3u1qpaale6" path="res://Systems/ui_scale_anim.gd" id="2_d5v6j"]
 [ext_resource type="Script" uid="uid://bsbf8ynum4cwf" path="res://Scripts/page_manager.gd" id="2_nmebp"]
-[ext_resource type="Texture2D" uid="uid://w0ti4lt2w7po" path="res://Assets/Weathe Elements.png" id="2_r4p1x"]
 [ext_resource type="Script" uid="uid://evsjksg2qo0j" path="res://Main/widget_manager.gd" id="2_x7m3x"]
 [ext_resource type="Script" uid="uid://ccnalcet1vegu" path="res://Scripts/UI Animations/cloud_ui_anim.gd" id="3_4mykr"]
 [ext_resource type="Script" uid="uid://d3874rp0lquhd" path="res://Scripts/information_page_manager.gd" id="3_d5v6j"]
+[ext_resource type="Texture2D" uid="uid://d1u1i58hpwua" path="res://Assets/Clouds/NormalClouds/59.png" id="4_7fqwd"]
+[ext_resource type="Texture2D" uid="uid://dlgwuun6ya38a" path="res://Assets/Clouds/NormalClouds/08.png" id="4_621u5"]
+[ext_resource type="Texture2D" uid="uid://p7n3cwf4xyjo" path="res://Assets/Clouds/NormalClouds/11.png" id="5_7fqwd"]
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="5_nmebp"]
 [ext_resource type="Script" uid="uid://lm26og7x25yk" path="res://Scripts/general_information_manager.gd" id="5_r3xh3"]
 [ext_resource type="Resource" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
 [ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
+[ext_resource type="Texture2D" uid="uid://dwkq7kw14iro1" path="res://Assets/Clouds/ClearWeatherClouds/39.png" id="6_v5igo"]
 [ext_resource type="Texture2D" uid="uid://dhthqd42h6ub8" path="res://Assets/Icons V7.png" id="7_5r4sd"]
 [ext_resource type="PackedScene" uid="uid://c5iu070kkl0ts" path="res://Scenes/Togglers/uv_widget_toggler.tscn" id="7_225l2"]
+[ext_resource type="Texture2D" uid="uid://bh6helf1jsheb" path="res://Assets/Clouds/ClearWeatherClouds/63.png" id="7_riabs"]
 [ext_resource type="Script" uid="uid://blmgckt1ioyxq" path="res://Scripts/widget_selection_page_manager.gd" id="8_p568m"]
+[ext_resource type="Texture2D" uid="uid://lb5dcer3p75e" path="res://Assets/Clouds/ClearWeatherClouds/99.png" id="8_vflew"]
 [ext_resource type="PackedScene" uid="uid://bprxa3dvrjsh2" path="res://Scenes/Togglers/aqi_widget_toggler.tscn" id="8_x7m3x"]
 [ext_resource type="Texture2D" uid="uid://djo1gt6v0ms0t" path="res://Assets/red-alert-icon.png" id="9_6q4rx"]
 [ext_resource type="Script" uid="uid://c6oblvomlwc17" path="res://Scripts/alert_manager.gd" id="9_8dtu3"]
 [ext_resource type="PackedScene" uid="uid://c1hv6x1o7jtd8" path="res://Scenes/WidgetElements/mini_widget_element.tscn" id="9_14f00"]
+[ext_resource type="Texture2D" uid="uid://dygkbgv3vgy6i" path="res://Assets/Clouds/Rain Clouds/61.png" id="9_ger44"]
 [ext_resource type="PackedScene" uid="uid://bhhnm1shg2ayg" path="res://Scenes/Togglers/pollen_count_widget_toggler.tscn" id="9_v0elx"]
+[ext_resource type="Texture2D" uid="uid://lctg07hf6ftl" path="res://Assets/Clouds/Rain Clouds/70.png" id="10_243or"]
 [ext_resource type="PackedScene" uid="uid://cfl6m605leyll" path="res://Scenes/Togglers/humidity_widget_toggler.tscn" id="10_cjet7"]
+[ext_resource type="Texture2D" uid="uid://buotwmbyc50o7" path="res://Assets/Clouds/Rain Clouds/71.png" id="11_cqpyl"]
 [ext_resource type="PackedScene" uid="uid://cnoe4vfxu5wgw" path="res://Scenes/Togglers/test_widget_toggler.tscn" id="11_nmebp"]
 [ext_resource type="Texture2D" uid="uid://ux4owi2w5h0" path="res://Assets/Icons V6.png" id="11_q7ndp"]
+[ext_resource type="Texture2D" uid="uid://cbh6jp4yovygb" path="res://Assets/Clouds/ThunderClouds/15.png" id="12_d4udn"]
 [ext_resource type="Texture2D" uid="uid://4mfxfrwlh56o" path="res://Assets/Icons V5.png" id="12_mukki"]
 [ext_resource type="Script" uid="uid://pk7tpofx571k" path="res://Scripts/ai_weather_overview_page_manager.gd" id="13_w5o2e"]
+[ext_resource type="Texture2D" uid="uid://cd8u25bifybjq" path="res://Assets/Clouds/ThunderClouds/23.png" id="13_xyaji"]
+[ext_resource type="Texture2D" uid="uid://l8jy02nfd7vs" path="res://Assets/Clouds/ThunderClouds/30.png" id="14_pu6tk"]
 [ext_resource type="PackedScene" uid="uid://bh4mo6owgqntn" path="res://Scenes/Togglers/sunrise_widget_toggler.tscn" id="16_ekw0x"]
 [ext_resource type="Script" uid="uid://de00yf2ka7icq" path="res://Scripts/persona_toggler.gd" id="16_w54lv"]
 [ext_resource type="PackedScene" uid="uid://cy74el00fqxnx" path="res://Scenes/Togglers/sunset_widget_toggler.tscn" id="17_57kqf"]
@@ -52,8 +63,8 @@
 [ext_resource type="PackedScene" uid="uid://pcdbvj7bk4u7" path="res://Scenes/DataModels/time_data_model.tscn" id="42_p7q4y"]
 [ext_resource type="Script" uid="uid://dgmg2rbpyigig" path="res://Scripts/location_selector.gd" id="45_l3hmi"]
 [ext_resource type="Resource" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
-[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
-[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
+[ext_resource type="Resource" uid="uid://gpytakho3moh" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
+[ext_resource type="Resource" uid="uid://dtsrxy7plauhy" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
 [ext_resource type="PackedScene" uid="uid://b0xtnx3lbho7o" path="res://Scenes/DataModels/boolean_data_model.tscn" id="48_41bbq"]
 [ext_resource type="PackedScene" uid="uid://dhk3gvcdt6nur" path="res://Main/profile_selection_element.tscn" id="53_obccm"]
 [ext_resource type="Script" uid="uid://hrjubdr8c34s" path="res://Scripts/profile_manager.gd" id="53_upxv6"]
@@ -70,18 +81,6 @@ repeat = 2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_528qc"]
 texture = SubResource("GradientTexture2D_e86h8")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4mykr"]
-atlas = ExtResource("2_r4p1x")
-region = Rect2(304, 520, 360, 208)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e86h8"]
-atlas = ExtResource("2_r4p1x")
-region = Rect2(24, 56, 304, 208)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q7ndp"]
-atlas = ExtResource("2_r4p1x")
-region = Rect2(336, 240, 240, 200)
 
 [sub_resource type="Curve" id="Curve_lw4mn"]
 _data = [Vector2(0, 0.39393932), 0.0, 0.0824573, 0, 0, Vector2(0.985, 0.39393932), 0.0, 0.0, 0, 0]
@@ -255,7 +254,7 @@ VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_atha1")
 
 [node name="HomePage" type="Node2D" unique_id=740829968]
 
-[node name="Home" type="Control" parent="." unique_id=1878901306 node_paths=PackedStringArray("simulationPage", "simulateButton", "homePageScroller", "locationSelectionOverlay", "profileOverlay", "label", "tempLabel", "background", "rainParticle")]
+[node name="Home" type="Control" parent="." unique_id=1878901306 node_paths=PackedStringArray("simulationPage", "simulateButton", "homePageScroller", "locationSelectionOverlay", "profileOverlay", "label", "tempLabel", "background", "cloudBackground", "rainParticle")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 360.0
@@ -271,6 +270,7 @@ profileOverlay = NodePath("ProfileOverlay")
 label = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Label2")
 tempLabel = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/Label")
 background = NodePath("Panel")
+cloudBackground = NodePath("Background")
 rainParticle = NodePath("CPUParticles2D")
 
 [node name="Panel" type="Panel" parent="Home" unique_id=1251887371]
@@ -292,264 +292,263 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Cloud" type="Control" parent="Home/Background" unique_id=370847870]
-anchors_preset = 0
-offset_left = 41.0
-offset_top = 126.0
-offset_right = 153.0
-offset_bottom = 220.0
-
-[node name="TextureRect2" type="TextureRect" parent="Home/Background/Cloud" unique_id=1290107229]
+[node name="CoudyClouds" type="Control" parent="Home/Background" unique_id=370847870]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.0
-offset_top = -56.0
-offset_right = 62.0
-offset_bottom = 56.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_4mykr")
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="Home/Background/CoudyClouds" unique_id=978680059]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 161.0
+offset_top = -182.0
+offset_right = 161.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_621u5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/Background/Cloud" unique_id=640163877]
+[node name="TextureRect2" type="TextureRect" parent="Home/Background/CoudyClouds" unique_id=147729457]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = -80.0
-offset_right = 37.0
-offset_bottom = 32.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 163.0
+offset_top = 277.0
+offset_right = 163.0
+offset_bottom = 277.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_e86h8")
+texture = ExtResource("5_7fqwd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/Background/Cloud" unique_id=1421434319]
+[node name="TextureRect3" type="TextureRect" parent="Home/Background/CoudyClouds" unique_id=2132149329]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -45.0
-offset_right = 4.0
-offset_bottom = 67.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -44.0
+offset_right = -208.0
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_q7ndp")
+texture = ExtResource("4_7fqwd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/Background/Cloud" unique_id=753606592 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/Background/CoudyClouds" unique_id=1389180574 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3", "parentCloud", "scrollContainer")]
+process_mode = 3
 script = ExtResource("3_4mykr")
 cloudElement1 = NodePath("../TextureRect")
 cloudElement2 = NodePath("../TextureRect2")
 cloudElement3 = NodePath("../TextureRect3")
+parentCloud = NodePath("..")
+scrollContainer = NodePath("../../../WeatherPage")
+weatherTypes = Array[int]([1, 2, 3, 4])
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
-[node name="Cloud2" type="Control" parent="Home/Background" unique_id=1280791373]
-anchors_preset = 0
-offset_left = 301.0
-offset_top = 448.0
-offset_right = 413.0
-offset_bottom = 542.0
-
-[node name="TextureRect2" type="TextureRect" parent="Home/Background/Cloud2" unique_id=1840805061]
+[node name="ClearClouds" type="Control" parent="Home/Background" unique_id=1280791373]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = -11.0
-offset_right = 33.0
-offset_bottom = 101.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_4mykr")
+
+[node name="TextureRect" type="TextureRect" parent="Home/Background/ClearClouds" unique_id=302754157]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -247.0
+offset_right = -104.0
+offset_bottom = -247.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_v5igo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/Background/Cloud2" unique_id=370106621]
+[node name="TextureRect2" type="TextureRect" parent="Home/Background/ClearClouds" unique_id=1623254764]
+modulate = Color(1, 1, 1, 0.6862745)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -51.0
-offset_top = -44.0
-offset_right = 73.0
-offset_bottom = 68.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 49.0
+offset_right = 28.0
+offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_e86h8")
+texture = ExtResource("7_riabs")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/Background/Cloud2" unique_id=1408137816]
+[node name="TextureRect3" type="TextureRect" parent="Home/Background/ClearClouds" unique_id=1206827762]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -45.0
-offset_right = 4.0
-offset_bottom = 67.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = 314.0
+offset_right = -151.0
+offset_bottom = 314.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_q7ndp")
+texture = ExtResource("8_vflew")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/Background/Cloud2" unique_id=514140447 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
-script = ExtResource("3_4mykr")
-cloudElement1 = NodePath("../TextureRect2")
-cloudElement2 = NodePath("../TextureRect")
-cloudElement3 = NodePath("../TextureRect3")
-metadata/_custom_type_script = "uid://ccnalcet1vegu"
-
-[node name="Cloud3" type="Control" parent="Home/Background" unique_id=1228101481]
-anchors_preset = 0
-offset_left = 246.0
-offset_top = 25.0
-offset_right = 358.0
-offset_bottom = 119.0
-
-[node name="TextureRect2" type="TextureRect" parent="Home/Background/Cloud3" unique_id=1608158778]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = -56.0
-offset_right = 39.0
-offset_bottom = 56.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_4mykr")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="Home/Background/Cloud3" unique_id=1419460092]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -21.0
-offset_right = 61.0
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_e86h8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="Home/Background/Cloud3" unique_id=1701207642]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = -49.0
-offset_right = -8.0
-offset_bottom = 63.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_q7ndp")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="CloudUIAnim" type="Node" parent="Home/Background/Cloud3" unique_id=1976168992 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/Background/ClearClouds" unique_id=58368896 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3", "parentCloud", "scrollContainer")]
 script = ExtResource("3_4mykr")
 cloudElement1 = NodePath("../TextureRect")
-cloudElement2 = NodePath("../TextureRect3")
-cloudElement3 = NodePath("../TextureRect2")
+cloudElement2 = NodePath("../TextureRect2")
+cloudElement3 = NodePath("../TextureRect3")
+parentCloud = NodePath("..")
+scrollContainer = NodePath("../../../WeatherPage")
+vScrollAmount = 0.2
+weatherTypes = Array[int]([0, 1, 2, 3, 4])
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
-[node name="Cloud4" type="Control" parent="Home/Background" unique_id=1740321788]
-anchors_preset = 0
-offset_left = 6.0
-offset_top = 611.0
-offset_right = 118.0
-offset_bottom = 705.0
-
-[node name="TextureRect2" type="TextureRect" parent="Home/Background/Cloud4" unique_id=212094326]
+[node name="RainyClouds" type="Control" parent="Home/Background" unique_id=864919977]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = -56.0
-offset_right = 39.0
-offset_bottom = 56.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_4mykr")
+
+[node name="TextureRect" type="TextureRect" parent="Home/Background/RainyClouds" unique_id=1866645742]
+modulate = Color(1, 1, 1, 0.7372549)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -118.0
+offset_right = 16.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_ger44")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Home/Background/Cloud4" unique_id=447763579]
+[node name="TextureRect2" type="TextureRect" parent="Home/Background/RainyClouds" unique_id=1930386686]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -21.0
-offset_right = 61.0
-offset_bottom = 91.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = 193.0
+offset_right = -176.0
+offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_e86h8")
+texture = ExtResource("10_243or")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Home/Background/Cloud4" unique_id=1640726861]
+[node name="TextureRect3" type="TextureRect" parent="Home/Background/RainyClouds" unique_id=1371748114]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = -49.0
-offset_right = -8.0
-offset_bottom = 63.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = 135.0
+offset_right = 73.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_q7ndp")
+texture = ExtResource("11_cqpyl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CloudUIAnim" type="Node" parent="Home/Background/Cloud4" unique_id=642425854 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3")]
+[node name="CloudUIAnim" type="Node" parent="Home/Background/RainyClouds" unique_id=1944622208 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3", "parentCloud", "scrollContainer")]
 script = ExtResource("3_4mykr")
-cloudElement1 = NodePath("../TextureRect3")
-cloudElement2 = NodePath("../TextureRect")
-cloudElement3 = NodePath("../TextureRect2")
+cloudElement1 = NodePath("../TextureRect")
+cloudElement2 = NodePath("../TextureRect2")
+cloudElement3 = NodePath("../TextureRect3")
+parentCloud = NodePath("..")
+scrollContainer = NodePath("../../../WeatherPage")
+vScrollAmount = 0.3
+weatherTypes = Array[int]([3, 4, 1, 2])
+metadata/_custom_type_script = "uid://ccnalcet1vegu"
+
+[node name="ThunderClouds" type="Control" parent="Home/Background" unique_id=1644236193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Home/Background/ThunderClouds" unique_id=1032942184]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -211.0
+offset_right = -107.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_d4udn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Home/Background/ThunderClouds" unique_id=1330275134]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = -288.0
+offset_right = 74.0
+offset_bottom = -288.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_xyaji")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Home/Background/ThunderClouds" unique_id=725247750]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 13.0
+offset_right = 50.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_pu6tk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CloudUIAnim" type="Node" parent="Home/Background/ThunderClouds" unique_id=683511360 node_paths=PackedStringArray("cloudElement1", "cloudElement2", "cloudElement3", "parentCloud", "scrollContainer")]
+script = ExtResource("3_4mykr")
+cloudElement1 = NodePath("../TextureRect")
+cloudElement2 = NodePath("../TextureRect2")
+cloudElement3 = NodePath("../TextureRect3")
+parentCloud = NodePath("..")
+scrollContainer = NodePath("../../../WeatherPage")
+vScrollAmount = 0.1
+weatherTypes = Array[int]([4])
 metadata/_custom_type_script = "uid://ccnalcet1vegu"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Home" unique_id=2076617497]
@@ -1164,6 +1163,7 @@ recommendationButtonScene = ExtResource("25_j3gjb")
 [node name="Panel" type="Panel" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/InformationPageContainer/InformationPage/VBoxContainer/Recommendation" unique_id=1093479249]
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Label" type="Label" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage/InformationPageContainer/InformationPage/VBoxContainer/Recommendation/Panel" unique_id=1183151481]
 layout_mode = 1
