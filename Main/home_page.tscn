@@ -63,8 +63,8 @@
 [ext_resource type="PackedScene" uid="uid://pcdbvj7bk4u7" path="res://Scenes/DataModels/time_data_model.tscn" id="42_p7q4y"]
 [ext_resource type="Script" uid="uid://dgmg2rbpyigig" path="res://Scripts/location_selector.gd" id="45_l3hmi"]
 [ext_resource type="Resource" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
-[ext_resource type="Resource" uid="uid://gpytakho3moh" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
-[ext_resource type="Resource" uid="uid://dtsrxy7plauhy" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
+[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
+[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
 [ext_resource type="PackedScene" uid="uid://b0xtnx3lbho7o" path="res://Scenes/DataModels/boolean_data_model.tscn" id="48_41bbq"]
 [ext_resource type="PackedScene" uid="uid://dhk3gvcdt6nur" path="res://Main/profile_selection_element.tscn" id="53_obccm"]
 [ext_resource type="Script" uid="uid://hrjubdr8c34s" path="res://Scripts/profile_manager.gd" id="53_upxv6"]
@@ -261,6 +261,7 @@ offset_right = 360.0
 offset_bottom = 640.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("5_nmebp")
 script = ExtResource("1_xv667")
 simulationPage = NodePath("SimulationOverlay")
 simulateButton = NodePath("WeatherPage/VBoxContainer2/Control/MarginContainer/VBoxContainer/TopMenu/MarginContainer/HBoxContainer/TextureButton")
@@ -1702,12 +1703,14 @@ theme_override_constants/margin_bottom = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer" unique_id=1485178662]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=2145854044]
+[node name="Control" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=2145854044 node_paths=PackedStringArray("tempLabel", "weatherLabel")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("45_l3hmi")
 saveFile = ExtResource("46_14f00")
+tempLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label")
+weatherLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label2")
 
 [node name="Panel" type="Panel" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control" unique_id=956807649]
 layout_mode = 1
@@ -1756,12 +1759,14 @@ text = "Cloudy"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Control2" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1248737542]
+[node name="Control2" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1248737542 node_paths=PackedStringArray("tempLabel", "weatherLabel")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("45_l3hmi")
 saveFile = ExtResource("47_6q4rx")
+tempLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label")
+weatherLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label2")
 
 [node name="Panel" type="Panel" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control2" unique_id=948575700]
 layout_mode = 1
@@ -1810,12 +1815,14 @@ text = "Thunderstrom"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Control3" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1586462832]
+[node name="Control3" type="Control" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1586462832 node_paths=PackedStringArray("tempLabel", "weatherLabel")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 focus_mode = 2
 script = ExtResource("45_l3hmi")
 saveFile = ExtResource("48_8dtu3")
+tempLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label")
+weatherLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label2")
 
 [node name="Panel" type="Panel" parent="Home/LocationSelectionOverlay/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Control3" unique_id=2027488274]
 layout_mode = 1
@@ -1934,6 +1941,7 @@ custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
+mouse_filter = 1
 
 [node name="Panel" type="Panel" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Interest" unique_id=99817374]
 layout_mode = 1
@@ -1942,6 +1950,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Interest/Panel" unique_id=869510967]
 layout_mode = 1
@@ -1968,6 +1977,7 @@ vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer" unique_id=350953966]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Interest/Panel/MarginContainer/VBoxContainer" unique_id=1289596079]
 layout_mode = 2
@@ -2003,6 +2013,7 @@ tags = Array[int]([9, 8, 2])
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="Panel" type="Panel" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/FavWeather" unique_id=217935933]
 layout_mode = 1
@@ -2011,6 +2022,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/FavWeather/Panel" unique_id=1333891812]
 layout_mode = 1
@@ -2037,6 +2049,7 @@ vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/FavWeather/Panel/MarginContainer/VBoxContainer" unique_id=256630499]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/FavWeather/Panel/MarginContainer/VBoxContainer" unique_id=1424316870]
 layout_mode = 2
@@ -2079,6 +2092,7 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+mouse_filter = 1
 
 [node name="Panel" type="Panel" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Activity" unique_id=791983281]
 layout_mode = 1
@@ -2087,6 +2101,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Activity/Panel" unique_id=9321816]
 layout_mode = 1
@@ -2113,6 +2128,7 @@ vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Activity/Panel/MarginContainer/VBoxContainer" unique_id=1315183704]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Activity/Panel/MarginContainer/VBoxContainer" unique_id=642742518]
 layout_mode = 2
@@ -2134,6 +2150,7 @@ tags = Array[int]([13])
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="Panel" type="Panel" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Commute" unique_id=1484355152]
 layout_mode = 1
@@ -2142,6 +2159,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Commute/Panel" unique_id=648150960]
 layout_mode = 1
@@ -2168,6 +2186,7 @@ vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Commute/Panel/MarginContainer/VBoxContainer" unique_id=2067465301]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/Commute/Panel/MarginContainer/VBoxContainer" unique_id=1511091915]
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://clmgip3x8nnqg"]
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://bkmj33qtntikj"]
 
 [ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
 [ext_resource type="PackedScene" uid="uid://d3xotqnr4d71j" path="res://Scenes/Widgets/sea_condition_widget.tscn" id="2_0gx4x"]
