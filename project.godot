@@ -26,8 +26,9 @@ SaveManager="*uid://cgtrrigttdl6y"
 [display]
 
 window/size/viewport_width=360
-window/size/viewport_height=640
-window/stretch/mode="canvas_items"
+window/size/viewport_height=800
+window/size/mode=3
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
@@ -44,10 +45,6 @@ Debug={
 ]
 }
 
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
-
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -56,3 +53,4 @@ pointing/emulate_touch_from_mouse=true
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

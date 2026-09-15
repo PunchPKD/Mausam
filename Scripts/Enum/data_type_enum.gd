@@ -18,6 +18,7 @@ enum DataTypes{
 				Weather,
 				Hour,
 				Minute,
-				ThunderAlrt
+				ThunderAlrt,
+				Name
 				}
 #change

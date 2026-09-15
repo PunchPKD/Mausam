@@ -3,6 +3,7 @@ class_name AIOverviwePageManager
 
 @export var summary: RichTextLabel
 @export var greetingLabel: Label
+@export var greetName: Label
 
 func _ready() -> void:
 	self.visibility_changed.connect(start_writing_anim)
@@ -18,6 +19,8 @@ func on_update_data(data: Dictionary[DataTypeEnum.DataTypes, String]) -> void:
 			greetingLabel.text = "Good Afternoon"
 		elif hour >= 17 and hour <= 24:
 			greetingLabel.text = "Good Evening"
+	if data.has(DataTypeEnum.DataTypes.Name):
+		greetName.text = data.get(DataTypeEnum.DataTypes.Name)
 		
 
 func start_writing_anim() -> void:

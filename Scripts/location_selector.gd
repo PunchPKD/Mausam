@@ -11,7 +11,7 @@ func _ready() -> void:
 	weatherLabel.text = WeatherTypeEnum.WeatherType.find_key(int(saveFile.widgetsData.get(DataTypeEnum.DataTypes.Weather)))
 
 func _gui_input(event: InputEvent) -> void:
-	if Input.is_action_just_released("Click"):
+	if event.is_action_released("Click") and event.device == -1:
 		SaveManager.load_save_file(saveFile)
 		SignalBus.ToggleLocationSelectionOverlay.emit()
 

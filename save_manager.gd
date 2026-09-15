@@ -3,6 +3,7 @@ extends Node
 @export var saveFile: BaseSaveFile
 
 var currentSaveFile: BaseSaveFile
+const SAVE_PATH = "user://save_data.tres"
 
 func _ready() -> void:
 	load_widget_data()
@@ -15,7 +16,7 @@ func load_widget_data() -> void:
 
 func save_widget_data(data: Dictionary[DataTypeEnum.DataTypes, String]) -> void:
 	currentSaveFile.widgetsData = data
-	ResourceSaver.save(currentSaveFile)
+	ResourceSaver.save(currentSaveFile, SAVE_PATH)
 
 func load_save_file(file: BaseSaveFile) -> void:
 	SignalBus.Datas = file.widgetsData.duplicate()

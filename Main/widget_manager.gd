@@ -8,6 +8,8 @@ var currentSelectedElement: Control
 @export var currentWidgets: BaseWidgetData
 @export var widgetContainer: Control
 
+const SAVE_PATH = "user://current_data.tres"
+
 func _ready() -> void:
 	SignalBus.AddWidget.connect(on_add_widget)
 	SignalBus.RemoveWidget.connect(on_remove_widget)
@@ -33,13 +35,13 @@ func on_add_widget(widgetScene: PackedScene) -> void:
 	tempWidget.visible = true
 	if currentWidgets.widgets.has(widgetScene) == false:
 		currentWidgets.widgets.append(widgetScene)
-	ResourceSaver.save(currentWidgets)
+	ResourceSaver.save(currentWidgets, SAVE_PATH)
 
 func on_remove_widget(widgetScene: PackedScene) -> void:
 	var tempWidget: Widget = get_widget(widgetScene)
 	get_widget(widgetScene).visible = false
 	currentWidgets.widgets.erase(widgetScene)
-	ResourceSaver.save(currentWidgets)
+	ResourceSaver.save(currentWidgets, SAVE_PATH)
 	
 func get_widget(widgetScene: PackedScene) -> Widget:
 	if widgets.has(widgetScene.resource_path):
@@ -80,7 +82,7 @@ func update_recommendation() -> void:
 	for widgetScene in allWidgets.widgets:
 		if i > 5:
 			break
-		if get_widget(widgetScene).visible == false:
+		if get_widget(widgetScene).visible == false and get_widget(widgetScene).widgetScore > 0:
 			SignalBus.AddRecommendation.emit(widgetScene)
 			i += 1
 		elif get_widget(widgetScene).visible == true:

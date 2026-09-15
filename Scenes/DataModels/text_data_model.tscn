@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cjg1uybehy2n1"]
+
+[ext_resource type="Script" uid="uid://cd8xj50i00wx4" path="res://Scripts/text_data_model.gd" id="1_71nkp"]
+
+[node name="TextDataModel" type="Control" unique_id=332367026]
+custom_minimum_size = Vector2(265, 55)
+custom_maximum_size = Vector2(265, -1)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 265.0
+offset_bottom = 55.0
+mouse_filter = 1
+script = ExtResource("1_71nkp")
+
+[node name="Panel" type="Panel" parent="." unique_id=1966742671]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1899195894]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1324589845]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=56065711]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer" unique_id=1345807441]
+layout_mode = 2
+size_flags_stretch_ratio = 1.4
+theme_override_constants/minimum_character_width = 8
+
+[connection signal="text_submitted" from="MarginContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

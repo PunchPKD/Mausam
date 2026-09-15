@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://bkmj33qtntikj"]
+[gd_resource type="Resource" script_class="BaseWidgetData" format=3 uid="uid://b0uru1goeibke"]
 
 [ext_resource type="Script" uid="uid://bb71vchu7q6kv" path="res://Scripts/base_widget_data.gd" id="1_wysnf"]
-[ext_resource type="PackedScene" uid="uid://d3xotqnr4d71j" path="res://Scenes/Widgets/sea_condition_widget.tscn" id="2_0gx4x"]
-[ext_resource type="PackedScene" uid="uid://coaefp00u6k6" path="res://Scenes/Widgets/tides_widget.tscn" id="3_4luev"]
-[ext_resource type="PackedScene" uid="uid://bqyya2osev7mg" path="res://Scenes/Widgets/water_temp_widget.tscn" id="4_ik1d8"]
-[ext_resource type="PackedScene" uid="uid://c7uffmuak760b" path="res://Scenes/Widgets/wave_height_widget.tscn" id="5_j75gj"]
+[ext_resource type="PackedScene" uid="uid://domc0jl0kvg5w" path="res://Scenes/Widgets/aqi_widget.tscn" id="7_folv1"]
+[ext_resource type="PackedScene" uid="uid://c0qxmibts6b4c" path="res://Scenes/Widgets/pollen_count_widget.tscn" id="8_jufte"]
+[ext_resource type="PackedScene" uid="uid://dt0jybtps0l2w" path="res://Scenes/Widgets/uv_index_widget.tscn" id="10_x8htg"]
+[ext_resource type="PackedScene" uid="uid://buaoggodkrdoa" path="res://Scenes/Widgets/humidity_widget.tscn" id="12_ae6ih"]
 
 [resource]
 script = ExtResource("1_wysnf")
-widgets = Array[PackedScene]([ExtResource("2_0gx4x"), ExtResource("3_4luev"), ExtResource("4_ik1d8"), ExtResource("5_j75gj")])
+widgets = Array[PackedScene]([ExtResource("7_folv1"), ExtResource("12_ae6ih"), ExtResource("8_jufte"), ExtResource("10_x8htg")])
 metadata/_custom_type_script = "uid://bb71vchu7q6kv"

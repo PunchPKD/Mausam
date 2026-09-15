@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://p7n3cwf4xyjo" path="res://Assets/Clouds/NormalClouds/11.png" id="5_7fqwd"]
 [ext_resource type="Theme" uid="uid://bogohphlohb4m" path="res://Assets/Themes/main_theme.tres" id="5_nmebp"]
 [ext_resource type="Script" uid="uid://lm26og7x25yk" path="res://Scripts/general_information_manager.gd" id="5_r3xh3"]
-[ext_resource type="Resource" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
+[ext_resource type="Resource" uid="uid://b0uru1goeibke" path="res://Data/WidgetData/current_widgets.tres" id="6_24bgx"]
 [ext_resource type="PackedScene" uid="uid://buv8yn0cx8ln1" path="res://Scenes/Togglers/rainfall_chance_widget_toggler.tscn" id="6_iq418"]
 [ext_resource type="Texture2D" uid="uid://dwkq7kw14iro1" path="res://Assets/Clouds/ClearWeatherClouds/39.png" id="6_v5igo"]
 [ext_resource type="Texture2D" uid="uid://dhthqd42h6ub8" path="res://Assets/Icons V7.png" id="7_5r4sd"]
@@ -62,12 +62,13 @@
 [ext_resource type="PackedScene" uid="uid://ddvk16jg5d0fs" path="res://Scenes/DataModels/weather_selection_data_model.tscn" id="41_ve7xk"]
 [ext_resource type="PackedScene" uid="uid://pcdbvj7bk4u7" path="res://Scenes/DataModels/time_data_model.tscn" id="42_p7q4y"]
 [ext_resource type="Script" uid="uid://dgmg2rbpyigig" path="res://Scripts/location_selector.gd" id="45_l3hmi"]
-[ext_resource type="Resource" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
+[ext_resource type="Resource" uid="uid://pwipv0sogsqq" path="res://Data/WidgetData/Saves/save1.tres" id="46_14f00"]
 [ext_resource type="Resource" path="res://Data/WidgetData/Saves/save2.tres" id="47_6q4rx"]
 [ext_resource type="Resource" path="res://Data/WidgetData/Saves/save3.tres" id="48_8dtu3"]
 [ext_resource type="PackedScene" uid="uid://b0xtnx3lbho7o" path="res://Scenes/DataModels/boolean_data_model.tscn" id="48_41bbq"]
 [ext_resource type="PackedScene" uid="uid://dhk3gvcdt6nur" path="res://Main/profile_selection_element.tscn" id="53_obccm"]
 [ext_resource type="Script" uid="uid://hrjubdr8c34s" path="res://Scripts/profile_manager.gd" id="53_upxv6"]
+[ext_resource type="PackedScene" uid="uid://cjg1uybehy2n1" path="res://Scenes/DataModels/text_data_model.tscn" id="68_xyaji"]
 
 [sub_resource type="Gradient" id="Gradient_j3gjb"]
 interpolation_mode = 2
@@ -280,6 +281,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 10.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_528qc")
@@ -575,6 +578,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
@@ -587,7 +591,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="Home/WeatherPage/VBoxContainer2" unique_id=928704364]
-custom_minimum_size = Vector2(0, 640)
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("5_nmebp")
@@ -813,7 +817,7 @@ text = "Tue"
 texture = SubResource("AtlasTexture_41bbq")
 
 [node name="Control2" type="Control" parent="Home/WeatherPage/VBoxContainer2" unique_id=1824416634]
-custom_minimum_size = Vector2(360, 640)
+custom_minimum_size = Vector2(360, 800)
 custom_maximum_size = Vector2(360, -1)
 propagate_maximum_size = true
 layout_mode = 2
@@ -822,7 +826,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2" unique_id=1072381594]
-custom_minimum_size = Vector2(360, 640)
+custom_minimum_size = Vector2(360, 800)
 custom_maximum_size = Vector2(360, -1)
 layout_mode = 0
 offset_right = 360.0
@@ -857,6 +861,7 @@ theme_override_constants/margin_right = 123
 theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer" unique_id=174961749]
+custom_maximum_size = Vector2(-1, 40)
 layout_mode = 2
 
 [node name="PersonalisedPageButton" type="Button" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/Control/MarginContainer/HBoxContainer" unique_id=6622927]
@@ -1182,7 +1187,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="EditModeToggleButton" type="Button" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/PersonalisedPage" unique_id=757768616]
-custom_minimum_size = Vector2(200, 10)
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 1
@@ -1366,12 +1371,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AIWeatherOverviewPage" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1033905318 node_paths=PackedStringArray("summary", "greetingLabel")]
+[node name="AIWeatherOverviewPage" type="VBoxContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer" unique_id=1033905318 node_paths=PackedStringArray("summary", "greetingLabel", "greetName")]
 custom_maximum_size = Vector2(350, -1)
 layout_mode = 2
 script = ExtResource("13_w5o2e")
 summary = NodePath("MarginContainer/MarginContainer/RichTextLabel")
 greetingLabel = NodePath("MarginContainer3/MarginContainer/VBoxContainer/Label")
+greetName = NodePath("MarginContainer3/MarginContainer/VBoxContainer/Label2")
 
 [node name="MarginContainer3" type="MarginContainer" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage" unique_id=1801811005]
 layout_mode = 2
@@ -1400,7 +1406,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 theme_override_font_sizes/font_size = 32
-text = "Prince"
+text = "Hexaminds"
 
 [node name="HSeparator" type="HSeparator" parent="Home/WeatherPage/VBoxContainer2/Control2/VBoxContainer/MarginContainer/ScrollContainer/HBoxContainer/AIWeatherOverviewPage" unique_id=1190679326]
 layout_mode = 2
@@ -1439,6 +1445,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("34_vguhh")
@@ -1623,6 +1630,10 @@ layout_mode = 2
 [node name="BooleanDataModel" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1282510935 instance=ExtResource("48_41bbq")]
 layout_mode = 2
 
+[node name="Name" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=332367026 instance=ExtResource("68_xyaji")]
+layout_mode = 2
+dataType = 18
+
 [node name="Control" type="Control" parent="Home/SimulationOverlay/MarginContainer/VBoxContainer/Control/VBoxContainer" unique_id=1054282162]
 layout_mode = 2
 size_flags_vertical = 3
@@ -1653,6 +1664,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1877,6 +1889,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("53_upxv6")
@@ -1927,7 +1940,6 @@ theme_override_constants/margin_bottom = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Home/ProfileOverlay/MarginContainer/VBoxContainer/MarginContainer" unique_id=1475998576]
 layout_mode = 2
-scroll_vertical = 33
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
